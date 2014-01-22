@@ -1,0 +1,36 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2013-11-05T10:00:39
+#
+#-------------------------------------------------
+
+QT       += core gui sql
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+TARGET = Balls
+TEMPLATE = app
+
+
+SOURCES += main.cpp \
+    mygraphicsview.cpp \
+    mygraphicsscene.cpp \
+    connectfour.cpp \
+    panel.cpp \
+    chip.cpp \
+    mainwindow.cpp \
+    dialog.cpp \
+    databaseaccessclass.cpp
+
+HEADERS  += \
+    mygraphicsview.h \
+    mygraphicsscene.h \
+    connectfour.h \
+    panel.h \
+    chip.h \
+    mainwindow.h \
+    dialog.h \
+    databaseaccessclass.h
+
+FORMS    += mainwindow.ui \
+    dialog.ui
