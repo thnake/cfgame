@@ -37,6 +37,7 @@ public:
     bool getHeuristic() const;
     int getDifficulty() const;
     int getWinner();
+    int  getMoves();
 
 
 

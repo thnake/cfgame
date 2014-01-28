@@ -18,6 +18,10 @@ bool ConnectFour::getHeuristic() const
     return heuristic;
 }
 
+int  ConnectFour::getMoves()
+{
+    return  moves;
+}
 
 QString ConnectFour::getName2() const
 {
@@ -85,20 +89,17 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
 
 QString ConnectFour::getGameState()
 {
-
     QString history = "";
-
-    for(int i = 0; i < fieldsy; i++)
+    for(int j = 0; j < fieldsy; j++)
     {
-
-        for(int j = 0; j < fieldsx; j++)
+        for(int i = 0; i < fieldsx; i++)
         {
-            history += board[i][j];
+
+            history += QString::number(board[i][j]);
+
         }
-
     }
-
-    return history;
+   return history;
 }
 
 

@@ -39,15 +39,24 @@ bool DataBaseAccessClass::saveGame(ConnectFour *game)
     QSqlQuery *q = new QSqlQuery();
     q->prepare("delete from savegame;");
     q->exec();
-    q->prepare("INSERT INTO game (name1,name2,winner,moves,heuristic,difficulty,game) VALUES (:game);");
-    q->bindValue(":game", QVariant::fromValue(ba));
+    q->prepare("INSERT INTO game (name1,name2,winner,moves,heuristic,difficulty,game)"
+               "VALUES (:name1, :name2, :winner, :moves, :heuristic, :difficulty,:game);");
+    q->bindValue(":name1","'" + game->getName1() + "'");
+    q->bindValue(":name2","'" + game->getName2() + "'");
+    q->bindValue(":winner", game->getWinner());
+    q->bindValue(":moves", game->getMoves());
+    q->bindValue(":heuristic", game->getHeuristic());
+    q->bindValue(":difficulty", game->getDifficulty());
+    q->bindValue(":game", "'" + game->getGameState() + "'");
+
 
     if(!q->exec())
     {
         QMessageBox::critical(0, QObject::tr("Database Error"),  db.lastError().text());
         return false;
     }
-    qDebug() << game->getGameState();
+
+    //qDebug() << game->getGameState();
     qDebug() << getLastExecutedQuery(*q);
     return true;
 }
@@ -79,10 +88,6 @@ bool DataBaseAccessClass::connect()
     {
         qDebug() << "Table highscore not created";
     }
-
-
-
-
 
 
     return true;
