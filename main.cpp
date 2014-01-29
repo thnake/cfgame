@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
         MyGraphicsView *view = new  MyGraphicsView();
         MyGraphicsScene *scene = new MyGraphicsScene(view, d.cfGame);
 
-
         view->setScene(scene);
         view->show();
 
