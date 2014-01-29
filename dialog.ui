@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>296</width>
-    <height>300</height>
+    <height>273</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -158,8 +158,8 @@
   <widget class="QSplitter" name="splitter_4">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>260</y>
+     <x>30</x>
+     <y>240</y>
      <width>225</width>
      <height>23</height>
     </rect>
@@ -182,6 +182,16 @@
      <string>Cancel</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>261</width>
+     <height>101</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -41,6 +41,9 @@ void DataBaseAccessClass::loadGames()
     query->prepare("SELECT * FROM game;");
     query->exec();
 
+    
+    
+    
     while( query->next() )
     {
         QSqlRecord record = query->record();
