@@ -31,6 +31,15 @@ void MyGraphicsView::keyPressEvent(QKeyEvent *event)
         dao->saveGame(s->getCfgame());
 
     }
+
+    if(event->key() == Qt::Key_L)
+    {
+        qDebug() << "state test";
+        MyGraphicsScene *s = (MyGraphicsScene*)scene();
+        s->getCfgame()->setGameState(s->getCfgame()->getGameState());
+
+    }
+
 }
 
 

@@ -12,6 +12,7 @@ public:
     bool connect();
     bool saveGame(ConnectFour *cf);
     QString getLastExecutedQuery( QSqlQuery query);
+    void loadGames();
 
 private:
     QSqlDatabase db;

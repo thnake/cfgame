@@ -62,7 +62,6 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
 
     directions = QVector<QVector<int> >();
 
-
     QVector<int> *dir = new QVector<int>();
     dir->push_back(0);
     dir->push_back(1);
@@ -94,14 +93,27 @@ QString ConnectFour::getGameState()
     {
         for(int i = 0; i < fieldsx; i++)
         {
-
             history += QString::number(board[i][j]);
-
         }
     }
    return history;
 }
 
+void ConnectFour::setGameState(QString state){
+
+
+    for(int j = 0; j < fieldsy; j++)
+    {
+        for(int i = 0; i < fieldsx; i++)
+        {
+            board[i][j] =  state[fieldsx * j + i].digitValue();
+            qDebug() << state;
+            qDebug() << getGameState();
+
+        }
+    }
+
+}
 
 // position ist die startposition
 // u ist der einheitsvektor, in dessen richtung wir sammeln

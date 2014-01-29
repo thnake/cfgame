@@ -25,6 +25,7 @@ public:
     int setStone(int x);
     bool checkVictory(int x, int y);
     QString getGameState();
+    void setGameState(QString state);
 
     QVector<QVector<int> > board;
     int fieldsx;

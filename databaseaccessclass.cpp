@@ -5,7 +5,9 @@
 #include <QString>
 #include <QDataStream>
 #include <QByteArray>
-#include <QSqlTableModel>
+#include <QSqlRecord>
+#include <QSqlField>
+
 
 #include "QVariant.h"
 #include "databaseaccessclass.h"
@@ -31,16 +33,35 @@ DataBaseAccessClass::DataBaseAccessClass()
     connect();
 }
 
+void DataBaseAccessClass::loadGames()
+{
+    QSqlQuery *query = new QSqlQuery();
+    QVector<ConnectFour> games;
+
+    query->prepare("SELECT * FROM game;");
+    query->exec();
+
+    while( query->next() )
+    {
+        QSqlRecord record = query->record();
+        int i = record.indexOf("Vorname"); // Index der Spalte 'Vorname' in der Tabelle 'Person'
+
+        ConnectFour *g = new ConnectFour(record.field("columns").value().toInt(),
+                                         record.field("rows").value().toInt(),
+                                         record.field("name1").value().toString(),
+                                         record.field("name2").value().toString(),
+                                         record.field("difficulty").value().toInt(),
+                                         record.field("fullscreen").value().toBool());
+
+
+    }
+}
+
 bool DataBaseAccessClass::saveGame(ConnectFour *game)
 {
-    QByteArray ba;
-    QDataStream s(&ba, QIODevice::WriteOnly);
 
     QSqlQuery *q = new QSqlQuery();
 
-
-    q->prepare("delete from savegame;");
-    q->exec();
     q->prepare("INSERT INTO game (name1,name2,columns,rows,winner,moves,difficulty,game,fullscreen)"
                "VALUES (:name1, :name2, :columns, :rows, :winner, :moves, :difficulty,:game,:fullscreen);");
     q->bindValue(":name1","'" + game->getName1() + "'");
@@ -53,9 +74,6 @@ bool DataBaseAccessClass::saveGame(ConnectFour *game)
     q->bindValue(":game", "'" + game->getGameState() + "'");
     q->bindValue(":fullscreen", int(game->getFullscreen()));
 
-    QSqlTableModel model();
-    model.setTable("game");
-
     if(!q->exec())
     {
         qDebug() << db.lastError().text();
@@ -63,6 +81,7 @@ bool DataBaseAccessClass::saveGame(ConnectFour *game)
     }
 
     qDebug() << getLastExecutedQuery(*q);
+    delete q;
     return true;
 }
 
