@@ -8,6 +8,8 @@
 #include <QGraphicsScene>
 #include <QMouseEvent>
 #include <cstddef>
+#include <QResizeEvent>
+
 class MyGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
@@ -25,7 +27,11 @@ protected:
     virtual void keyPressEvent(QKeyEvent *event);
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+    virtual void resizeEvent(QResizeEvent * event );
 private:
+    int wCol = 0;
+    void makeMove(int column);
+    void loadHistory();
 
     ConnectFour *cfgame;
     Chip *item = NULL;

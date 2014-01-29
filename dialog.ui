@@ -172,7 +172,7 @@
      <string>Play</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btnLoad">
     <property name="text">
      <string>&amp;load</string>
     </property>

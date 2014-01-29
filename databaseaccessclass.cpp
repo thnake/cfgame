@@ -7,7 +7,8 @@
 #include <QByteArray>
 #include <QSqlRecord>
 #include <QSqlField>
-
+#include <QTableView>
+#include <QSqlQueryModel>
 
 #include "QVariant.h"
 #include "databaseaccessclass.h"
@@ -33,32 +34,19 @@ DataBaseAccessClass::DataBaseAccessClass()
     connect();
 }
 
-void DataBaseAccessClass::loadGames()
+void DataBaseAccessClass::loadGames(QTableView *tv)
 {
-    QSqlQuery *query = new QSqlQuery();
-    QVector<ConnectFour*> games;
 
-    query->prepare("SELECT * FROM game;");
-    query->exec();
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM game;");
+
+    model->setHeaderData( 0, Qt::Horizontal, QObject::tr("key") );
+    model->setHeaderData( 1, Qt::Horizontal, QObject::tr("Player1") );
+    model->setHeaderData( 2, Qt::Horizontal, QObject::tr("Player2") );
+
+    tv->setModel(model);
 
 
-
-
-    while( query->next() )
-    {
-        QSqlRecord record = query->record();
-        int i = record.indexOf("Vorname"); // Index der Spalte 'Vorname' in der Tabelle 'Person'
-
-        ConnectFour *g = new ConnectFour(record.field("columns").value().toInt(),
-                                         record.field("rows").value().toInt(),
-                                         record.field("name1").value().toString(),
-                                         record.field("name2").value().toString(),
-                                         record.field("difficulty").value().toInt(),
-                                         record.field("fullscreen").value().toBool());
-
-        g->setGameState(record.field("gameState").value().toString());
-        games.push_back(g);
-    }
 }
 
 bool DataBaseAccessClass::saveGame(ConnectFour *game)
@@ -66,17 +54,16 @@ bool DataBaseAccessClass::saveGame(ConnectFour *game)
 
     QSqlQuery *q = new QSqlQuery();
 
-    q->prepare("INSERT INTO game (name1,name2,columns,rows,winner,moves,difficulty,gameState,fullscreen)"
-               "VALUES (:name1, :name2, :columns, :rows, :winner, :moves, :difficulty,:gameState,:fullscreen);");
-    q->bindValue(":name1","'" + game->getName1() + "'");
-    q->bindValue(":name2","'" + game->getName2() + "'");
+    q->prepare("INSERT INTO game (name1,name2,columns,rows,winner,moves,difficulty,history)"
+               "VALUES (:name1, :name2, :columns, :rows, :winner, :moves, :difficulty,:history);");
+    q->bindValue(":name1",game->getName1() );
+    q->bindValue(":name2", game->getName2());
     q->bindValue(":columns", game->fieldsx);
     q->bindValue(":rows", game->fieldsy);
     q->bindValue(":winner", game->getWinner());
     q->bindValue(":moves", game->getMoves());
     q->bindValue(":difficulty", game->getDifficulty());
-    q->bindValue(":gameState", "'" + game->getGameState() + "'");
-    q->bindValue(":fullscreen", int(game->getFullscreen()));
+    q->bindValue(":history", game->getHistory());
 
     if(!q->exec())
     {
@@ -102,12 +89,12 @@ bool DataBaseAccessClass::connect()
         return false;
     }
 
-    // tabelle erstellen
-    QSqlQuery drop("DROP TABLE if exists game;");
-    drop.exec();
+    //tabelle erstellen
+    //QSqlQuery drop("DROP TABLE if exists game;");
+    //drop.exec();
     QSqlQuery qHighscore("CREATE TABLE IF NOT EXISTS game"
                     "(hspk INTEGER PRIMARY KEY AUTOINCREMENT, name1 varchar(12), name2 varchar(12),columns smallint, rows smallint,"
-                         " winner smallint, moves smallint, difficulty smallint, gameState varchar(100), fullscreen smallint);");
+                         " winner smallint, moves smallint, difficulty smallint, history varchar(100));");
 
     if (!qHighscore.exec())
     {

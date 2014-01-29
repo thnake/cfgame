@@ -1,5 +1,6 @@
 #include <QString>
 #include <QtSql/QSqlDatabase>
+#include <QTableView>
 #include "connectfour.h"
 
 #ifndef DATABASEACCESSCLASS_H
@@ -12,7 +13,7 @@ public:
     bool connect();
     bool saveGame(ConnectFour *cf);
     QString getLastExecutedQuery( QSqlQuery query);
-    void loadGames();
+    void loadGames(QTableView* tv);
 
 private:
     QSqlDatabase db;

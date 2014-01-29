@@ -7,16 +7,11 @@ ConnectFour::ConnectFour() : QObject()
 {
 
 }
-bool ConnectFour::getFullscreen() const
-{
-    return fullscreen;
-}
 
 int ConnectFour::getDifficulty() const
 {
     return difficulty;
 }
-
 
 int  ConnectFour::getMoves()
 {
@@ -38,15 +33,16 @@ int ConnectFour::getWinner()
     return winner;
 }
 
-
-ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, bool showFullscreen): QObject()
+ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel): QObject()
 {
     fieldsx = x;
     fieldsy = y;
     currentPlayer = 1;
     name1 = player1Name;
     name2 = player2Name;
-    fullscreen = showFullscreen;
+    history = "";
+
+
     difficulty = difficultyLevel;
     moves = 0;
 
@@ -89,19 +85,18 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
 
 QString ConnectFour::getGameState()
 {
-    QString history = "";
+    QString state = "";
     for(int j = 0; j < fieldsy; j++)
     {
         for(int i = 0; i < fieldsx; i++)
         {
-            history += QString::number(board[i][j]);
+            state += QString::number(board[i][j]);
         }
     }
-   return history;
+   return state;
 }
 
 void ConnectFour::setGameState(QString state){
-
 
     for(int j = 0; j < fieldsy; j++)
     {
@@ -112,13 +107,21 @@ void ConnectFour::setGameState(QString state){
             {
                 moves++;
             }
-            qDebug() << state;
-            qDebug() << getGameState();
-
         }
     }
-
 }
+
+QString ConnectFour::getHistory() const
+{
+    return history;
+}
+
+
+QString ConnectFour::setHistoryToLoad(QString hl)
+{
+    this->historyToLoad = hl;
+}
+
 
 // position ist die startposition
 // u ist der einheitsvektor, in dessen richtung wir sammeln
@@ -140,6 +143,12 @@ int ConnectFour::collectPointsInDirection(QVector<int> position, QVector<int> u,
 
     return sum;
 }
+QString ConnectFour::getHistoryToLoad() const
+{
+    return historyToLoad;
+}
+
+
 
 // Verschiebt einen Punkt entlang der Linien (diagonal, senkrecht, horizontal)
 // und summiert die Spielerchips auf.
@@ -193,6 +202,8 @@ int ConnectFour::setStone(int x)
             board[x][i] = currentPlayer;
             checkVictory(x,i);
             moves++;
+            history += QString::number(x);
+            qDebug() << history;
             break;
         }
     }

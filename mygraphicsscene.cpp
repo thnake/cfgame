@@ -32,7 +32,7 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game) :
 
     foreground->setBrush( QBrush( QColor(118,185,0,128) ) );
     foreground->setZValue(1);
-
+    resizeEvent(NULL);
 }
 
 
@@ -65,6 +65,11 @@ void MyGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
     }
 }
+
+void MyGraphicsScene::resizeEvent(QResizeEvent *event)
+{
+    wCol = (int)sceneRect().width()/cfgame->fieldsx;
+}
 ConnectFour *MyGraphicsScene::getCfgame() const
 {
     return cfgame;
@@ -75,6 +80,43 @@ void MyGraphicsScene::setCfgame(ConnectFour *value)
     cfgame = value;
 }
 
+void MyGraphicsScene::loadHistory()
+{
+    QString h = cfgame->getHistoryToLoad();
+    for(int i = 0; i < h.length(); i++)
+    {
+        makeMove(h[i].digitValue());
+
+    }
+    cfgame->setHistoryToLoad("");
+}
+
+void  MyGraphicsScene::makeMove(int column)
+{
+    int stacked = cfgame->setStone(column);
+    if(stacked > -1)
+    {
+        item  = new Chip(column*wCol, 0-wCol, wCol, wCol);
+        item->setVisible(true);
+        item->setPlayer(cfgame->currentPlayer);
+        QPropertyAnimation *animation  = new QPropertyAnimation(item, "pos");
+        addItem(item);
+        QPointF p(item->pos().x(), sceneRect().height() - wCol*stacked);
+        animation->setDuration(1000);
+        animation->setEndValue(p);
+        animation->setEasingCurve(QEasingCurve::OutBounce);
+        animation->start();
+
+        //qDebug() << cfgame->getGameState();
+    }
+    else
+    {
+        // todo
+        // ungültiger zug
+        // sound
+        qDebug() << "ungültiger Zug";
+    }
+}
 
 
 void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
@@ -82,37 +124,12 @@ void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     
     if(cfgame->getWinner() == 0)
     {
-        int wCol = (int)sceneRect().width()/cfgame->fieldsx;
         int col = event->scenePos().x() / wCol;
 
-        qDebug() << col;
+        // click in Spielfeld
         if (col > -1 && col < cfgame->fieldsx && event->scenePos().x() >= 0)
         {
-            // click in Spielfeld
-            int stacked = cfgame->setStone(col);
-
-            if(stacked > -1)
-            {
-                item  = new Chip(col*wCol, 0-wCol, wCol, wCol);
-                item->setVisible(true);
-                item->setPlayer(cfgame->currentPlayer);
-                QPropertyAnimation *animation  = new QPropertyAnimation(item, "pos");
-                addItem(item);
-                QPointF p(item->pos().x(), sceneRect().height() - wCol*stacked);
-                animation->setDuration(1000);
-                animation->setEndValue(p);
-                animation->setEasingCurve(QEasingCurve::OutBounce);
-                animation->start();
-            }
-            else
-            {
-                // todo
-                // ungültiger zug
-                // sound
-                qDebug() << "ungültiger zug";
-            }
-
-
+            makeMove(col);
         }
     }
 

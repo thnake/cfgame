@@ -22,6 +22,7 @@ public:
 
  public slots:
     void btnPlay();
+    void btnLoad();
 
 private:
     Ui::Dialog *ui;
