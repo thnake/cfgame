@@ -7,10 +7,11 @@
 #ifndef CONNECTFOUR_H
 #define CONNECTFOUR_H
 
-class ConnectFour : QObject
+class ConnectFour : public QObject
 {
+
+
 private:
-    ConnectFour();
     int winner;
     QString name1;
     QString name2;
@@ -21,6 +22,7 @@ private:
     int collectPointsInDirection(QVector<int> position, QVector<int> u, int sign);
 
 public:
+    ConnectFour();
     ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, bool showFullscreen);
     int setStone(int x);
     bool checkVictory(int x, int y);

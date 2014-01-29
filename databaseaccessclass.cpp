@@ -53,7 +53,8 @@ void DataBaseAccessClass::loadGames()
                                          record.field("difficulty").value().toInt(),
                                          record.field("fullscreen").value().toBool());
 
-        g->setGameState(record.field("game"));
+      //  g->setGameState(record.field("gameState").value().toString());
+       // games.push_back(*g);
     }
 }
 
@@ -62,7 +63,7 @@ bool DataBaseAccessClass::saveGame(ConnectFour *game)
 
     QSqlQuery *q = new QSqlQuery();
 
-    q->prepare("INSERT INTO game (name1,name2,columns,rows,winner,moves,difficulty,game,fullscreen)"
+    q->prepare("INSERT INTO game (name1,name2,columns,rows,winner,moves,difficulty,gameState,fullscreen)"
                "VALUES (:name1, :name2, :columns, :rows, :winner, :moves, :difficulty,:gameState,:fullscreen);");
     q->bindValue(":name1","'" + game->getName1() + "'");
     q->bindValue(":name2","'" + game->getName2() + "'");
