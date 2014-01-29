@@ -14,14 +14,14 @@ private:
     int winner;
     QString name1;
     QString name2;
-    bool heuristic;
+
     bool fullscreen;
     int moves;
     int difficulty;
     int collectPointsInDirection(QVector<int> position, QVector<int> u, int sign);
 
 public:
-    ConnectFour(int x, int y, QString player1Name, QString player2Name, bool useHeuristic, bool showFullscreen);
+    ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, bool showFullscreen);
     int setStone(int x);
     bool checkVictory(int x, int y);
     QString getGameState();
@@ -40,6 +40,8 @@ public:
     int  getMoves();
 
 
+
+    bool getFullscreen() const;
 
 };
 

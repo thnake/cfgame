@@ -12,7 +12,6 @@ Dialog::Dialog(QWidget *parent) :
 
     connect(ui->btnPlay,SIGNAL(clicked()),SLOT(btnPlay()));
 
-    // daten laden
 
 
 }
@@ -24,9 +23,8 @@ void Dialog::btnPlay()
                              ui->sboxColumns->value(),
                              ui->lePlayer1->text(),
                              ui->lePlayer2->text(),
-                             ui->cbHeuristic->isChecked(),
+                             ui->cbxDifficulty->currentIndex(),
                              ui->cbFullscreen->isChecked());
-
     accept();
     close();
 }

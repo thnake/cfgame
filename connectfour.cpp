@@ -7,16 +7,16 @@ ConnectFour::ConnectFour() : QObject()
 {
 
 }
+bool ConnectFour::getFullscreen() const
+{
+    return fullscreen;
+}
+
 int ConnectFour::getDifficulty() const
 {
     return difficulty;
 }
 
-
-bool ConnectFour::getHeuristic() const
-{
-    return heuristic;
-}
 
 int  ConnectFour::getMoves()
 {
@@ -39,15 +39,15 @@ int ConnectFour::getWinner()
 }
 
 
-ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name, bool useHeuristic, bool showFullscreen): QObject()
+ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, bool showFullscreen): QObject()
 {
     fieldsx = x;
     fieldsy = y;
     currentPlayer = 1;
     name1 = player1Name;
     name2 = player2Name;
-    heuristic = useHeuristic;
     fullscreen = showFullscreen;
+    difficulty = difficultyLevel;
 
 
     for(int i = 0; i < x; i++)
