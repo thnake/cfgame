@@ -48,6 +48,7 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
     name2 = player2Name;
     fullscreen = showFullscreen;
     difficulty = difficultyLevel;
+    moves = 0;
 
 
     for(int i = 0; i < x; i++)
@@ -107,6 +108,10 @@ void ConnectFour::setGameState(QString state){
         for(int i = 0; i < fieldsx; i++)
         {
             board[i][j] =  state[fieldsx * j + i].digitValue();
+            if(board[i][j] != 0)
+            {
+                moves++;
+            }
             qDebug() << state;
             qDebug() << getGameState();
 
@@ -174,6 +179,12 @@ bool ConnectFour::checkVictory(int x, int y)
 // Prüft, ob der Zug siegreich war. Prüfen mit getWinner()
 int ConnectFour::setStone(int x)
 {
+
+    if(board[x][fieldsy-1] != 0)
+    {
+        return -1;
+    }
+
     int result = -1;
     for(int i = 0; i < fieldsy; i++){
         if(board[x][i] == 0)
@@ -181,6 +192,7 @@ int ConnectFour::setStone(int x)
             result = i;
             board[x][i] = currentPlayer;
             checkVictory(x,i);
+            moves++;
             break;
         }
     }

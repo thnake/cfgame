@@ -90,20 +90,28 @@ void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         {
             // click in Spielfeld
             int stacked = cfgame->setStone(col);
+
             if(stacked > -1)
             {
                 item  = new Chip(col*wCol, 0-wCol, wCol, wCol);
                 item->setVisible(true);
-                //item->setBrush();
                 item->setPlayer(cfgame->currentPlayer);
                 QPropertyAnimation *animation  = new QPropertyAnimation(item, "pos");
                 addItem(item);
-                QPointF p(item->pos().x(),sceneRect().height() - wCol*stacked);
+                QPointF p(item->pos().x(), sceneRect().height() - wCol*stacked);
                 animation->setDuration(1000);
                 animation->setEndValue(p);
                 animation->setEasingCurve(QEasingCurve::OutBounce);
                 animation->start();
             }
+            else
+            {
+                // todo
+                // ungültiger zug
+                // sound
+                qDebug() << "ungültiger zug";
+            }
+
 
         }
     }
