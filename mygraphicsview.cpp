@@ -32,8 +32,16 @@ void MyGraphicsView::keyPressEvent(QKeyEvent *event)
 
     }
 
-    if(event->key() == Qt::Key_L)
+    if(event->key() == Qt::Key_F)
     {
+        if(!isFullScreen())
+        {
+            this->showFullScreen();
+        }else
+        {
+            this->showNormal();
+        }
+
 
 
     }

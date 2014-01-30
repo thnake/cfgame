@@ -9,6 +9,7 @@
 #include <QMouseEvent>
 #include <cstddef>
 #include <QResizeEvent>
+#include <QSequentialAnimationGroup>
 
 class MyGraphicsScene : public QGraphicsScene
 {
@@ -30,9 +31,9 @@ protected:
     virtual void resizeEvent(QResizeEvent * event );
 private:
     int wCol = 0;
-    void makeMove(int column);
+    void makeMove(int column, bool grouped);
     void loadHistory();
-
+    QSequentialAnimationGroup animationGroup;
     ConnectFour *cfgame;
     Chip *item = NULL;
 

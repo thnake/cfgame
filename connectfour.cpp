@@ -117,7 +117,7 @@ QString ConnectFour::getHistory() const
 }
 
 
-QString ConnectFour::setHistoryToLoad(QString hl)
+void ConnectFour::setHistoryToLoad(QString hl)
 {
     this->historyToLoad = hl;
 }

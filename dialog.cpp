@@ -50,7 +50,7 @@ void Dialog::btnLoad()
     QString history =  ui->tableView->model()->data(ui->tableView->model()->index(i,8)).toString();
 
     cfGame = new ConnectFour(columns,rows,name1,name2,difficulty);
-
+    cfGame->setHistoryToLoad(history);
 
 
     accept();
