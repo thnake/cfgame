@@ -10,6 +10,7 @@
 #include <cstddef>
 #include <QResizeEvent>
 #include <QSequentialAnimationGroup>
+#include <QPointF>
 
 class MyGraphicsScene : public QGraphicsScene
 {
@@ -19,10 +20,12 @@ public:
 
     ConnectFour *getCfgame() const;
     void setCfgame(ConnectFour *value);
+    float scalarProduct(QPointF u, QPointF v);
 
 signals:
     
 public slots:
+    void bounceSound(QVariant v);
 
 protected:
     virtual void keyPressEvent(QKeyEvent *event);

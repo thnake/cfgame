@@ -28,12 +28,14 @@ void Chip::setPlayer(int p)
         setBrush(QBrush(Qt::red));
     }
 
-
 }
+
+
 
 void Chip::setGradient(QPointF p)
 {
     //qradialgradient(spread:pad, cx:0.499818, cy:0.511, radius:0.5, fx:0.932374, fy:0.760791, stop:0.420455 rgba(30, 10, 36, 255), stop:1 rgba(255, 255, 255, 255))
+
 
 
 

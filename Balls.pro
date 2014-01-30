@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     chip.cpp \
     mainwindow.cpp \
     dialog.cpp \
-    databaseaccessclass.cpp
+    databaseaccessclass.cpp \
+    myanimation.cpp
 
 HEADERS  += \
     mygraphicsview.h \
@@ -30,7 +31,8 @@ HEADERS  += \
     chip.h \
     mainwindow.h \
     dialog.h \
-    databaseaccessclass.h
+    databaseaccessclass.h \
+    myanimation.h
 
 FORMS    += mainwindow.ui \
     dialog.ui

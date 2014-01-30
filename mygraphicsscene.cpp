@@ -2,6 +2,7 @@
 #include "connectfour.h"
 
 #include <QtCore>
+#include <QObject>
 #include <QtGui>
 #include <QtWidgets>
 #include <QEasingCurve>
@@ -12,6 +13,7 @@
 #include <QGraphicsScene>
 #include <QThread>
 #include <QSequentialAnimationGroup>
+#include <myanimation.h>
 
 MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game) :
     QGraphicsScene(parent)
@@ -36,26 +38,40 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game) :
     resizeEvent(NULL);
 
     loadHistory();
+
+
 }
 
 
 
 void MyGraphicsScene::keyPressEvent(QKeyEvent *event)
 {
-    event->ignore();
-    return;
-    qDebug() << "key press.: " << event->key();
-    /*
-    QPropertyAnimation *animation  = new QPropertyAnimation( item, "pos" );
-    animation->setDuration(2000);
-    animation->setEndValue( QPoint(qrand() % (600-100), qrand() % (400-100) ) );
-    animation->setEasingCurve(QEasingCurve::OutElastic);
-    animation->start();
-    */
+
 }
 
+void MyGraphicsScene::bounceSound(QVariant v)
+{
+   // qDebug() << "bounce";
+    MyAnimation *s = (MyAnimation*)QObject::sender();
+    QPointF *newVector = new QPointF();
 
+    newVector->setX(s->getOldPosition().x() - v.toPointF().x());
+    newVector->setY(s->getOldPosition().y() - v.toPointF().y());
 
+    float sp = this->scalarProduct(*newVector, s->getOldVector());
+
+    if(sp < 0)
+    {
+        qDebug() << "bounce";
+    }
+    s->setOldPosition(v.toPointF());
+    s->setOldVector(*newVector);
+}
+
+float MyGraphicsScene::scalarProduct(QPointF u, QPointF v)
+{
+    return u.x()*v.x() + u.y()*v.y();
+}
 
 
 void MyGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
@@ -105,7 +121,8 @@ void  MyGraphicsScene::makeMove(int column, bool grouped)
         item  = new Chip(column*wCol, 0-wCol, wCol, wCol);
         item->setVisible(true);
         item->setPlayer(cfgame->currentPlayer);
-        QPropertyAnimation *animation  = new QPropertyAnimation(item, "pos");
+        MyAnimation *animation  = new MyAnimation(item, "pos");
+
         addItem(item);
         QPointF p(item->pos().x(), sceneRect().height() - wCol*stacked);
         animation->setDuration(1000);
@@ -119,7 +136,10 @@ void  MyGraphicsScene::makeMove(int column, bool grouped)
             animationGroup.addAnimation(animation);
         }
 
-        //qDebug() << cfgame->getGameState();
+
+        connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));
+
+
     }
     else
     {
