@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     if (d.exec() == Dialog::Accepted)
     {
         MyGraphicsView *view = new  MyGraphicsView();
-        MyGraphicsScene *scene = new MyGraphicsScene(view, d.cfGame);
+        MyGraphicsScene *scene = new MyGraphicsScene(view, d.cfGame, d.getDesign());
 
         view->setScene(scene);
         view->show();

@@ -18,7 +18,6 @@ Dialog::Dialog(QWidget *parent) :
     connect(ui->btnPlay,SIGNAL(clicked()),SLOT(btnPlay()));
     connect(ui->btnLoad, SIGNAL(clicked()), SLOT(btnLoad()));
 
-
 }
 
 
@@ -35,13 +34,11 @@ void Dialog::btnPlay()
 
 int Dialog::getDesign()
 {
-    return ui->comboBox->currentIndex();
+    return ui->cbxDesign->currentIndex();
 }
 
 void Dialog::btnLoad()
 {
-  //  QSqlQueryModel model = (QSqlQueryModel) ui->tableView->model();
-
 
     int i = ui->tableView->currentIndex().row();
 
@@ -57,19 +54,8 @@ void Dialog::btnLoad()
     cfGame = new ConnectFour(columns,rows,name1,name2,difficulty);
     cfGame->setHistoryToLoad(history);
 
-
     accept();
     close();
-
-
-    /*
-    cfGame = new ConnectFour(record.field("columns").value().toInt(),
-                                     record.field("rows").value().toInt(),
-                                     record.field("name1").value().toString(),
-                                     record.field("name2").value().toString(),
-                                     record.field("difficulty").value().toInt(),
-                                     record.field("fullscreen").value().toBool());
-                                     */
 
 }
 

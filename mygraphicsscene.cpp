@@ -16,14 +16,12 @@
 #include <myanimation.h>
 
 
-MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game) :
+MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selectedDesign) :
     QGraphicsScene(parent)
 {
 
-
-
-
     this->cfgame = game;
+    design = selectedDesign;
 
     MyGraphicsView *view = (MyGraphicsView*)parent;
 
@@ -50,11 +48,33 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game) :
 void MyGraphicsScene::drawField()
 {
 
+    float width = wCol * cfgame->fieldsx;
+    float height = wCol * cfgame->fieldsy;
+
     QImage *_image = new QImage(cfgame->fieldsx * 100, cfgame->fieldsy * 100, QImage::Format_ARGB32);
     QPainter *_painter = new QPainter(_image);
-
+    QGradient gradient;
     _painter->setRenderHint(QPainter::Antialiasing, true);
-    _painter->setBrush(QColor(118, 185, 0, 255));
+
+    switch(design)
+    {
+        case 0:
+        gradient = QLinearGradient(QPoint(10, 10), QPoint(width, height));
+        gradient.setColorAt(0, Qt::red);
+        gradient.setColorAt(0.5, Qt::green);
+        gradient.setColorAt(1, Qt::red);
+
+        break;
+    case 1:
+        break;
+    default :
+
+        break;
+
+    }
+
+            _painter->setBrush(gradient);
+
     _painter->setPen(Qt::NoPen);
     _painter->drawRect(0, 0, wCol*cfgame->fieldsx,cfgame->fieldsy * wCol);
     _painter->setCompositionMode(QPainter::CompositionMode_Clear);

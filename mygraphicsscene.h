@@ -16,7 +16,7 @@ class MyGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    explicit MyGraphicsScene(QObject *parent ,ConnectFour *game);
+    explicit MyGraphicsScene(QObject *parent ,ConnectFour *game, int selectedDesign);
 
     ConnectFour *getCfgame() const;
     void setCfgame(ConnectFour *value);
@@ -34,6 +34,7 @@ protected:
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     virtual void resizeEvent(QResizeEvent * event );
 private:
+    int design;
     int wCol = 0;
     void makeMove(int column, bool grouped);
     void loadHistory();
