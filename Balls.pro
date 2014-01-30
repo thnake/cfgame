@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     mainwindow.cpp \
     dialog.cpp \
     databaseaccessclass.cpp \
-    myanimation.cpp
+    myanimation.cpp \
+    audioplayer.cpp
 
 HEADERS  += \
     mygraphicsview.h \
@@ -32,7 +33,8 @@ HEADERS  += \
     mainwindow.h \
     dialog.h \
     databaseaccessclass.h \
-    myanimation.h
+    myanimation.h \
+    audioplayer.h
 
 FORMS    += mainwindow.ui \
     dialog.ui
