@@ -33,6 +33,11 @@ void Dialog::btnPlay()
     close();
 }
 
+int Dialog::getDesign()
+{
+    return ui->comboBox->currentIndex();
+}
+
 void Dialog::btnLoad()
 {
   //  QSqlQueryModel model = (QSqlQueryModel) ui->tableView->model();

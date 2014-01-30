@@ -19,6 +19,7 @@ public:
 
     ConnectFour *cfGame;
     DataBaseAccessClass *dao;
+    int getDesign();
 
  public slots:
     void btnPlay();

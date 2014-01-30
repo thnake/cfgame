@@ -3,6 +3,7 @@
 
 #include <QGraphicsItemGroup>
 #include <QGraphicsEllipseItem>
+#include <QRadialGradient>
 
 class Chip : public QObject, public QGraphicsEllipseItem
 {
@@ -15,9 +16,8 @@ public:
     void setPlayer(int p);
     void setGradient(QPointF p);
 
-
 private:
-
+    QRadialGradient gradient;
 };
 
 #endif // MYGRAPHICSITEM_H

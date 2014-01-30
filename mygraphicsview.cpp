@@ -13,6 +13,7 @@ MyGraphicsView::MyGraphicsView(QWidget *parent,  DataBaseAccessClass *dao) :
 {
     setMouseTracking(true);
     this->dao = dao;
+    setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 }
 
 void MyGraphicsView::resizeEvent(QResizeEvent *event)

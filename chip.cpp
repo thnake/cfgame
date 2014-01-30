@@ -13,12 +13,15 @@ Chip::Chip(int x, int y, int w, int h, QObject *parent)
 {
 
     //brush().gradient()
-    setDesign();
+  //  setDesign();
+
+
 }
 
 void Chip::setPlayer(int p)
 {
 
+    return;
     if(p == 1)
     {
         setBrush(QBrush(Qt::black));
@@ -34,16 +37,17 @@ void Chip::setPlayer(int p)
 
 void Chip::setGradient(QPointF p)
 {
-    //qradialgradient(spread:pad, cx:0.499818, cy:0.511, radius:0.5, fx:0.932374, fy:0.760791, stop:0.420455 rgba(30, 10, 36, 255), stop:1 rgba(255, 255, 255, 255))
 
 
+    gradient = QRadialGradient(QPoint(60, 60), 60, p);
+    gradient.setColorAt(0.0, QColor(220, 220, 0));
+    gradient.setColorAt(0.35, QColor(200, 200, 0));
+    gradient.setColorAt(0.45, QColor(120, 120, 0));
 
+    gradient.setColorAt(0.5, Qt::black);
+    gradient.setColorAt(0.55, Qt::blue);
+    gradient.setColorAt(1.0, Qt::green);
 
-
-    QRadialGradient gradient( 50, 50, 50, 20, 20 );
-    gradient.setColorAt( 0.0, Qt::white );
-    gradient.setColorAt( 0.7, Qt::yellow );
-    gradient.setColorAt( 1.0, Qt::black );
     setBrush(gradient);
 
     return;
@@ -58,6 +62,8 @@ void Chip::setGradient(QPointF p)
 
 void Chip::setDesign()
 {
+
+    return;
 
     setPen(Qt::NoPen);
     setBrush(Qt::darkGray);

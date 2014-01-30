@@ -83,6 +83,7 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
 
 }
 
+
 QString ConnectFour::getGameState()
 {
     QString state = "";
@@ -109,6 +110,11 @@ void ConnectFour::setGameState(QString state){
             }
         }
     }
+}
+
+int ConnectFour::getCurrentPlayer()
+{
+    return currentPlayer;
 }
 
 QString ConnectFour::getHistory() const

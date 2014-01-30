@@ -22,6 +22,7 @@ private:
     int collectPointsInDirection(QVector<int> position, QVector<int> u, int sign);
     QString historyToLoad;
 
+
 public:
     ConnectFour();
     ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel);
@@ -29,6 +30,7 @@ public:
     bool checkVictory(int x, int y);
     QString getGameState();
     void setGameState(QString state);
+    int getCurrentPlayer();
 
     QVector<QVector<int> > board;
     int fieldsx;

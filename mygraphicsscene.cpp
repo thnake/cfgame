@@ -15,9 +15,13 @@
 #include <QSequentialAnimationGroup>
 #include <myanimation.h>
 
+
 MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game) :
     QGraphicsScene(parent)
 {
+
+
+
 
     this->cfgame = game;
 
@@ -45,10 +49,6 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game) :
 
 void MyGraphicsScene::drawField()
 {
-  //  checkFieldSize();
-
-   // calculateFieldWidthAndHeight();
-
 
     QImage *_image = new QImage(cfgame->fieldsx * 100, cfgame->fieldsy * 100, QImage::Format_ARGB32);
     QPainter *_painter = new QPainter(_image);
@@ -69,13 +69,16 @@ void MyGraphicsScene::drawField()
     {
       for (unsigned int columns = 0; columns < cfgame->fieldsx; ++columns)
       {
-        _painter->drawEllipse(positionHoleX, positionHoleY, wCol, wCol);
+        _painter->drawEllipse(positionHoleX+5, positionHoleY+5, wCol-10, wCol-10);
         positionHoleX += wCol;
       }
 
       positionHoleX = 0;
       positionHoleY += wCol;
     }
+
+
+
 
     _painter->end();
 
@@ -96,6 +99,8 @@ void MyGraphicsScene::keyPressEvent(QKeyEvent *event)
 {
 
 }
+
+
 
 void MyGraphicsScene::bounceSound(QVariant v)
 {
@@ -119,6 +124,42 @@ void MyGraphicsScene::bounceSound(QVariant v)
 float MyGraphicsScene::scalarProduct(QPointF u, QPointF v)
 {
     return u.x()*v.x() + u.y()*v.y();
+}
+
+void MyGraphicsScene::designChip(Chip *chip)
+{
+    QColor color;
+    QGradient gradient;
+
+    if (cfgame->getCurrentPlayer() == 0)
+      color = QColor(Qt::yellow);
+    else
+      color = QColor(Qt::blue);
+
+    // theme
+
+
+    gradient = QRadialGradient(QPoint(0, 0), 200, QPoint(10, 10));
+    if (cfgame->getCurrentPlayer() == 1)
+    {
+      gradient.setColorAt(0.0, Qt::red);
+      gradient.setColorAt(0.35, QColor(200, 200, 0));
+      gradient.setColorAt(0.45, QColor(120, 120, 0));
+
+    } else
+    {
+      gradient.setColorAt(0.0, Qt::red);
+      gradient.setColorAt(0.35, QColor(0, 20, 190));
+      gradient.setColorAt(0.45, QColor(0, 10, 100));
+    }
+
+    gradient.setColorAt(0.5, Qt::black);
+    gradient.setColorAt(0.55, color);
+    gradient.setColorAt(1.0, color);
+
+    chip->setPen(QPen(color));
+    chip->setBrush(QBrush(gradient));
+
 }
 
 
@@ -170,7 +211,7 @@ void  MyGraphicsScene::makeMove(int column, bool grouped)
         item->setVisible(true);
         item->setPlayer(cfgame->currentPlayer);
         MyAnimation *animation  = new MyAnimation(item, "pos");
-
+        designChip(item);
         addItem(item);
         QPointF p(item->pos().x(), sceneRect().height() - wCol*stacked);
         animation->setDuration(1000);

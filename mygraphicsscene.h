@@ -21,6 +21,7 @@ public:
     ConnectFour *getCfgame() const;
     void setCfgame(ConnectFour *value);
     float scalarProduct(QPointF u, QPointF v);
+    void designChip(Chip *chip);
 
 signals:
     
