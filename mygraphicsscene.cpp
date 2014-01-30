@@ -36,10 +36,58 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game) :
     foreground->setBrush( QBrush( QColor(118,185,0,128) ) );
     foreground->setZValue(1);
     resizeEvent(NULL);
+    drawField();
 
     loadHistory();
 
 
+}
+
+void MyGraphicsScene::drawField()
+{
+  //  checkFieldSize();
+
+   // calculateFieldWidthAndHeight();
+
+
+    QImage *_image = new QImage(cfgame->fieldsx * 100, cfgame->fieldsy * 100, QImage::Format_ARGB32);
+    QPainter *_painter = new QPainter(_image);
+
+    _painter->setRenderHint(QPainter::Antialiasing, true);
+    _painter->setBrush(QColor(118, 185, 0, 255));
+    _painter->setPen(Qt::NoPen);
+    _painter->drawRect(0, 0, wCol*cfgame->fieldsx,cfgame->fieldsy * wCol);
+    _painter->setCompositionMode(QPainter::CompositionMode_Clear);
+    _painter->setBrush(QColor(255, 0, 0));
+    _painter->drawRect(0, 0, wCol*cfgame->fieldsx, 0);
+
+    //Building the field with the correct number of columns and rows
+    int positionHoleX = 0;
+    int positionHoleY = 0;
+
+    for (unsigned int rows = 0; rows < cfgame->fieldsy; ++rows)
+    {
+      for (unsigned int columns = 0; columns < cfgame->fieldsx; ++columns)
+      {
+        _painter->drawEllipse(positionHoleX, positionHoleY, wCol, wCol);
+        positionHoleX += wCol;
+      }
+
+      positionHoleX = 0;
+      positionHoleY += wCol;
+    }
+
+    _painter->end();
+
+    QGraphicsPixmapItem *_field = new QGraphicsPixmapItem();
+    _field->setPixmap(QPixmap::fromImage(*_image));
+    _field->setZValue(1);
+    _field->setTransformationMode(Qt::SmoothTransformation);
+    _field->pos().setX(0);
+    _field->pos().setY(0);
+    //setSceneRect(0, 0, _width, _height);
+
+    addItem(_field);
 }
 
 

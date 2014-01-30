@@ -36,9 +36,11 @@ private:
     int wCol = 0;
     void makeMove(int column, bool grouped);
     void loadHistory();
+    void drawField();
     QSequentialAnimationGroup animationGroup;
     ConnectFour *cfgame;
     Chip *item = NULL;
+
 
 
 };
