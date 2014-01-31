@@ -21,7 +21,8 @@ public:
     ConnectFour *getCfgame() const;
     void setCfgame(ConnectFour *value);
     float scalarProduct(QPointF u, QPointF v);
-    void designChip(Chip *chip);
+   // void designChip(Chip *chip);
+
 
 signals:
     
@@ -34,16 +35,22 @@ protected:
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     virtual void resizeEvent(QResizeEvent * event );
 
+
+
 private:
     int design;
     int wCol = 0;
     void makeMove(int column, bool grouped);
     void loadHistory();
     void drawField();
+    void animateText(QString text);
+    void saveGame();
+
+    void designChip(Chip* chip);
     QSequentialAnimationGroup animationGroup;
     ConnectFour *cfgame;
-    Chip *item = NULL;
-
+    Chip *chip = NULL;
+    QVector<Chip> chips;
 
 
 };

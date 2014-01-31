@@ -1,5 +1,6 @@
 #include "chip.h"
 
+#include <QDebug>
 #include <QtCore>
 #include <QtGui>
 #include <QtWidgets>
@@ -57,6 +58,16 @@ void Chip::setGradient(QPointF p)
     g.setColorAt(1, QColor(Qt::yellow).light(120));
     g.setColorAt(0, QColor(Qt::darkYellow).light(120));
     setBrush(g);
+}
+
+QPointF* Chip::getCenter()
+{
+    QPointF *c = new QPointF();
+    c->setX(pos().x() + boundingRect().width()/2);
+    c->setY(pos().y() + boundingRect().width()/2);
+  //  qDebug() << c->y();
+
+    return c;
 }
 
 

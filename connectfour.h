@@ -28,6 +28,7 @@ public:
     ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel);
     int setStone(int x);
     bool checkVictory(int x, int y);
+    bool checkDraw();
     QString getGameState();
     void setGameState(QString state);
     int getCurrentPlayer();

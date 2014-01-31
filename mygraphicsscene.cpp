@@ -14,6 +14,7 @@
 #include <QGraphicsScene>
 #include <QThread>
 #include <QGradientStop>
+#include <QRadialGradient>
 #include <QSequentialAnimationGroup>
 #include <myanimation.h>
 #include <iostream>
@@ -26,7 +27,7 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
     this->cfgame = game;
     design = selectedDesign;
 
-    MyGraphicsView *view = (MyGraphicsView*)parent;
+
 
     setSceneRect(0,0,(cfgame->fieldsx ) * 100,cfgame->fieldsy * 100);
     QGraphicsRectItem *rect = new QGraphicsRectItem(0,0,sceneRect().width(),sceneRect().height());
@@ -49,10 +50,10 @@ void MyGraphicsScene::drawField()
     float width = wCol * cfgame->fieldsx;
     float height = wCol * cfgame->fieldsy;
 
-    QImage *_image = new QImage(cfgame->fieldsx * 100, cfgame->fieldsy * 100, QImage::Format_ARGB32);
-    QPainter *_painter = new QPainter(_image);
+    QImage *img = new QImage(cfgame->fieldsx * 100, cfgame->fieldsy * 100, QImage::Format_ARGB32);
+    QPainter *painter = new QPainter(img);
 
-    _painter->setRenderHint(QPainter::Antialiasing, true);
+    painter->setRenderHint(QPainter::Antialiasing, true);
 
 
     QLinearGradient *gradient;
@@ -64,14 +65,14 @@ void MyGraphicsScene::drawField()
             gradient->setColorAt(0, Qt::gray);
             gradient->setColorAt(0.5, Qt::blue);
             gradient->setColorAt(1, Qt::green);
-            _painter->setBrush(*gradient);
+            painter->setBrush(*gradient);
             break;
         case 1:
             gradient = new QLinearGradient(QPoint(10, 10), QPoint(width, height));
             gradient->setColorAt(0, Qt::white);
             gradient->setColorAt(0.3, Qt::green);
             gradient->setColorAt(1, Qt::black);
-            _painter->setBrush(*gradient);
+            painter->setBrush(*gradient);
         break;
 
         default :
@@ -79,16 +80,16 @@ void MyGraphicsScene::drawField()
             cgradient->setColorAt(0, Qt::blue);
             cgradient->setColorAt(0.5, Qt::darkMagenta);
             cgradient->setColorAt(1, Qt::blue);
-            _painter->setBrush(*cgradient);
+            painter->setBrush(*cgradient);
             break;
 
     }
 
-    _painter->setPen(Qt::NoPen);
-    _painter->drawRect(0, 0, wCol*cfgame->fieldsx,cfgame->fieldsy * wCol);
-    _painter->setCompositionMode(QPainter::CompositionMode_Clear);
-    _painter->setBrush(QColor(255, 0, 0));
-    _painter->drawRect(0, 0, wCol*cfgame->fieldsx, 0);
+    painter->setPen(Qt::NoPen);
+    painter->drawRect(0, 0, wCol*cfgame->fieldsx,cfgame->fieldsy * wCol);
+    painter->setCompositionMode(QPainter::CompositionMode_Clear);
+    painter->setBrush(QColor(255, 0, 0));
+    painter->drawRect(0, 0, wCol*cfgame->fieldsx, 0);
 
     int transparentX = 0;
     int transparentY = 0;
@@ -97,7 +98,7 @@ void MyGraphicsScene::drawField()
     {
       for (unsigned int columns = 0; columns < cfgame->fieldsx; ++columns)
       {
-        _painter->drawEllipse(transparentX+5, transparentY+5, wCol-10, wCol-10);
+        painter->drawEllipse(transparentX+5, transparentY+5, wCol-10, wCol-10);
         transparentX += wCol;
       }
 
@@ -105,17 +106,65 @@ void MyGraphicsScene::drawField()
       transparentY += wCol;
     }
 
-    _painter->end();
+    painter->end();
 
-    QGraphicsPixmapItem *_field = new QGraphicsPixmapItem();
-    _field->setPixmap(QPixmap::fromImage(*_image));
-    _field->setZValue(1);
-    _field->setTransformationMode(Qt::SmoothTransformation);
-    _field->pos().setX(0);
-    _field->pos().setY(0);
-    //setSceneRect(0, 0, _width, _height);
+    QGraphicsPixmapItem *fieldItem = new QGraphicsPixmapItem();
+    fieldItem->setPixmap(QPixmap::fromImage(*img));
+    fieldItem->setZValue(1);
+    fieldItem->setTransformationMode(Qt::SmoothTransformation);
+    fieldItem->pos().setX(0);
+    fieldItem->pos().setY(0);
 
-    addItem(_field);
+    addItem(fieldItem);
+}
+
+void MyGraphicsScene::animateText(QString text)
+{
+    QGraphicsTextItem * io = new QGraphicsTextItem;
+    io->setPos(150,70);
+    io->setPlainText("Barev");
+    addItem(io);
+}
+
+void MyGraphicsScene::saveGame()
+{
+    MyGraphicsView *view = (MyGraphicsView*)parent;
+}
+
+void MyGraphicsScene::designChip(Chip* chip)
+{
+  QColor color;
+  QRadialGradient gradient;
+
+
+  if (this->cfgame->getCurrentPlayer() == 1)
+    color = QColor(Qt::yellow);
+  else
+    color = QColor(Qt::blue);
+
+  switch (design)
+  {
+    case 0 :
+      chip->setPen(QPen(color));
+      // einfaches design
+      break;
+
+    case 1 :
+      break;
+
+    case 2 :
+      break;
+
+    default :
+      //chip = new Stone(color);
+      break;
+  }
+
+
+  chip->setBrush(QBrush(color));
+  chip->setPen(QPen(color));
+  chip->setZValue(-1);
+
 }
 
 
@@ -129,7 +178,6 @@ void MyGraphicsScene::keyPressEvent(QKeyEvent *event)
 
 void MyGraphicsScene::bounceSound(QVariant v)
 {
-   // qDebug() << "bounce";
     MyAnimation *s = (MyAnimation*)QObject::sender();
     QPointF *newVector = new QPointF();
 
@@ -143,7 +191,7 @@ void MyGraphicsScene::bounceSound(QVariant v)
         qDebug() << "bounce";
         //std::cout << (char)7;
         AudioPlayer ap;
-        ap.Play();
+        //ap.Play();
 
     }
     s->setOldPosition(v.toPointF());
@@ -154,6 +202,8 @@ float MyGraphicsScene::scalarProduct(QPointF u, QPointF v)
 {
     return u.x()*v.x() + u.y()*v.y();
 }
+
+/*
 
 void MyGraphicsScene::designChip(Chip *chip)
 {
@@ -166,7 +216,6 @@ void MyGraphicsScene::designChip(Chip *chip)
       color = QColor(Qt::blue);
 
     // theme
-
 
     gradient = QRadialGradient(QPoint(0, 0), 200, QPoint(10, 10));
     if (cfgame->getCurrentPlayer() == 1)
@@ -190,16 +239,14 @@ void MyGraphicsScene::designChip(Chip *chip)
     chip->setBrush(QBrush(gradient));
 
 }
-
+*/
 
 void MyGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     if(false)
     {
         qDebug() << event->scenePos().y();
-
-        item->setGradient(event->pos());
-
+        chip->setGradient(event->pos());
     }
 }
 
@@ -224,40 +271,40 @@ void MyGraphicsScene::loadHistory()
     for(int i = 0; i < h.length(); i++)
     {
         makeMove(h[i].digitValue(), true);
-
     }
 
     animationGroup.start();
     cfgame->setHistoryToLoad("");
 }
 
-void  MyGraphicsScene::makeMove(int column, bool grouped)
+void  MyGraphicsScene::makeMove(int column, bool loadHistory)
 {
     int stacked = cfgame->setStone(column);
     if(stacked > -1)
     {
-        item  = new Chip(column*wCol, 0-wCol, wCol, wCol);
-        item->setVisible(true);
-        item->setPlayer(cfgame->currentPlayer);
-        MyAnimation *animation  = new MyAnimation(item, "pos");
-        designChip(item);
-        addItem(item);
-        QPointF p(item->pos().x(), sceneRect().height() - wCol*stacked);
+        chip  = new Chip(column*wCol, 0-wCol, wCol, wCol);
+        //chip->setPos(column*wCol, 0-wCol);
+        chip->setVisible(true);
+        chip->setPlayer(cfgame->currentPlayer);
+        MyAnimation *animation  = new MyAnimation(chip, "pos");
+        qDebug() << chip->pos().x();
+        designChip(chip);
+
+        addItem(chip);
+
+
+        QPointF p(chip->pos().x(), sceneRect().height() - wCol*stacked);
         animation->setDuration(1000);
         animation->setEndValue(p);
         animation->setEasingCurve(QEasingCurve::OutBounce);
-        if(!grouped) {
+        if(!loadHistory) {
            animation->start();
         }else{
             animation->setEasingCurve(QEasingCurve::InOutSine);
             animation->setDuration(150);
             animationGroup.addAnimation(animation);
         }
-
-
         connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));
-
-
     }
     else
     {
@@ -266,7 +313,26 @@ void  MyGraphicsScene::makeMove(int column, bool grouped)
         // sound
         qDebug() << "ungültiger Zug";
     }
+
+    if(cfgame->getWinner() != 0)
+    {
+        //siegesanimation
+        qDebug() << "Sieg";
+        animateText(cfgame->name1 + " wins!!!");
+
+    }else if(cfgame->checkDraw())
+    {
+        // Unentschieden
+        animateText("Draw");
+        qDebug() << "unentschieden";
+
+    }
+
+
+
 }
+
+
 
 
 void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)

@@ -129,6 +129,8 @@ void ConnectFour::setHistoryToLoad(QString hl)
 }
 
 
+
+
 // position ist die startposition
 // u ist der einheitsvektor, in dessen richtung wir sammeln
 // sign ist das vorzeichen
@@ -187,6 +189,11 @@ bool ConnectFour::checkVictory(int x, int y)
 
     return victory;
 
+}
+
+bool ConnectFour::checkDraw()
+{
+    return winner == 0 && history.length() == fieldsx*fieldsy;
 }
 
 

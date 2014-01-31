@@ -15,9 +15,12 @@ public:
     void setDesign();
     void setPlayer(int p);
     void setGradient(QPointF p);
+    QPointF *getCenter();
+
 
 private:
     QRadialGradient gradient;
+
 };
 
 #endif // MYGRAPHICSITEM_H
