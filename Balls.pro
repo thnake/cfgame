@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     databaseaccessclass.cpp \
     myanimation.cpp \
     audioplayer.cpp \
-    mygradient.cpp
+    mygradient.cpp \
+    myfield.cpp
 
 HEADERS  += \
     mygraphicsview.h \
@@ -36,7 +37,8 @@ HEADERS  += \
     databaseaccessclass.h \
     myanimation.h \
     audioplayer.h \
-    mygradient.h
+    mygradient.h \
+    myfield.h
 
 FORMS    += mainwindow.ui \
     dialog.ui

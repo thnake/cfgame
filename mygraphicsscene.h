@@ -11,6 +11,7 @@
 #include <QResizeEvent>
 #include <QSequentialAnimationGroup>
 #include <QPointF>
+#include <myfield.h>
 
 class MyGraphicsScene : public QGraphicsScene
 {
@@ -45,6 +46,8 @@ private:
     void drawField();
     void animateText(QString text);
     void saveGame();
+    void shatterField();
+    MyField *fieldItem;
 
     void designChip(Chip* chip);
     QSequentialAnimationGroup animationGroup;

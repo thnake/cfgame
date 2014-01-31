@@ -41,7 +41,7 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
     resizeEvent(NULL);
     drawField();
     loadHistory();
-
+    animateText("Testanimation von Text");
 }
 
 void MyGraphicsScene::drawField()
@@ -108,7 +108,7 @@ void MyGraphicsScene::drawField()
 
     painter->end();
 
-    QGraphicsPixmapItem *fieldItem = new QGraphicsPixmapItem();
+    fieldItem = new MyField();
     fieldItem->setPixmap(QPixmap::fromImage(*img));
     fieldItem->setZValue(1);
     fieldItem->setTransformationMode(Qt::SmoothTransformation);
@@ -121,14 +121,50 @@ void MyGraphicsScene::drawField()
 void MyGraphicsScene::animateText(QString text)
 {
     QGraphicsTextItem * io = new QGraphicsTextItem;
+
+    io->setTextWidth(io->boundingRect().width());
+
+    //io->boundingRect()
+
+    io->setZValue(10);
     io->setPos(150,70);
-    io->setPlainText("Barev");
+    io->setPlainText(text);
     addItem(io);
 }
 
 void MyGraphicsScene::saveGame()
 {
-    MyGraphicsView *view = (MyGraphicsView*)parent;
+    MyGraphicsView *view = (MyGraphicsView*)parent();
+
+}
+
+void MyGraphicsScene::shatterField()
+{
+    QPointF pEnd(0-fieldItem->boundingRect().width()/20, 0);
+    QSequentialAnimationGroup *ag = new QSequentialAnimationGroup();
+
+    MyAnimation *shake  = new MyAnimation(fieldItem, "pos");
+    shake->setDuration(50);
+    shake->setEndValue(pEnd);
+    shake->setEasingCurve(QEasingCurve::Linear);
+    ag->addAnimation(shake);
+
+    pEnd.setX(0+fieldItem->boundingRect().width()/20);
+    shake = new MyAnimation(fieldItem, "pos");
+    shake->setDuration(50);
+    shake->setEndValue(pEnd);
+    shake->setEasingCurve(QEasingCurve::Linear);
+    ag->addAnimation(shake);
+
+    pEnd.setX(0);
+    shake = new MyAnimation(fieldItem, "pos");
+    shake->setDuration(50);
+    shake->setEndValue(pEnd);
+    shake->setEasingCurve(QEasingCurve::Linear);
+    ag->addAnimation(shake);
+
+    ag->start();
+
 }
 
 void MyGraphicsScene::designChip(Chip* chip)
@@ -203,44 +239,6 @@ float MyGraphicsScene::scalarProduct(QPointF u, QPointF v)
     return u.x()*v.x() + u.y()*v.y();
 }
 
-/*
-
-void MyGraphicsScene::designChip(Chip *chip)
-{
-    QColor color;
-    QGradient gradient;
-
-    if (cfgame->getCurrentPlayer() == 0)
-      color = QColor(Qt::yellow);
-    else
-      color = QColor(Qt::blue);
-
-    // theme
-
-    gradient = QRadialGradient(QPoint(0, 0), 200, QPoint(10, 10));
-    if (cfgame->getCurrentPlayer() == 1)
-    {
-      gradient.setColorAt(0.0, Qt::red);
-      gradient.setColorAt(0.35, QColor(200, 200, 0));
-      gradient.setColorAt(0.45, QColor(120, 120, 0));
-
-    } else
-    {
-      gradient.setColorAt(0.0, Qt::red);
-      gradient.setColorAt(0.35, QColor(0, 20, 190));
-      gradient.setColorAt(0.45, QColor(0, 10, 100));
-    }
-
-    gradient.setColorAt(0.5, Qt::black);
-    gradient.setColorAt(0.55, color);
-    gradient.setColorAt(1.0, color);
-
-    chip->setPen(QPen(color));
-    chip->setBrush(QBrush(gradient));
-
-}
-*/
-
 void MyGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     if(false)
@@ -277,6 +275,9 @@ void MyGraphicsScene::loadHistory()
     cfgame->setHistoryToLoad("");
 }
 
+
+
+
 void  MyGraphicsScene::makeMove(int column, bool loadHistory)
 {
     int stacked = cfgame->setStone(column);
@@ -287,6 +288,7 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
         chip->setVisible(true);
         chip->setPlayer(cfgame->currentPlayer);
         MyAnimation *animation  = new MyAnimation(chip, "pos");
+
         qDebug() << chip->pos().x();
         designChip(chip);
 
@@ -297,6 +299,9 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
         animation->setDuration(1000);
         animation->setEndValue(p);
         animation->setEasingCurve(QEasingCurve::OutBounce);
+
+
+
         if(!loadHistory) {
            animation->start();
         }else{
@@ -312,13 +317,22 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
         // ungültiger zug
         // sound
         qDebug() << "ungültiger Zug";
+
     }
 
     if(cfgame->getWinner() != 0)
     {
         //siegesanimation
         qDebug() << "Sieg";
-        animateText(cfgame->name1 + " wins!!!");
+        if(cfgame->getWinner() == 1)
+        {
+            animateText(cfgame->getName1() + " wins!!!");
+        }
+        else
+        {
+            animateText(cfgame->getName2() + " wins!!! :D");
+        }
+
 
     }else if(cfgame->checkDraw())
     {
@@ -337,7 +351,7 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
 
 void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    
+    shatterField();
     if(cfgame->getWinner() == 0)
     {
         int col = event->scenePos().x() / wCol;
