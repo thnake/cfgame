@@ -32,6 +32,11 @@ MyAnimation::MyAnimation(QObject * target, const QByteArray & propertyName) :
 
 }
 
+MyAnimation::MyAnimation(QObject *parent) : QPropertyAnimation(parent)
+{
+
+}
+
 
 
 

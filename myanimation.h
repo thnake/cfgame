@@ -12,8 +12,8 @@ private:
     bool directionChanged;
 
 public:
-    MyAnimation(QObject * target, const QByteArray & propertyName);
-
+    MyAnimation(QObject *target, const QByteArray & propertyName);
+    MyAnimation(QObject *parent);
 
 
     QPointF getOldVector() const;

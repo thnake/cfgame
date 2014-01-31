@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     dialog.cpp \
     databaseaccessclass.cpp \
     myanimation.cpp \
-    audioplayer.cpp
+    audioplayer.cpp \
+    mygradient.cpp
 
 HEADERS  += \
     mygraphicsview.h \
@@ -34,7 +35,11 @@ HEADERS  += \
     dialog.h \
     databaseaccessclass.h \
     myanimation.h \
-    audioplayer.h
+    audioplayer.h \
+    mygradient.h
 
 FORMS    += mainwindow.ui \
     dialog.ui
+
+RESOURCES += \
+    res/test.qrc

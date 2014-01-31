@@ -1,6 +1,7 @@
 #include "mygraphicsscene.h"
 #include "connectfour.h"
 
+#include <audioplayer.h>
 #include <QtCore>
 #include <QObject>
 #include <QtGui>
@@ -12,9 +13,11 @@
 #include <cstddef>
 #include <QGraphicsScene>
 #include <QThread>
+#include <QGradientStop>
 #include <QSequentialAnimationGroup>
 #include <myanimation.h>
-
+#include <iostream>
+#include <QSound>
 
 MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selectedDesign) :
     QGraphicsScene(parent)
@@ -30,18 +33,13 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
 
     addItem(rect);
 
-    // ein halbtransparenter Vordergrund:
     QGraphicsRectItem *foreground = new QGraphicsRectItem( 100, 100, 400, 200 );
-    //addItem(foreground);
-    // HTW grün: http://www.htw-berlin.de/hochschulstruktur/zentrale-referate/presse-und-oeffentlichkeitsarbeit/corporate-design/farbklima-schriften/
 
     foreground->setBrush( QBrush( QColor(118,185,0,128) ) );
     foreground->setZValue(1);
     resizeEvent(NULL);
     drawField();
-
     loadHistory();
-
 
 }
 
@@ -53,27 +51,38 @@ void MyGraphicsScene::drawField()
 
     QImage *_image = new QImage(cfgame->fieldsx * 100, cfgame->fieldsy * 100, QImage::Format_ARGB32);
     QPainter *_painter = new QPainter(_image);
-    QGradient gradient;
+
     _painter->setRenderHint(QPainter::Antialiasing, true);
 
+
+    QLinearGradient *gradient;
+    QConicalGradient *cgradient;
     switch(design)
     {
         case 0:
-        gradient = QLinearGradient(QPoint(10, 10), QPoint(width, height));
-        gradient.setColorAt(0, Qt::red);
-        gradient.setColorAt(0.5, Qt::green);
-        gradient.setColorAt(1, Qt::red);
+             gradient = new QLinearGradient(QPoint(10, 10), QPoint(width, height));
+            gradient->setColorAt(0, Qt::gray);
+            gradient->setColorAt(0.5, Qt::blue);
+            gradient->setColorAt(1, Qt::green);
+            _painter->setBrush(*gradient);
+            break;
+        case 1:
+            gradient = new QLinearGradient(QPoint(10, 10), QPoint(width, height));
+            gradient->setColorAt(0, Qt::white);
+            gradient->setColorAt(0.3, Qt::green);
+            gradient->setColorAt(1, Qt::black);
+            _painter->setBrush(*gradient);
+        break;
 
-        break;
-    case 1:
-        break;
-    default :
-
-        break;
+        default :
+            cgradient = new QConicalGradient(QPoint(width , height / 2 + 10), 0);
+            cgradient->setColorAt(0, Qt::blue);
+            cgradient->setColorAt(0.5, Qt::darkMagenta);
+            cgradient->setColorAt(1, Qt::blue);
+            _painter->setBrush(*cgradient);
+            break;
 
     }
-
-            _painter->setBrush(gradient);
 
     _painter->setPen(Qt::NoPen);
     _painter->drawRect(0, 0, wCol*cfgame->fieldsx,cfgame->fieldsy * wCol);
@@ -81,24 +90,20 @@ void MyGraphicsScene::drawField()
     _painter->setBrush(QColor(255, 0, 0));
     _painter->drawRect(0, 0, wCol*cfgame->fieldsx, 0);
 
-    //Building the field with the correct number of columns and rows
-    int positionHoleX = 0;
-    int positionHoleY = 0;
+    int transparentX = 0;
+    int transparentY = 0;
 
     for (unsigned int rows = 0; rows < cfgame->fieldsy; ++rows)
     {
       for (unsigned int columns = 0; columns < cfgame->fieldsx; ++columns)
       {
-        _painter->drawEllipse(positionHoleX+5, positionHoleY+5, wCol-10, wCol-10);
-        positionHoleX += wCol;
+        _painter->drawEllipse(transparentX+5, transparentY+5, wCol-10, wCol-10);
+        transparentX += wCol;
       }
 
-      positionHoleX = 0;
-      positionHoleY += wCol;
+      transparentX = 0;
+      transparentY += wCol;
     }
-
-
-
 
     _painter->end();
 
@@ -136,6 +141,10 @@ void MyGraphicsScene::bounceSound(QVariant v)
     if(sp < 0)
     {
         qDebug() << "bounce";
+        //std::cout << (char)7;
+        AudioPlayer ap;
+        ap.Play();
+
     }
     s->setOldPosition(v.toPointF());
     s->setOldVector(*newVector);

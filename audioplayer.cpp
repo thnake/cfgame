@@ -12,11 +12,11 @@ AudioPlayer::AudioPlayer()
 
 void AudioPlayer::Play()
 {
-/*
-    float pcm[];
+
+
     QAudioFormat  format;
-    format.setFrequency(8000);
-    format.setChannels(1);
+    format.setSampleRate(8000);
+    format.setChannelCount(1);
     format.setSampleSize(8);
     format.setCodec("audio/pcm");      // PCM, sollte immer gehen
     format.setByteOrder(QAudioFormat::LittleEndian);
@@ -25,10 +25,11 @@ void AudioPlayer::Play()
     //if (!info.isFormatSupported(format)) … // Fehlerbehandlung
 
     QFile  inputFile; // class member .
-    inputFile.setFileName("O:/…");
+    inputFile.setFileName("c:\\COWBELL1.WAV");
     inputFile.open(QIODevice::ReadOnly);
     QAudioOutput* audio  = new QAudioOutput(format);
 
+
     audio->start(&inputFile);
-*/
+
 }

@@ -33,6 +33,7 @@ protected:
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     virtual void resizeEvent(QResizeEvent * event );
+
 private:
     int design;
     int wCol = 0;
