@@ -41,7 +41,7 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
     resizeEvent(NULL);
     drawField();
     loadHistory();
-    animateText("Testanimation von Text");
+
 }
 
 void MyGraphicsScene::drawField()
@@ -67,6 +67,7 @@ void MyGraphicsScene::drawField()
             gradient->setColorAt(1, Qt::green);
             painter->setBrush(*gradient);
             break;
+
         case 1:
             gradient = new QLinearGradient(QPoint(10, 10), QPoint(width, height));
             gradient->setColorAt(0, Qt::white);
@@ -82,7 +83,6 @@ void MyGraphicsScene::drawField()
             cgradient->setColorAt(1, Qt::blue);
             painter->setBrush(*cgradient);
             break;
-
     }
 
     painter->setPen(Qt::NoPen);
@@ -162,7 +162,6 @@ void MyGraphicsScene::shatterField()
     shake->setEndValue(pEnd);
     shake->setEasingCurve(QEasingCurve::Linear);
     ag->addAnimation(shake);
-
     ag->start();
 
 }
@@ -196,21 +195,16 @@ void MyGraphicsScene::designChip(Chip* chip)
       break;
   }
 
-
   chip->setBrush(QBrush(color));
   chip->setPen(QPen(color));
   chip->setZValue(-1);
 
 }
 
-
-
 void MyGraphicsScene::keyPressEvent(QKeyEvent *event)
 {
 
 }
-
-
 
 void MyGraphicsScene::bounceSound(QVariant v)
 {
@@ -294,13 +288,10 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
 
         addItem(chip);
 
-
         QPointF p(chip->pos().x(), sceneRect().height() - wCol*stacked);
         animation->setDuration(1000);
         animation->setEndValue(p);
         animation->setEasingCurve(QEasingCurve::OutBounce);
-
-
 
         if(!loadHistory) {
            animation->start();
@@ -313,17 +304,11 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
     }
     else
     {
-        // todo
-        // ungültiger zug
-        // sound
-        qDebug() << "ungültiger Zug";
-
+        shatterField();
     }
 
     if(cfgame->getWinner() != 0)
     {
-        //siegesanimation
-        qDebug() << "Sieg";
         if(cfgame->getWinner() == 1)
         {
             animateText(cfgame->getName1() + " wins!!!");
@@ -333,17 +318,12 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
             animateText(cfgame->getName2() + " wins!!! :D");
         }
 
-
     }else if(cfgame->checkDraw())
     {
         // Unentschieden
         animateText("Draw");
         qDebug() << "unentschieden";
-
     }
-
-
-
 }
 
 
@@ -351,7 +331,6 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
 
 void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    shatterField();
     if(cfgame->getWinner() == 0)
     {
         int col = event->scenePos().x() / wCol;
@@ -362,7 +341,6 @@ void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
             makeMove(col, false);
         }
     }
-
 }
 
 
