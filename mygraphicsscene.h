@@ -13,6 +13,8 @@
 #include <QPointF>
 #include <myfield.h>
 
+
+
 class MyGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
@@ -47,6 +49,7 @@ private:
     void animateText(QString text);
     void saveGame();
     void shatterField();
+    void animateChip(Chip *chip, QPointF end, bool grouped);
     MyField *fieldItem;
 
     void designChip(Chip* chip);

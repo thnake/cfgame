@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     myanimation.cpp \
     audioplayer.cpp \
     mygradient.cpp \
-    myfield.cpp
+    myfield.cpp \
+    aiplayer.cpp
 
 HEADERS  += \
     mygraphicsview.h \
@@ -38,7 +39,8 @@ HEADERS  += \
     myanimation.h \
     audioplayer.h \
     mygradient.h \
-    myfield.h
+    myfield.h \
+    aiplayer.h
 
 FORMS    += mainwindow.ui \
     dialog.ui

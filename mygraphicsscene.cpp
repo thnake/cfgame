@@ -166,6 +166,8 @@ void MyGraphicsScene::shatterField()
 
 }
 
+
+
 void MyGraphicsScene::designChip(Chip* chip)
 {
   QColor color;
@@ -180,23 +182,33 @@ void MyGraphicsScene::designChip(Chip* chip)
   switch (design)
   {
     case 0 :
-      chip->setPen(QPen(color));
-      // einfaches design
+      if (this->cfgame->getCurrentPlayer() == 1)
+        color = QColor(Qt::yellow);
+      else
+        color = QColor(Qt::blue);
       break;
 
     case 1 :
+      if (this->cfgame->getCurrentPlayer() == 1)
+        color = QColor(Qt::green);
+      else
+        color = QColor(Qt::red);
       break;
 
     case 2 :
+      if (this->cfgame->getCurrentPlayer() == 1)
+        color = QColor(Qt::magenta);
+      else
+        color = QColor(Qt::cyan);
       break;
 
     default :
-      //chip = new Stone(color);
+
       break;
   }
 
   chip->setBrush(QBrush(color));
-  chip->setPen(QPen(color));
+  chip->setPen(QPen(Qt::black));
   chip->setZValue(-1);
 
 }
@@ -270,7 +282,24 @@ void MyGraphicsScene::loadHistory()
 }
 
 
+void MyGraphicsScene::animateChip(Chip *chip, QPointF end, bool grouped)
+{
+     MyAnimation *animation  = new MyAnimation(chip, "pos");
 
+     animation->setDuration(1000);
+     animation->setEndValue(end);
+     animation->setEasingCurve(QEasingCurve::OutBounce);
+     if(!grouped) {
+        animation->start();
+     }else{
+         animation->setEasingCurve(QEasingCurve::InOutSine);
+         animation->setDuration(150);
+         animationGroup.addAnimation(animation);
+     }
+
+     connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));
+
+}
 
 void  MyGraphicsScene::makeMove(int column, bool loadHistory)
 {
@@ -281,26 +310,14 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
         //chip->setPos(column*wCol, 0-wCol);
         chip->setVisible(true);
         chip->setPlayer(cfgame->currentPlayer);
-        MyAnimation *animation  = new MyAnimation(chip, "pos");
-
+        QPointF p(chip->pos().x(), sceneRect().height() - wCol*stacked);
         qDebug() << chip->pos().x();
         designChip(chip);
 
         addItem(chip);
+        animateChip(chip, p, loadHistory);
 
-        QPointF p(chip->pos().x(), sceneRect().height() - wCol*stacked);
-        animation->setDuration(1000);
-        animation->setEndValue(p);
-        animation->setEasingCurve(QEasingCurve::OutBounce);
 
-        if(!loadHistory) {
-           animation->start();
-        }else{
-            animation->setEasingCurve(QEasingCurve::InOutSine);
-            animation->setDuration(150);
-            animationGroup.addAnimation(animation);
-        }
-        connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));
     }
     else
     {
@@ -324,6 +341,7 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
         animateText("Draw");
         qDebug() << "unentschieden";
     }
+
 }
 
 
