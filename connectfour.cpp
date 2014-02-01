@@ -18,6 +18,20 @@ int  ConnectFour::getMoves()
     return  moves;
 }
 
+int ConnectFour::getLastPlayer()
+{
+    int res = 0;
+    switch (currentPlayer) {
+    case 1:
+        res = 2;
+        break;
+    case 2:
+        res = 1;
+        break;
+    }
+    return res;
+}
+
 QString ConnectFour::getName2() const
 {
     return name2;
@@ -43,6 +57,7 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
     history = "";
 
     currentPlayer = startingPlayer;
+    this->startingPlayer = startingPlayer;
 
     difficulty = difficultyLevel;
 
@@ -150,6 +165,14 @@ void ConnectFour::setHistoryToLoad(QString hl)
 // position ist die startposition
 // u ist der einheitsvektor, in dessen richtung wir sammeln
 // sign ist das vorzeichen
+
+int ConnectFour::getStartingPlayer() const
+{
+    return startingPlayer;
+}
+
+
+
 int ConnectFour::collectPointsInDirection(QVector<int> position, QVector<int> u, int sign)
 {
     int sum = 0;
@@ -239,7 +262,7 @@ int ConnectFour::setStone(int x)
 
     if(currentPlayer == 1)
     {
-        currentPlayer = 1;
+        currentPlayer = 2;
     }
     else
     {

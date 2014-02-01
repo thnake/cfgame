@@ -15,7 +15,7 @@ private:
     int winner;
     QString name1;
     QString name2;
-
+    int startingPlayer;
     bool fullscreen;
     int moves;
     int difficulty;
@@ -47,10 +47,13 @@ public:
     int getDifficulty() const;
     int getWinner();
     int  getMoves();
+    int getLastPlayer();
 
     QString getHistory() const;
     QString getHistoryToLoad() const;
-     void setHistoryToLoad(QString hl);
+    void setHistoryToLoad(QString hl);
+    int getStartingPlayer() const;
+
 };
 
 #endif // CONNECTFOUR_H

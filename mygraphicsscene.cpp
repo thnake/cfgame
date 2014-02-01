@@ -47,6 +47,16 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
     drawField();
     loadHistory();
 
+    if(cfgame->history.length() == 0 && cfgame->getCurrentPlayer() == 2)
+    {
+        aiMove();
+    }
+    qDebug() << "starting";
+    qDebug() << cfgame->getStartingPlayer();
+
+
+
+
 }
 
 void MyGraphicsScene::drawField()
@@ -377,7 +387,7 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
     int stacked = cfgame->setStone(column);
     if(stacked > -1)
     {
-        chip  = new Chip(column*wCol, 0-wCol, wCol, wCol,cfgame->currentPlayer);
+        chip  = new Chip(column*wCol, 0-wCol, wCol, wCol,cfgame->getLastPlayer());
         chip->setVisible(true);
         QPointF p(chip->pos().x(), sceneRect().height() - wCol*stacked);
         qDebug() << chip->pos().x();

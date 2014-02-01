@@ -54,8 +54,8 @@ bool DataBaseAccessClass::saveGame(ConnectFour *game)
 
     QSqlQuery *q = new QSqlQuery();
 
-    q->prepare("INSERT INTO game (name1,name2,columns,rows,winner,moves,difficulty,history)"
-               "VALUES (:name1, :name2, :columns, :rows, :winner, :moves, :difficulty,:history);");
+    q->prepare("INSERT INTO game (name1,name2,columns,rows,winner,moves,difficulty,history,startingPlayer)"
+               "VALUES (:name1, :name2, :columns, :rows, :winner, :moves, :difficulty,:history,:startingPlayer);");
     q->bindValue(":name1",game->getName1() );
     q->bindValue(":name2", game->getName2());
     q->bindValue(":columns", game->fieldsx);
@@ -64,6 +64,7 @@ bool DataBaseAccessClass::saveGame(ConnectFour *game)
     q->bindValue(":moves", game->getMoves());
     q->bindValue(":difficulty", game->getDifficulty());
     q->bindValue(":history", game->getHistory());
+    q->bindValue(":startingPlayer", game->getStartingPlayer());
 
     if(!q->exec())
     {
@@ -94,7 +95,7 @@ bool DataBaseAccessClass::connect()
     //drop.exec();
     QSqlQuery qHighscore("CREATE TABLE IF NOT EXISTS game"
                     "(hspk INTEGER PRIMARY KEY AUTOINCREMENT, name1 varchar(12), name2 varchar(12),columns smallint, rows smallint,"
-                         " winner smallint, moves smallint, difficulty smallint, history varchar(100));");
+                         " winner smallint, moves smallint, difficulty smallint, history varchar(100), startingPlayer smallint);");
 
     if (!qHighscore.exec())
     {

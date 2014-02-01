@@ -26,12 +26,19 @@ Dialog::Dialog(QWidget *parent) :
 
 void Dialog::btnPlay()
 {
+    int firstplayer = 1;
+    if(ui->cbxDifficulty->currentIndex() != 0)
+    {
+        if(ui->radPlayer2->isChecked()){
+            firstplayer = 2;
+        }
+    }
     cfGame = new ConnectFour(ui->sboxRows->value(),
                              ui->sboxColumns->value(),
                              ui->lePlayer1->text(),
                              ui->lePlayer2->text(),
                              ui->cbxDifficulty->currentIndex(),
-                             1);
+                             firstplayer);
     accept();
     close();
 }
@@ -46,7 +53,7 @@ void Dialog::btnLoad()
 
     int i = ui->tableView->currentIndex().row();
 
-    qDebug() << ui->tableView->model()->data(ui->tableView->model()->index(i,2)).toString();
+
     QString name1 =  ui->tableView->model()->data(ui->tableView->model()->index(i,1)).toString();
     QString name2 =  ui->tableView->model()->data(ui->tableView->model()->index(i,2)).toString();
     int columns =  ui->tableView->model()->data(ui->tableView->model()->index(i,3)).toInt();
@@ -54,8 +61,9 @@ void Dialog::btnLoad()
     int winner =  ui->tableView->model()->data(ui->tableView->model()->index(i,5)).toInt();
     int difficulty =  ui->tableView->model()->data(ui->tableView->model()->index(i,7)).toInt();
     QString history =  ui->tableView->model()->data(ui->tableView->model()->index(i,8)).toString();
+    int startingPlayer =  ui->tableView->model()->data(ui->tableView->model()->index(i,9)).toInt();
 
-    cfGame = new ConnectFour(columns,rows,name1,name2,difficulty,1);
+    cfGame = new ConnectFour(columns,rows,name1,name2,difficulty,startingPlayer);
     cfGame->setHistoryToLoad(history);
 
     accept();
