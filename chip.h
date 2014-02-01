@@ -11,15 +11,16 @@ class Chip : public QObject, public QGraphicsEllipseItem
     Q_PROPERTY(QPointF pos READ pos WRITE setPos)
 
 public:
-    explicit Chip(int x, int y, int w, int h, QObject *parent=NULL);
+    explicit Chip(int x, int y, int w, int h, int player, QObject *parent=NULL);
     void setDesign();
-    void setPlayer(int p);
+    int getPlayer();
     void setGradient(QPointF p);
     QPointF *getCenter();
 
 
 private:
     QRadialGradient gradient;
+    int player;
 
 };
 

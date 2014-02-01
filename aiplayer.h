@@ -5,7 +5,13 @@ class aiPlayer
 {
 public:
     aiPlayer();
-    int getStupidMove(int columns);
+
+    int getStupidMove(int column);
+    int difficulty;
+
+    int getDifficulty() const;
+    void setDifficulty(int value);
+    int getMove(int column);
 
 };
 

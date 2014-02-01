@@ -117,6 +117,20 @@ int ConnectFour::getCurrentPlayer()
     return currentPlayer;
 }
 
+bool ConnectFour::checkMove(int x)
+{
+    bool result = false;
+    for(int i = 0; i < fieldsy; i++)
+    {
+        if(board[x][fieldsy] == 0)
+        {
+            result = true;
+            break;
+        }
+    }
+    return result;
+}
+
 QString ConnectFour::getHistory() const
 {
     return history;

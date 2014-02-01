@@ -4,6 +4,7 @@
 #include "chip.h"
 #include "connectfour.h"
 #include "panel.h"
+#include "aiplayer.h"
 
 #include <QGraphicsScene>
 #include <QMouseEvent>
@@ -43,15 +44,18 @@ protected:
 private:
     int design;
     int wCol = 0;
-    void makeMove(int column, bool grouped);
+    int makeMove(int column, bool grouped);
     void loadHistory();
     void drawField();
     void animateText(QString text);
     void saveGame();
-    void shatterField();
+    void shatterFieldAnimation();
     void animateChip(Chip *chip, QPointF end, bool grouped);
-    MyField *fieldItem;
+    void aiMove();
+    void animateVictory();
 
+    MyField *fieldItem;
+    aiPlayer ai;
     void designChip(Chip* chip);
     QSequentialAnimationGroup animationGroup;
     ConnectFour *cfgame;

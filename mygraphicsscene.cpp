@@ -27,7 +27,7 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
     this->cfgame = game;
     design = selectedDesign;
 
-
+    ai.setDifficulty(game->getDifficulty());
 
     setSceneRect(0,0,(cfgame->fieldsx ) * 100,cfgame->fieldsy * 100);
     QGraphicsRectItem *rect = new QGraphicsRectItem(0,0,sceneRect().width(),sceneRect().height());
@@ -138,7 +138,7 @@ void MyGraphicsScene::saveGame()
 
 }
 
-void MyGraphicsScene::shatterField()
+void MyGraphicsScene::shatterFieldAnimation()
 {
     QPointF pEnd(0-fieldItem->boundingRect().width()/20, 0);
     QSequentialAnimationGroup *ag = new QSequentialAnimationGroup();
@@ -254,6 +254,8 @@ void MyGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     }
 }
 
+
+
 void MyGraphicsScene::resizeEvent(QResizeEvent *event)
 {
     wCol = (int)sceneRect().width()/cfgame->fieldsx;
@@ -279,6 +281,7 @@ void MyGraphicsScene::loadHistory()
 
     animationGroup.start();
     cfgame->setHistoryToLoad("");
+
 }
 
 
@@ -296,32 +299,42 @@ void MyGraphicsScene::animateChip(Chip *chip, QPointF end, bool grouped)
          animation->setDuration(150);
          animationGroup.addAnimation(animation);
      }
-
      connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));
+}
+
+
+
+void MyGraphicsScene::aiMove()
+{
+    int row = 0;
+    do{
+        row = ai.getMove(cfgame->fieldsx);
+    }while(cfgame->checkMove(row) == false);
+    makeMove(row, false);
+}
+
+void MyGraphicsScene::animateVictory()
+{
 
 }
 
-void  MyGraphicsScene::makeMove(int column, bool loadHistory)
+int MyGraphicsScene::makeMove(int column, bool loadHistory)
 {
     int stacked = cfgame->setStone(column);
     if(stacked > -1)
     {
-        chip  = new Chip(column*wCol, 0-wCol, wCol, wCol);
-        //chip->setPos(column*wCol, 0-wCol);
+        chip  = new Chip(column*wCol, 0-wCol, wCol, wCol,cfgame->currentPlayer);
         chip->setVisible(true);
-        chip->setPlayer(cfgame->currentPlayer);
         QPointF p(chip->pos().x(), sceneRect().height() - wCol*stacked);
         qDebug() << chip->pos().x();
         designChip(chip);
-
         addItem(chip);
         animateChip(chip, p, loadHistory);
-
 
     }
     else
     {
-        shatterField();
+        shatterFieldAnimation();
     }
 
     if(cfgame->getWinner() != 0)
@@ -338,9 +351,11 @@ void  MyGraphicsScene::makeMove(int column, bool loadHistory)
     }else if(cfgame->checkDraw())
     {
         // Unentschieden
+
         animateText("Draw");
         qDebug() << "unentschieden";
     }
+    return stacked;
 
 }
 
@@ -356,7 +371,11 @@ void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         // click in Spielfeld
         if (col > -1 && col < cfgame->fieldsx && event->scenePos().x() >= 0)
         {
-            makeMove(col, false);
+            int stacked = makeMove(col, false);
+            if(cfgame->getDifficulty() != 0 && stacked > -1 && cfgame->getWinner() == 0)
+            {
+                this->aiMove();
+            }
         }
     }
 }

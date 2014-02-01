@@ -32,6 +32,7 @@ public:
     QString getGameState();
     void setGameState(QString state);
     int getCurrentPlayer();
+    bool checkMove(int x);
 
     QVector<QVector<int> > board;
     int fieldsx;
