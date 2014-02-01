@@ -32,6 +32,7 @@ signals:
     
 public slots:
     void bounceSound(QVariant v);
+    void animateVictory();
 
 protected:
     virtual void keyPressEvent(QKeyEvent *event);
@@ -52,7 +53,7 @@ private:
     void shatterFieldAnimation();
     void animateChipDrop(Chip *chip, QPointF end, bool grouped);
     void aiMove();
-    void animateVictory();
+    void showMessage(QString msg);
 
     QPointF getRandomPoint();
     MyField *fieldItem;

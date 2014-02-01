@@ -43,7 +43,8 @@ HEADERS  += \
     aiplayer.h
 
 FORMS    += mainwindow.ui \
-    dialog.ui
+    dialog.ui \
+    message.ui
 
 RESOURCES += \
     res/test.qrc

@@ -301,7 +301,6 @@ void MyGraphicsScene::loadHistory()
 void MyGraphicsScene::animateChipDrop(Chip *chip, QPointF end, bool grouped)
 {
 
-
     MyAnimation *animation = chip->animate(end, 1000, QEasingCurve::OutBounce);
     connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));
 
@@ -312,7 +311,6 @@ void MyGraphicsScene::animateChipDrop(Chip *chip, QPointF end, bool grouped)
          animation->setDuration(150);
          animationGroup.addAnimation(animation);
      }
-
 
 }
 
@@ -328,52 +326,44 @@ void MyGraphicsScene::aiMove()
     makeMove(row, false);
 }
 
+void MyGraphicsScene::showMessage(QString msg)
+{
+    QLabel *l = new QLabel();
+    l->setObjectName("lblMessage");
+    QString text = "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:500;\">" + msg + "</span></p></body></html>";
+
+
+    QByteArray byteArray = text.toUtf8();
+    const char* cString = byteArray.constData();
+
+    QString text2 = QString::fromUtf8(cString);
+
+
+    l->setText(QApplication::translate("Winner", cString, 0));
+
+    l->show();
+
+}
+
 
 
 void MyGraphicsScene::animateVictory()
 {
 
     MyAnimation *animation;
-    QSequentialAnimationGroup *ag = new QSequentialAnimationGroup();
     QVector<Chip*> wchips;
 
-    qsrand(QTime::currentTime().msec());
+    //qsrand(QTime::currentTime().msec());
     for(int i=0; i<chips.count(); i++)
-    {
-        qDebug() << "Animate victory";
-        qDebug() << chips.count();
-        if(chips[i]->getPlayer() == cfgame->getWinner())
-        {
-            animation = chips[i]->animate(getRandomPoint(), 500,  QEasingCurve::InOutBack);
-            animation->start(QAbstractAnimation::DeleteWhenStopped);
-        }
+    {    
+        animation = chips[i]->animate(getRandomPoint(), 500,  QEasingCurve::Linear);
+        connect(animation, SIGNAL(finished()), SLOT(animateVictory()));
+        animation->start(QAbstractAnimation::DeleteWhenStopped);
     }
-
-
-    ag->start(QAbstractAnimation::DeleteWhenStopped);
-    //ag->start();
-    /*
-
-    MyAnimation *animation  = new MyAnimation(chip, "pos");
-
-    animation->setDuration(1000);
-    animation->setEndValue(end);
-    animation->setEasingCurve(QEasingCurve::OutBounce);
-
-    if(!grouped) {
-       animation->start();
-    }else{
-        animation->setEasingCurve(QEasingCurve::InOutSine);
-        animation->setDuration(150);
-        animationGroup.addAnimation(animation);
-    }
-    connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));*/
-
 }
 
 QPointF MyGraphicsScene::getRandomPoint()
 {
-
     float x = qrand() % (int)fieldItem->boundingRect().width();
     float y = qrand() % (int)fieldItem->boundingRect().height();
     QPointF res;
@@ -384,6 +374,8 @@ QPointF MyGraphicsScene::getRandomPoint()
 
 int MyGraphicsScene::makeMove(int column, bool loadHistory)
 {
+
+
     int stacked = cfgame->setStone(column);
     if(stacked > -1)
     {
@@ -405,11 +397,11 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
     {
         if(cfgame->getWinner() == 1)
         {
-            animateText(cfgame->getName1() + " wins!!!");
+            showMessage(cfgame->getName1()+ " wins!!!");
         }
         else
         {
-            animateText(cfgame->getName2() + " wins!!! :D");
+            showMessage(cfgame->getName2()+ " wins!!! :D");
         }
 
         animateVictory();
@@ -422,6 +414,8 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
     return stacked;
 
 }
+
+
 
 
 
