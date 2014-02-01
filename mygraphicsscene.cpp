@@ -337,10 +337,7 @@ void MyGraphicsScene::showMessage(QString msg)
     const char* cString = byteArray.constData();
 
     QString text2 = QString::fromUtf8(cString);
-
-
     l->setText(QApplication::translate("Winner", cString, 0));
-
     l->show();
 
 }
@@ -408,8 +405,10 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
 
     }else if(cfgame->checkDraw())
     {
-        animateText("Draw");
-        qDebug() << "unentschieden";
+
+        showMessage("Draw!!!");
+        animateVictory();
+
     }
     return stacked;
 
