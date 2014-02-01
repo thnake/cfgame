@@ -25,6 +25,7 @@ public:
     void btnPlay();
     void btnLoad();
     void cbxAi();
+    void btnPrint();
 
 private:
     Ui::Dialog *ui;
