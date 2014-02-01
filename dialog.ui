@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>662</width>
+    <width>465</width>
     <height>288</height>
    </rect>
   </property>
@@ -66,13 +66,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1" colspan="2">
-      <widget class="QLineEdit" name="lePlayer1">
-       <property name="text">
-        <string>Player 1</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="3">
       <widget class="QLabel" name="label_3">
        <property name="text">
@@ -97,13 +90,6 @@
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>player 2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1" colspan="2">
-      <widget class="QLineEdit" name="lePlayer2">
-       <property name="text">
-        <string>Player 2</string>
        </property>
       </widget>
      </item>
@@ -162,6 +148,37 @@
       <widget class="QPushButton" name="btnPrint">
        <property name="text">
         <string>&amp;print</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lePlayer1">
+       <property name="text">
+        <string>Player 1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QRadioButton" name="radPlayer1">
+       <property name="text">
+        <string>begin</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="lePlayer2">
+       <property name="text">
+        <string>Player 2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QRadioButton" name="radPlayer2">
+       <property name="text">
+        <string>begin</string>
        </property>
       </widget>
      </item>

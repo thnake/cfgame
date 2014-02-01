@@ -16,7 +16,10 @@ Dialog::Dialog(QWidget *parent) :
     dao->loadGames(ui->tableView);
 
     connect(ui->btnPlay,SIGNAL(clicked()),SLOT(btnPlay()));
-    connect(ui->btnLoad, SIGNAL(clicked()), SLOT(btnLoad()));
+    connect(ui->btnLoad, SIGNAL(clicked()), SLOT(btnLoad()));    
+    connect(ui->cbxDifficulty, SIGNAL(currentIndexChanged(int)), SLOT(cbxAi()));
+    ui->radPlayer1->setVisible(false);
+    ui->radPlayer2->setVisible(false);
 
 }
 
@@ -27,7 +30,8 @@ void Dialog::btnPlay()
                              ui->sboxColumns->value(),
                              ui->lePlayer1->text(),
                              ui->lePlayer2->text(),
-                             ui->cbxDifficulty->currentIndex());
+                             ui->cbxDifficulty->currentIndex(),
+                             1);
     accept();
     close();
 }
@@ -51,12 +55,27 @@ void Dialog::btnLoad()
     int difficulty =  ui->tableView->model()->data(ui->tableView->model()->index(i,7)).toInt();
     QString history =  ui->tableView->model()->data(ui->tableView->model()->index(i,8)).toString();
 
-    cfGame = new ConnectFour(columns,rows,name1,name2,difficulty);
+    cfGame = new ConnectFour(columns,rows,name1,name2,difficulty,1);
     cfGame->setHistoryToLoad(history);
 
     accept();
     close();
 
+}
+
+void Dialog::cbxAi()
+{
+    if(ui->cbxDifficulty->currentIndex() != 0)
+    {
+        ui->radPlayer1->setVisible(true);
+        ui->radPlayer2->setVisible(true);
+        ui->lePlayer2->setText(ui->cbxDifficulty->currentText() + " AI");
+    }
+    else
+    {
+        ui->radPlayer1->setVisible(false);
+        ui->radPlayer2->setVisible(false);
+    }
 }
 
 Dialog::~Dialog()

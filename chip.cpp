@@ -1,13 +1,17 @@
 #include "chip.h"
+#include "MyAnimation.h"
 
+#include <QAbstractAnimation>
 #include <QDebug>
 #include <QtCore>
 #include <QtGui>
 #include <QtWidgets>
 #include <QRadialGradient>
 #include <QGraphicsEllipseItem>
-#include  <QGraphicsScene>
-#include  <cstddef>
+#include <QGraphicsScene>
+#include <cstddef>
+
+
 
 Chip::Chip(int x, int y, int w, int h, int player, QObject *parent)
     : QObject(parent), QGraphicsEllipseItem((qreal)x,(qreal)y,(qreal)w,(qreal)h)
@@ -16,9 +20,14 @@ Chip::Chip(int x, int y, int w, int h, int player, QObject *parent)
 }
 
 
-
-
-
+MyAnimation* Chip::animate(QPointF end, int duration,  const QEasingCurve &curve)
+{
+    MyAnimation* animation = new MyAnimation(this, "pos");
+    animation->setDuration(duration);
+    animation->setEndValue(end);
+    animation->setEasingCurve(curve);
+    return animation;
+}
 
 
 void Chip::setGradient(QPointF p)

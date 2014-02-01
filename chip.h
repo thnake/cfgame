@@ -1,9 +1,12 @@
 #ifndef MYGRAPHICSITEM_H
 #define MYGRAPHICSITEM_H
 
+#include "MyAnimation.h"
+
 #include <QGraphicsItemGroup>
 #include <QGraphicsEllipseItem>
 #include <QRadialGradient>
+#include <QPropertyAnimation>
 
 class Chip : public QObject, public QGraphicsEllipseItem
 {
@@ -12,6 +15,7 @@ class Chip : public QObject, public QGraphicsEllipseItem
 
 public:
     explicit Chip(int x, int y, int w, int h, int player, QObject *parent=NULL);
+    MyAnimation* animate(QPointF end, int duration,  const QEasingCurve &curve);
     void setDesign();
     int getPlayer();
     void setGradient(QPointF p);

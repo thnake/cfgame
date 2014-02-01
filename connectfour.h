@@ -25,7 +25,7 @@ private:
 
 public:
     ConnectFour();
-    ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel);
+    ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, int startingPlayer);
     int setStone(int x);
     bool checkVictory(int x, int y);
     bool checkDraw();

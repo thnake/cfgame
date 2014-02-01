@@ -4,8 +4,8 @@
 class aiPlayer
 {
 public:
+    aiPlayer(int difficulty);
     aiPlayer();
-
     int getStupidMove(int column);
     int difficulty;
 

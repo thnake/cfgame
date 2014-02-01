@@ -50,17 +50,18 @@ private:
     void animateText(QString text);
     void saveGame();
     void shatterFieldAnimation();
-    void animateChip(Chip *chip, QPointF end, bool grouped);
+    void animateChipDrop(Chip *chip, QPointF end, bool grouped);
     void aiMove();
     void animateVictory();
 
+    QPointF getRandomPoint();
     MyField *fieldItem;
     aiPlayer ai;
     void designChip(Chip* chip);
     QSequentialAnimationGroup animationGroup;
     ConnectFour *cfgame;
     Chip *chip = NULL;
-    QVector<Chip> chips;
+    QVector<Chip*> chips;
 
 
 };

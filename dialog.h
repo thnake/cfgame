@@ -24,6 +24,7 @@ public:
  public slots:
     void btnPlay();
     void btnLoad();
+    void cbxAi();
 
 private:
     Ui::Dialog *ui;

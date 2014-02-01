@@ -33,7 +33,7 @@ int ConnectFour::getWinner()
     return winner;
 }
 
-ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel): QObject()
+ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, int startingPlayer): QObject()
 {
     fieldsx = x;
     fieldsy = y;
@@ -42,8 +42,10 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
     name2 = player2Name;
     history = "";
 
+    currentPlayer = startingPlayer;
 
     difficulty = difficultyLevel;
+
     moves = 0;
 
 
@@ -122,7 +124,7 @@ bool ConnectFour::checkMove(int x)
     bool result = false;
     for(int i = 0; i < fieldsy; i++)
     {
-        if(board[x][fieldsy] == 0)
+        if(board[x][i] == 0)
         {
             result = true;
             break;
@@ -237,7 +239,7 @@ int ConnectFour::setStone(int x)
 
     if(currentPlayer == 1)
     {
-        currentPlayer = 2;
+        currentPlayer = 1;
     }
     else
     {

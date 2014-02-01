@@ -3,14 +3,20 @@
 #include <QTime>
 
 
-aiPlayer::aiPlayer()
+aiPlayer::aiPlayer(int difficulty)
 {
-
+    this->difficulty = difficulty;
 }
 
-int aiPlayer::getStupidMove(int column)
+aiPlayer::aiPlayer()
 {
-    return qrand() % column;
+    difficulty = 1;
+}
+
+int aiPlayer::getStupidMove(int columns)
+{
+    qsrand(QTime::currentTime().msec());
+    return qrand() % columns;
 }
 int aiPlayer::getDifficulty() const
 {

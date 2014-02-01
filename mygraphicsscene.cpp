@@ -20,6 +20,11 @@
 #include <iostream>
 #include <QSound>
 
+#include <qglobal.h>
+#include <QTime>
+
+
+
 MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selectedDesign) :
     QGraphicsScene(parent)
 {
@@ -162,7 +167,7 @@ void MyGraphicsScene::shatterFieldAnimation()
     shake->setEndValue(pEnd);
     shake->setEasingCurve(QEasingCurve::Linear);
     ag->addAnimation(shake);
-    ag->start();
+    ag->start(QAbstractAnimation::DeleteWhenStopped);
 
 }
 
@@ -220,6 +225,7 @@ void MyGraphicsScene::keyPressEvent(QKeyEvent *event)
 
 void MyGraphicsScene::bounceSound(QVariant v)
 {
+
     MyAnimation *s = (MyAnimation*)QObject::sender();
     QPointF *newVector = new QPointF();
 
@@ -230,7 +236,9 @@ void MyGraphicsScene::bounceSound(QVariant v)
 
     if(sp < 0)
     {
-        qDebug() << "bounce";
+        //qDebug() << "bounce";
+        //qDebug() << chips[chips.count()-1]->scenePos().x();
+
         //std::cout << (char)7;
         AudioPlayer ap;
         //ap.Play();
@@ -247,11 +255,7 @@ float MyGraphicsScene::scalarProduct(QPointF u, QPointF v)
 
 void MyGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    if(false)
-    {
-        qDebug() << event->scenePos().y();
-        chip->setGradient(event->pos());
-    }
+
 }
 
 
@@ -273,33 +277,33 @@ void MyGraphicsScene::setCfgame(ConnectFour *value)
 void MyGraphicsScene::loadHistory()
 {
     QString h = cfgame->getHistoryToLoad();
-    qDebug() << h;
     for(int i = 0; i < h.length(); i++)
     {
         makeMove(h[i].digitValue(), true);
     }
 
-    animationGroup.start();
+    animationGroup.start(QAbstractAnimation::DeleteWhenStopped);
     cfgame->setHistoryToLoad("");
 
 }
 
 
-void MyGraphicsScene::animateChip(Chip *chip, QPointF end, bool grouped)
+void MyGraphicsScene::animateChipDrop(Chip *chip, QPointF end, bool grouped)
 {
-     MyAnimation *animation  = new MyAnimation(chip, "pos");
 
-     animation->setDuration(1000);
-     animation->setEndValue(end);
-     animation->setEasingCurve(QEasingCurve::OutBounce);
+
+    MyAnimation *animation = chip->animate(end, 1000, QEasingCurve::OutBounce);
+    connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));
+
      if(!grouped) {
-        animation->start();
+        animation->start(QAbstractAnimation::DeleteWhenStopped);
      }else{
          animation->setEasingCurve(QEasingCurve::InOutSine);
          animation->setDuration(150);
          animationGroup.addAnimation(animation);
      }
-     connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));
+
+
 }
 
 
@@ -309,13 +313,63 @@ void MyGraphicsScene::aiMove()
     int row = 0;
     do{
         row = ai.getMove(cfgame->fieldsx);
+
     }while(cfgame->checkMove(row) == false);
     makeMove(row, false);
 }
 
+
+
 void MyGraphicsScene::animateVictory()
 {
 
+    MyAnimation *animation;
+    QSequentialAnimationGroup *ag = new QSequentialAnimationGroup();
+    QVector<Chip*> wchips;
+
+    qsrand(QTime::currentTime().msec());
+    for(int i=0; i<chips.count(); i++)
+    {
+        qDebug() << "Animate victory";
+        qDebug() << chips.count();
+        if(chips[i]->getPlayer() == cfgame->getWinner())
+        {
+            animation = chips[i]->animate(getRandomPoint(), 500,  QEasingCurve::InOutBack);
+            animation->start(QAbstractAnimation::DeleteWhenStopped);
+        }
+    }
+
+
+    ag->start(QAbstractAnimation::DeleteWhenStopped);
+    //ag->start();
+    /*
+
+    MyAnimation *animation  = new MyAnimation(chip, "pos");
+
+    animation->setDuration(1000);
+    animation->setEndValue(end);
+    animation->setEasingCurve(QEasingCurve::OutBounce);
+
+    if(!grouped) {
+       animation->start();
+    }else{
+        animation->setEasingCurve(QEasingCurve::InOutSine);
+        animation->setDuration(150);
+        animationGroup.addAnimation(animation);
+    }
+    connect(animation,SIGNAL(valueChanged(QVariant)),SLOT(bounceSound(QVariant)));*/
+
+}
+
+QPointF MyGraphicsScene::getRandomPoint()
+{
+
+    float x = qrand() % (int)fieldItem->boundingRect().width();
+    float y = qrand() % (int)fieldItem->boundingRect().height();
+    QPointF res;
+    res.setX(x);
+    res.setY(y);
+    return res;
 }
 
 int MyGraphicsScene::makeMove(int column, bool loadHistory)
@@ -329,8 +383,8 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
         qDebug() << chip->pos().x();
         designChip(chip);
         addItem(chip);
-        animateChip(chip, p, loadHistory);
-
+        animateChipDrop(chip, p, loadHistory);
+        chips.push_back(chip);
     }
     else
     {
@@ -348,10 +402,10 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
             animateText(cfgame->getName2() + " wins!!! :D");
         }
 
+        animateVictory();
+
     }else if(cfgame->checkDraw())
     {
-        // Unentschieden
-
         animateText("Draw");
         qDebug() << "unentschieden";
     }
@@ -371,9 +425,11 @@ void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         // click in Spielfeld
         if (col > -1 && col < cfgame->fieldsx && event->scenePos().x() >= 0)
         {
+
             int stacked = makeMove(col, false);
             if(cfgame->getDifficulty() != 0 && stacked > -1 && cfgame->getWinner() == 0)
             {
+
                 this->aiMove();
             }
         }
