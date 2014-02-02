@@ -10,6 +10,9 @@
 #include <QPrintDialog>
 
 
+/// <summary>
+/// Erstellt einen Dialog zum vorbereiten des Spiels
+/// </summary>
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
@@ -28,7 +31,9 @@ Dialog::Dialog(QWidget *parent) :
 
 }
 
-
+/// <summary>
+/// Beginnt das Spiel, ohne zu laden.
+/// </summary>
 void Dialog::btnPlay()
 {
     int firstplayer = 1;
@@ -48,11 +53,19 @@ void Dialog::btnPlay()
     close();
 }
 
+
+/// <summary>
+/// Liefert das gewählte Design zurück
+/// </summary>
 int Dialog::getDesign()
 {
     return ui->cbxDesign->currentIndex();
 }
 
+
+/// <summary>
+/// Slot für das Laden von Spieldaten
+/// </summary>
 void Dialog::btnLoad()
 {
 
@@ -76,6 +89,10 @@ void Dialog::btnLoad()
 
 }
 
+
+/// <summary>
+/// Slot für die Auswahl einer KI-Stufe
+/// </summary>
 void Dialog::cbxAi()
 {
     if(ui->cbxDifficulty->currentIndex() != 0)
@@ -91,6 +108,10 @@ void Dialog::cbxAi()
     }
 }
 
+
+/// <summary>
+/// Slot für das Drucken der Highscores
+/// </summary>
 void Dialog::btnPrint()
 {
     QPrinter printer(QPrinter::HighResolution);
@@ -133,6 +154,7 @@ void Dialog::btnPrint()
       doc->print(&printer);
     }
 }
+
 
 Dialog::~Dialog()
 {

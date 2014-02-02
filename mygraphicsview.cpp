@@ -8,6 +8,13 @@
 #include <QtWidgets>
 #include <QDebug>
 
+
+
+/// <summary>
+/// Konstruktor der Klasse MyGraphicsView.
+/// </summary>
+/// <param name="parent">Parentobjekt</param>
+/// <param name="dao">Objekt zum Zugriff auf die Spieledatenbank</param>
 MyGraphicsView::MyGraphicsView(QWidget *parent,  DataBaseAccessClass *dao) :
     QGraphicsView(parent)
 {
@@ -16,6 +23,10 @@ MyGraphicsView::MyGraphicsView(QWidget *parent,  DataBaseAccessClass *dao) :
     setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 }
 
+
+/// <summary>
+/// Zum erhalt der Seitenverhältnisse
+/// </summary>
 void MyGraphicsView::resizeEvent(QResizeEvent *event)
 {
     //qDebug() << "resize: " << event->size();
@@ -23,6 +34,12 @@ void MyGraphicsView::resizeEvent(QResizeEvent *event)
 
 }
 
+
+/// <summary>
+/// Fängt benutzereingaben ab.
+/// [Ss] speichert das Spiel
+/// [Ff] aktiviert und deaktiviert den Fullscreen modus
+/// </summary>
 void MyGraphicsView::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_S)
@@ -32,7 +49,6 @@ void MyGraphicsView::keyPressEvent(QKeyEvent *event)
         dao->saveGame(s->getCfgame());
 
     }
-
     if(event->key() == Qt::Key_F)
     {
         if(!isFullScreen())
@@ -42,8 +58,6 @@ void MyGraphicsView::keyPressEvent(QKeyEvent *event)
         {
             this->showNormal();
         }
-
-
 
     }
 

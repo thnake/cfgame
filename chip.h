@@ -16,9 +16,7 @@ class Chip : public QObject, public QGraphicsEllipseItem
 public:
     explicit Chip(int x, int y, int w, int h, int player, QObject *parent=NULL);
     MyAnimation* animate(QPointF end, int duration,  const QEasingCurve &curve);
-    void setDesign();
     int getPlayer();
-    void setGradient(QPointF p);
     QPointF *getCenter();
 
 

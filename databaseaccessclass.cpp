@@ -16,7 +16,10 @@
 #include "connectfour.h"
 
 
-
+/// <summary>
+/// Liefert das zuletzt ausgeführte SQL im klartext zurück
+/// </summary>
+/// <param name="query">Instanz des ausgeführten Querys</param>
 QString DataBaseAccessClass::getLastExecutedQuery( QSqlQuery query)
 {
     QString str = query.lastQuery();
@@ -29,11 +32,17 @@ QString DataBaseAccessClass::getLastExecutedQuery( QSqlQuery query)
     return str;
 }
 
+/// <summary>
+/// Konstruktor der Datenbankzugriffsklasse.
+/// </summary>
 DataBaseAccessClass::DataBaseAccessClass()
 {
     connect();
 }
 
+/// <summary>
+/// Lädt die Datensätze der Spiele in ein TableView
+/// </summary>
 void DataBaseAccessClass::loadGames(QTableView *tv)
 {
 
@@ -49,6 +58,10 @@ void DataBaseAccessClass::loadGames(QTableView *tv)
 
 }
 
+/// <summary>
+/// Speichert eine Spielinstanz in der Datenbank ab
+/// </summary>
+/// <returns>Erfolg oder Misserfolg des Speicherns</returns>
 bool DataBaseAccessClass::saveGame(ConnectFour *game)
 {
 
@@ -77,6 +90,9 @@ bool DataBaseAccessClass::saveGame(ConnectFour *game)
     return true;
 }
 
+/// <summary>
+///
+/// </summary>
 bool DataBaseAccessClass::connect()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");

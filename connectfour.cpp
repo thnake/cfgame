@@ -3,21 +3,34 @@
 #include <QtCore>
 #include <QObject>
 
+/// <summary>
+/// Konstruktor der Klasse ConnectFour.
+/// Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab.
+/// </summary>
 ConnectFour::ConnectFour() : QObject()
 {
 
 }
 
+/// <summary>
+/// Feld für den gewählten Schwierigkeitsgrad.
+/// </summary>
 int ConnectFour::getDifficulty() const
 {
     return difficulty;
 }
 
+/// <summary>
+/// Liefert die Anzahl der bisherigen Züge zurück
+/// </summary>
 int  ConnectFour::getMoves()
 {
     return  moves;
 }
 
+/// <summary>
+/// Liefert die Spielernummer des letzten Zuges zurück.
+/// </summary>
 int ConnectFour::getLastPlayer()
 {
     int res = 0;
@@ -32,21 +45,42 @@ int ConnectFour::getLastPlayer()
     return res;
 }
 
+/// <summary>
+/// Liefert den Namen des zweiten Spielers
+/// </summary>
 QString ConnectFour::getName2() const
 {
     return name2;
 }
 
+
+/// <summary>
+/// Liefert den Namen des ersten Spielers
+/// </summary>
 QString ConnectFour::getName1() const
 {
     return name1;
 }
 
+/// <summary>
+/// Liefert die Spielernummer des Siegers zurück
+/// </summary>
 int ConnectFour::getWinner()
 {
     return winner;
 }
 
+
+/// <summary>
+/// Konstruktor der Klasse ConnectFour.
+/// Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab.
+/// </summary>
+/// <param name="x">Spalten</param>
+/// <param name="y">Zeileen</param>
+/// <param name="player1Name">Name des ersten Spielers</param>
+/// <param name="player2Name">Name des zweiten Spielers</param>
+/// <param name="difficultyLevel">Schwierigkeitsgrad</param>
+/// <param name="startingPlayer">Nummer des beginnenden Spielers</param>
 ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, int startingPlayer): QObject()
 {
     fieldsx = x;
@@ -100,7 +134,10 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
 
 }
 
-
+/// <summary>
+/// Liefert eine Zeichenkette, die den Spielverlauf darstellt
+/// </summary>
+/// <retuns>Zeichenkette mit dem Spielverlauf</retuns>
 QString ConnectFour::getGameState()
 {
     QString state = "";
@@ -114,26 +151,18 @@ QString ConnectFour::getGameState()
    return state;
 }
 
-void ConnectFour::setGameState(QString state){
-
-    for(int j = 0; j < fieldsy; j++)
-    {
-        for(int i = 0; i < fieldsx; i++)
-        {
-            board[i][j] =  state[fieldsx * j + i].digitValue();
-            if(board[i][j] != 0)
-            {
-                moves++;
-            }
-        }
-    }
-}
-
+/// <summary>
+/// Liefert die aktuelle Spielernummer zurück.
+/// </summary>
 int ConnectFour::getCurrentPlayer()
 {
     return currentPlayer;
 }
 
+/// <summary>
+/// Prüft, ob ein Zug gültig ist, oder nicht. Wird von der KI im einfachen Modus benötigt.
+/// <param name="x">Gewählte Spalte für den Zug</param>
+/// </summary>
 bool ConnectFour::checkMove(int x)
 {
     bool result = false;
@@ -148,12 +177,18 @@ bool ConnectFour::checkMove(int x)
     return result;
 }
 
+/// <summary>
+/// Liefert den Spielverlauf in Form einer Zeichenkette zurück.
+/// </summary>
 QString ConnectFour::getHistory() const
 {
     return history;
 }
 
 
+/// <summary>
+/// Bereitet das Laden eines Spielverlaufs vor.
+/// </summary>
 void ConnectFour::setHistoryToLoad(QString hl)
 {
     this->historyToLoad = hl;
@@ -165,15 +200,18 @@ void ConnectFour::setHistoryToLoad(QString hl)
 // position ist die startposition
 // u ist der einheitsvektor, in dessen richtung wir sammeln
 // sign ist das vorzeichen
-
 int ConnectFour::getStartingPlayer() const
 {
     return startingPlayer;
 }
 
-
-
-int ConnectFour::collectPointsInDirection(QVector<int> position, QVector<int> u, int sign)
+/// <summary>
+/// Läuft ausgehend von einer gewünschten Position eine gewünschte Richtung ab und sammelt die Punkte
+/// </summary>
+/// <param name="position">Startpunkt der Suche</param>
+/// <param name="u">Richtungsvektor, zur Suche</param>
+/// <param name="sign">Schrittweite. Zum Rückwärtslaufen einen negativen wert übergeben</param>
+int ConnectFour::collectPointsInDirection(QVector<int> position, QVector<int> u, int scale)
 {
     int sum = 0;
 
@@ -184,21 +222,28 @@ int ConnectFour::collectPointsInDirection(QVector<int> position, QVector<int> u,
           && board[position[0]][position[1]] == currentPlayer)
     {
         sum++;
-        position[0] += u[0] * sign; // in richtung des Einheitsvektors u
-        position[1] += u[1] * sign;
+        position[0] += u[0] * scale; // in richtung des Einheitsvektors u
+        position[1] += u[1] * scale;
     }
 
     return sum;
 }
+
+/// <summary>
+/// Liefert die noch zu ladende Spielehistorie zurück
+/// </summary>
 QString ConnectFour::getHistoryToLoad() const
 {
     return historyToLoad;
 }
 
 
-
-// Verschiebt einen Punkt entlang der Linien (diagonal, senkrecht, horizontal)
-// und summiert die Spielerchips auf.
+/// <summary>
+/// Verschiebt einen Punkt entlang der Linien (diagonal, senkrecht, horizontal)
+/// und summiert die Spielerchips auf.
+/// </summary>
+/// <param name="x">x-Wert des Punktes</param>
+/// <param name="y">y-Wert des Punktes</param>
 bool ConnectFour::checkVictory(int x, int y)
 {
     //int* point = new int[2];
@@ -230,14 +275,20 @@ bool ConnectFour::checkVictory(int x, int y)
 
 }
 
+/// <summary>
+/// Prüft, ob ein unentschieden vorliegt
+/// </summary>
 bool ConnectFour::checkDraw()
 {
     return winner == 0 && history.length() == fieldsx*fieldsy;
 }
 
 
-// liefert die Zeile zurück, in der der Stein gelandet ist.
-// Prüft, ob der Zug siegreich war. Prüfen mit getWinner()
+/// <summary>
+/// liefert die Zeile zurück, in der der Stein gelandet ist.
+/// Prüft, ob der Zug siegreich war. Prüfen mit getWinner()
+/// </summary>
+/// <returns>Zeilennummer, in der der Stein gelandet ist</returns>
 int ConnectFour::setStone(int x)
 {
 

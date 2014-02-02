@@ -24,7 +24,13 @@
 #include <QTime>
 
 
-
+/// <summary>
+/// Konstruktor der Klasse MyGraphicScene. Liefert eine Instanz zur Darstellung des
+/// Connect Four-Spiels
+/// </summary>
+/// <param name="parent">Parentobjekt</param>
+/// <param name="game">Instanz des Spiels</param>
+/// <param name="game">gewähltes Design</param>
 MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selectedDesign) :
     QGraphicsScene(parent)
 {
@@ -44,22 +50,23 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
     foreground->setBrush( QBrush( QColor(118,185,0,128) ) );
     foreground->setZValue(1);
     resizeEvent(NULL);
-    drawField();
+    createField();
     loadHistory();
 
     if(cfgame->history.length() == 0 && cfgame->getCurrentPlayer() == 2)
     {
         aiMove();
     }
+
     qDebug() << "starting";
     qDebug() << cfgame->getStartingPlayer();
-
-
-
-
 }
 
-void MyGraphicsScene::drawField()
+
+/// <summary>
+/// Erzeugt das überdeckende Spielfeld
+/// </summary>
+void MyGraphicsScene::createField()
 {
 
     float width = wCol * cfgame->fieldsx;
@@ -133,26 +140,19 @@ void MyGraphicsScene::drawField()
     addItem(fieldItem);
 }
 
-void MyGraphicsScene::animateText(QString text)
-{
-    QGraphicsTextItem * io = new QGraphicsTextItem;
 
-    io->setTextWidth(io->boundingRect().width());
-
-    //io->boundingRect()
-
-    io->setZValue(10);
-    io->setPos(150,70);
-    io->setPlainText(text);
-    addItem(io);
-}
-
+/// <summary>
+/// Speichert das Spiel ab.
+/// </summary>
 void MyGraphicsScene::saveGame()
 {
     MyGraphicsView *view = (MyGraphicsView*)parent();
 
 }
 
+/// <summary>
+/// Animation für das Spielfeld. Stellt ein erschüttern dar. Zum Anzeigen von ungültigen Zügen
+/// </summary>
 void MyGraphicsScene::shatterFieldAnimation()
 {
     QPointF pEnd(0-fieldItem->boundingRect().width()/20, 0);
@@ -182,7 +182,10 @@ void MyGraphicsScene::shatterFieldAnimation()
 }
 
 
-
+/// <summary>
+/// Setzt das Design des Spielsteins fest
+/// </summary>
+/// <param name="chip">Instanz des Spielsteins</param>
 void MyGraphicsScene::designChip(Chip* chip)
 {
   QColor color;
@@ -228,11 +231,11 @@ void MyGraphicsScene::designChip(Chip* chip)
 
 }
 
-void MyGraphicsScene::keyPressEvent(QKeyEvent *event)
-{
-
-}
-
+/// <summary>
+/// Slot für das Abspielen von Bounce geräuschen. Bei jeder Richtungsänderung des Objekts kann zur
+/// entsprechenden Easingkurve das geräusch abgespielt werden. Die Soundwiedergabe ist nicht implementiert.
+/// </summary>
+/// <param name="v">Sender des Signals</param>
 void MyGraphicsScene::bounceSound(QVariant v)
 {
 
@@ -246,44 +249,47 @@ void MyGraphicsScene::bounceSound(QVariant v)
 
     if(sp < 0)
     {
-        //qDebug() << "bounce";
-        //qDebug() << chips[chips.count()-1]->scenePos().x();
-
-        //std::cout << (char)7;
-        AudioPlayer ap;
-        //ap.Play();
-
+        qDebug() << "bounce sound abspielen";
     }
     s->setOldPosition(v.toPointF());
     s->setOldVector(*newVector);
 }
 
+/// <summary>
+/// Liefert das Skalarprodukt zweier 2d-Vektoren
+/// </summary>
 float MyGraphicsScene::scalarProduct(QPointF u, QPointF v)
 {
     return u.x()*v.x() + u.y()*v.y();
 }
 
-void MyGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-{
-
-}
-
-
-
+/// <summary>
+/// Fängt das Resize Event ab und berechnet die Spaltenbreite
+/// </summary>
 void MyGraphicsScene::resizeEvent(QResizeEvent *event)
 {
     wCol = (int)sceneRect().width()/cfgame->fieldsx;
 }
+
+/// <summary>
+/// Liefert einen Zeiger auf die Instanz der Spielklasse
+/// </summary>
 ConnectFour *MyGraphicsScene::getCfgame() const
 {
     return cfgame;
 }
 
+/// <summary>
+/// Setzt die Instanz der Spielklasse fest
+/// </summary>
 void MyGraphicsScene::setCfgame(ConnectFour *value)
 {
     cfgame = value;
 }
 
+/// <summary>
+/// Rekonstruiert eine Historie, die in cfGame bereit steht
+/// </summary>
 void MyGraphicsScene::loadHistory()
 {
     QString h = cfgame->getHistoryToLoad();
@@ -297,7 +303,12 @@ void MyGraphicsScene::loadHistory()
 
 }
 
-
+/// <summary>
+/// Animiert das Fallen eines Spielsteins
+/// </summary>
+/// <param name="chip">Zeiger auf den Spielstein</param>
+/// <param name="end">Punkt, zu dem der Stein fallen soll</param>
+/// <param name="grouped">Entscheidet, ob eine Gruppenanimation genutzt werden soll</param>
 void MyGraphicsScene::animateChipDrop(Chip *chip, QPointF end, bool grouped)
 {
 
@@ -315,7 +326,9 @@ void MyGraphicsScene::animateChipDrop(Chip *chip, QPointF end, bool grouped)
 }
 
 
-
+/// <summary>
+/// Lässt die KI einen Zug durchführen
+/// </summary>
 void MyGraphicsScene::aiMove()
 {
     int row = 0;
@@ -326,6 +339,10 @@ void MyGraphicsScene::aiMove()
     makeMove(row, false);
 }
 
+/// <summary>
+/// Lässt ein Label mit einer Nachricht aufpoppen
+/// </summary>
+/// <param name="msg">Nachricht an den Spieler</param>
 void MyGraphicsScene::showMessage(QString msg)
 {
     QLabel *l = new QLabel();
@@ -343,7 +360,9 @@ void MyGraphicsScene::showMessage(QString msg)
 }
 
 
-
+/// <summary>
+/// Signalisiert dem Spieler den Endzustand des Spiels durch eine Animation
+/// </summary>
 void MyGraphicsScene::animateVictory()
 {
 
@@ -359,6 +378,9 @@ void MyGraphicsScene::animateVictory()
     }
 }
 
+/// <summary>
+/// Liefert einen zufälligen Punkt aus dem Feld zurück.
+/// </summary>
 QPointF MyGraphicsScene::getRandomPoint()
 {
     float x = qrand() % (int)fieldItem->boundingRect().width();
@@ -369,6 +391,11 @@ QPointF MyGraphicsScene::getRandomPoint()
     return res;
 }
 
+/// <summary>
+/// Führt einen Spielzug durch.
+/// </summary>
+/// <param name="column">Spalte, die in dem Zug benutzt werden soll</param>
+/// <param name="loadHistory">Gibt an, dass mit diesem Zug die Historie geladen wird</param>
 int MyGraphicsScene::makeMove(int column, bool loadHistory)
 {
 
@@ -402,11 +429,13 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
         }
 
         animateVictory();
+        saveGame();
 
     }else if(cfgame->checkDraw())
     {
 
         showMessage("Draw!!!");
+        saveGame();
         animateVictory();
 
     }
@@ -415,10 +444,10 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
 }
 
 
-
-
-
-
+/// <summary>
+/// Fängt den Spieler click ab, der seine Spalte durch anclicken wählen soll.
+/// </summary>
+/// <param name="event">enthält die clickinformationen</param>
 void MyGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     if(cfgame->getWinner() == 0)

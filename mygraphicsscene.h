@@ -21,11 +21,9 @@ class MyGraphicsScene : public QGraphicsScene
     Q_OBJECT
 public:
     explicit MyGraphicsScene(QObject *parent ,ConnectFour *game, int selectedDesign);
-
     ConnectFour *getCfgame() const;
     void setCfgame(ConnectFour *value);
     float scalarProduct(QPointF u, QPointF v);
-   // void designChip(Chip *chip);
 
 
 signals:
@@ -35,9 +33,7 @@ public slots:
     void animateVictory();
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *event);
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     virtual void resizeEvent(QResizeEvent * event );
 
 
@@ -47,8 +43,7 @@ private:
     int wCol = 0;
     int makeMove(int column, bool grouped);
     void loadHistory();
-    void drawField();
-    void animateText(QString text);
+    void createField();
     void saveGame();
     void shatterFieldAnimation();
     void animateChipDrop(Chip *chip, QPointF end, bool grouped);

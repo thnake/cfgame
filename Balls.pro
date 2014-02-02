@@ -16,9 +16,7 @@ SOURCES += main.cpp \
     mygraphicsview.cpp \
     mygraphicsscene.cpp \
     connectfour.cpp \
-    panel.cpp \
     chip.cpp \
-    mainwindow.cpp \
     dialog.cpp \
     databaseaccessclass.cpp \
     myanimation.cpp \
@@ -31,9 +29,7 @@ HEADERS  += \
     mygraphicsview.h \
     mygraphicsscene.h \
     connectfour.h \
-    panel.h \
     chip.h \
-    mainwindow.h \
     dialog.h \
     databaseaccessclass.h \
     myanimation.h \
@@ -42,7 +38,7 @@ HEADERS  += \
     myfield.h \
     aiplayer.h
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     dialog.ui \
     message.ui
 
