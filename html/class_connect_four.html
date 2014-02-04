@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -89,22 +89,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ConnectFour Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und kennt die Regeln des Spiels. Seine Felder werden in der SQLite DB persistiert.  
+ <a href="class_connect_four.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="connectfour_8h_source.html">connectfour.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ConnectFour:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_connect_four.png" usemap="#ConnectFour_map" alt=""/>
-  <map id="ConnectFour_map" name="ConnectFour_map">
+<div class="center"><img src="class_connect_four__inherit__graph.png" border="0" usemap="#_connect_four_inherit__map" alt="Inheritance graph"/></div>
+<map name="_connect_four_inherit__map" id="_connect_four_inherit__map">
 </map>
- </div></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for ConnectFour:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four__coll__graph.png" border="0" usemap="#_connect_four_coll__map" alt="Collaboration graph"/></div>
+<map name="_connect_four_coll__map" id="_connect_four_coll__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9d7a0db424f22513386fa60ed2d5b575"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connect_four.html#a9d7a0db424f22513386fa60ed2d5b575">ConnectFour</a> ()</td></tr>
-<tr class="memdesc:a9d7a0db424f22513386fa60ed2d5b575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor der Klasse <a class="el" href="class_connect_four.html">ConnectFour</a>. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab.  <a href="#a9d7a0db424f22513386fa60ed2d5b575">More...</a><br/></td></tr>
+<tr class="memdesc:a9d7a0db424f22513386fa60ed2d5b575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor der Klasse <a class="el" href="class_connect_four.html" title="VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und kennt die Regeln des Spie...">ConnectFour</a>. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab.  <a href="#a9d7a0db424f22513386fa60ed2d5b575">More...</a><br/></td></tr>
 <tr class="separator:a9d7a0db424f22513386fa60ed2d5b575"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4fca1dec417914e68e1c8fb22dc87a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connect_four.html#ac4fca1dec417914e68e1c8fb22dc87a7">ConnectFour</a> (int x, int y, QString player1Name, QString player2Name, int difficultyLevel, int startingPlayer)</td></tr>
-<tr class="memdesc:ac4fca1dec417914e68e1c8fb22dc87a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor der Klasse <a class="el" href="class_connect_four.html">ConnectFour</a>. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab.  <a href="#ac4fca1dec417914e68e1c8fb22dc87a7">More...</a><br/></td></tr>
+<tr class="memdesc:ac4fca1dec417914e68e1c8fb22dc87a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor der Klasse <a class="el" href="class_connect_four.html" title="VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und kennt die Regeln des Spie...">ConnectFour</a>. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab.  <a href="#ac4fca1dec417914e68e1c8fb22dc87a7">More...</a><br/></td></tr>
 <tr class="separator:ac4fca1dec417914e68e1c8fb22dc87a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab7f413c1f52a8bc9ff21d397f9f1f3f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connect_four.html#aab7f413c1f52a8bc9ff21d397f9f1f3f">setStone</a> (int x)</td></tr>
 <tr class="memdesc:aab7f413c1f52a8bc9ff21d397f9f1f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">liefert die Zeile zurück, in der der Stein gelandet ist. Prüft, ob der Zug siegreich war. Prüfen mit <a class="el" href="class_connect_four.html#a5b3cc0a97ca9722eb49266e651cdcf3b" title="Liefert die Spielernummer des Siegers zurück ">getWinner()</a>  <a href="#aab7f413c1f52a8bc9ff21d397f9f1f3f">More...</a><br/></td></tr>
@@ -112,6 +123,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a38f2e53360ddd8b3152e6583705a1b8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connect_four.html#a38f2e53360ddd8b3152e6583705a1b8a">checkVictory</a> (int x, int y)</td></tr>
 <tr class="memdesc:a38f2e53360ddd8b3152e6583705a1b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verschiebt einen Punkt entlang der Linien (diagonal, senkrecht, horizontal) und summiert die Spielerchips auf.  <a href="#a38f2e53360ddd8b3152e6583705a1b8a">More...</a><br/></td></tr>
 <tr class="separator:a38f2e53360ddd8b3152e6583705a1b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0916903c07bfbd9891f1203373317e76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connect_four.html#a0916903c07bfbd9891f1203373317e76">evaluateMove</a> (int x, int y)</td></tr>
+<tr class="memdesc:a0916903c07bfbd9891f1203373317e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt den größten Wert für  <a href="#a0916903c07bfbd9891f1203373317e76">More...</a><br/></td></tr>
+<tr class="separator:a0916903c07bfbd9891f1203373317e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a3cd6ddcc7ae5b1eee3afa64ed6790"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connect_four.html#a70a3cd6ddcc7ae5b1eee3afa64ed6790">checkDraw</a> ()</td></tr>
 <tr class="memdesc:a70a3cd6ddcc7ae5b1eee3afa64ed6790"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob ein unentschieden vorliegt  <a href="#a70a3cd6ddcc7ae5b1eee3afa64ed6790">More...</a><br/></td></tr>
 <tr class="separator:a70a3cd6ddcc7ae5b1eee3afa64ed6790"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,6 +196,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>fieldsy</b></td></tr>
 <tr class="memitem:a7730e7df9fab3346f2bcf43ed4a185f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7730e7df9fab3346f2bcf43ed4a185f0"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>currentPlayer</b></td></tr>
 <tr class="separator:a7730e7df9fab3346f2bcf43ed4a185f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c3ccb860d071c4307c9d963173b181"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42c3ccb860d071c4307c9d963173b181"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>necessaryPointsForWinning</b></td></tr>
+<tr class="separator:a42c3ccb860d071c4307c9d963173b181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72b70f49c28ba97d33373d3fd398be6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72b70f49c28ba97d33373d3fd398be6a"></a>
 QString&#160;</td><td class="memItemRight" valign="bottom"><b>history</b></td></tr>
 <tr class="separator:a72b70f49c28ba97d33373d3fd398be6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -189,7 +206,9 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><b>history</b></td></
 QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>directions</b></td></tr>
 <tr class="separator:a46078d90754278b1048681cc413c9bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und kennt die Regeln des Spiels. Seine Felder werden in der SQLite DB persistiert. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9d7a0db424f22513386fa60ed2d5b575"></a>
 <div class="memitem">
 <div class="memproto">
@@ -203,7 +222,7 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
       </table>
 </div><div class="memdoc">
 
-<p>Konstruktor der Klasse <a class="el" href="class_connect_four.html">ConnectFour</a>. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab. </p>
+<p>Konstruktor der Klasse <a class="el" href="class_connect_four.html" title="VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und kennt die Regeln des Spie...">ConnectFour</a>. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab. </p>
 
 </div>
 </div>
@@ -255,7 +274,7 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
       </table>
 </div><div class="memdoc">
 
-<p>Konstruktor der Klasse <a class="el" href="class_connect_four.html">ConnectFour</a>. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab. </p>
+<p>Konstruktor der Klasse <a class="el" href="class_connect_four.html" title="VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und kennt die Regeln des Spie...">ConnectFour</a>. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Spalten</td></tr>
@@ -346,6 +365,50 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
   </dd>
 </dl>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_a38f2e53360ddd8b3152e6583705a1b8a_icgraph.png" border="0" usemap="#class_connect_four_a38f2e53360ddd8b3152e6583705a1b8a_icgraph" alt=""/></div>
+<map name="class_connect_four_a38f2e53360ddd8b3152e6583705a1b8a_icgraph" id="class_connect_four_a38f2e53360ddd8b3152e6583705a1b8a_icgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0916903c07bfbd9891f1203373317e76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ConnectFour::evaluateMove </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gibt den größten Wert für </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x-Wert des Punktes</td></tr>
+    <tr><td class="paramname">y</td><td>y-Wert des Punktes</td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a9b4b647139235c7c3eae2c5c9c8d7471"></a>
@@ -363,6 +426,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 
 <p>Liefert die aktuelle Spielernummer zurück. </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_a9b4b647139235c7c3eae2c5c9c8d7471_icgraph.png" border="0" usemap="#class_connect_four_a9b4b647139235c7c3eae2c5c9c8d7471_icgraph" alt=""/></div>
+<map name="class_connect_four_a9b4b647139235c7c3eae2c5c9c8d7471_icgraph" id="class_connect_four_a9b4b647139235c7c3eae2c5c9c8d7471_icgraph">
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a460f6063899b4e5a7e2171ab310a449b"></a>
@@ -379,6 +451,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div><div class="memdoc">
 
 <p>Feld für den gewählten Schwierigkeitsgrad. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_a460f6063899b4e5a7e2171ab310a449b_icgraph.png" border="0" usemap="#class_connect_four_a460f6063899b4e5a7e2171ab310a449b_icgraph" alt=""/></div>
+<map name="class_connect_four_a460f6063899b4e5a7e2171ab310a449b_icgraph" id="class_connect_four_a460f6063899b4e5a7e2171ab310a449b_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -414,6 +495,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div><div class="memdoc">
 
 <p>Liefert den Spielverlauf in Form einer Zeichenkette zurück. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_aa47ee15206dfa8e942e28ec38428e507_icgraph.png" border="0" usemap="#class_connect_four_aa47ee15206dfa8e942e28ec38428e507_icgraph" alt=""/></div>
+<map name="class_connect_four_aa47ee15206dfa8e942e28ec38428e507_icgraph" id="class_connect_four_aa47ee15206dfa8e942e28ec38428e507_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -466,6 +556,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 
 <p>Liefert die Anzahl der bisherigen Züge zurück </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_a88586e2245c07b08979f258bb24c9c17_icgraph.png" border="0" usemap="#class_connect_four_a88586e2245c07b08979f258bb24c9c17_icgraph" alt=""/></div>
+<map name="class_connect_four_a88586e2245c07b08979f258bb24c9c17_icgraph" id="class_connect_four_a88586e2245c07b08979f258bb24c9c17_icgraph">
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a0fb31ff9df21241727dc89111a8237d1"></a>
@@ -482,6 +581,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div><div class="memdoc">
 
 <p>Liefert den Namen des ersten Spielers </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_a0fb31ff9df21241727dc89111a8237d1_icgraph.png" border="0" usemap="#class_connect_four_a0fb31ff9df21241727dc89111a8237d1_icgraph" alt=""/></div>
+<map name="class_connect_four_a0fb31ff9df21241727dc89111a8237d1_icgraph" id="class_connect_four_a0fb31ff9df21241727dc89111a8237d1_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -500,6 +608,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 
 <p>Liefert den Namen des zweiten Spielers </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_af1e622aabf4ab9c3e59f120453b4b00a_icgraph.png" border="0" usemap="#class_connect_four_af1e622aabf4ab9c3e59f120453b4b00a_icgraph" alt=""/></div>
+<map name="class_connect_four_af1e622aabf4ab9c3e59f120453b4b00a_icgraph" id="class_connect_four_af1e622aabf4ab9c3e59f120453b4b00a_icgraph">
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5b3cc0a97ca9722eb49266e651cdcf3b"></a>
@@ -516,6 +633,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div><div class="memdoc">
 
 <p>Liefert die Spielernummer des Siegers zurück </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b_icgraph.png" border="0" usemap="#class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b_icgraph" alt=""/></div>
+<map name="class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b_icgraph" id="class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -534,6 +660,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div><div class="memdoc">
 
 <p>Bereitet das Laden eines Spielverlaufs vor. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_ab31edf162a4035383b8034f2c65d65b5_icgraph.png" border="0" usemap="#class_connect_four_ab31edf162a4035383b8034f2c65d65b5_icgraph" alt=""/></div>
+<map name="class_connect_four_ab31edf162a4035383b8034f2c65d65b5_icgraph" id="class_connect_four_ab31edf162a4035383b8034f2c65d65b5_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -554,6 +689,15 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 <p>liefert die Zeile zurück, in der der Stein gelandet ist. Prüft, ob der Zug siegreich war. Prüfen mit <a class="el" href="class_connect_four.html#a5b3cc0a97ca9722eb49266e651cdcf3b" title="Liefert die Spielernummer des Siegers zurück ">getWinner()</a> </p>
 <dl class="section return"><dt>Returns</dt><dd>Zeilennummer, in der der Stein gelandet ist</dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_connect_four_aab7f413c1f52a8bc9ff21d397f9f1f3f_cgraph.png" border="0" usemap="#class_connect_four_aab7f413c1f52a8bc9ff21d397f9f1f3f_cgraph" alt=""/></div>
+<map name="class_connect_four_aab7f413c1f52a8bc9ff21d397f9f1f3f_cgraph" id="class_connect_four_aab7f413c1f52a8bc9ff21d397f9f1f3f_cgraph">
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -564,7 +708,7 @@ QVector&lt; QVector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign=
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 4 2014 01:09:24 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 4 2014 23:41:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

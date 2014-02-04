@@ -21,7 +21,7 @@ aiPlayer::aiPlayer()
 /// </summary>
 /// <param name="columns">Anzahl der Spalten, die zur Auswahl stehen</param>
 /// <returns>Wert der gewählten Spalte</returns>
-int aiPlayer::getStupidMove(int columns)
+int aiPlayer::getRandomMove(int columns)
 {
     return qrand() % columns;
 }
@@ -84,11 +84,11 @@ int aiPlayer::getMove(int columns)
     {
 
         case 0:
-            res = getStupidMove(columns);
+            res = getRandomMove(columns);
             break;
 
         default:
-            res = getStupidMove(columns);
+            res = getRandomMove(columns);
             break;
     }
     return res;

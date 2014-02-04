@@ -1,0 +1,15 @@
+digraph "MyGraphicsScene::MyGraphicsScene"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="MyGraphicsScene::MyGraphics\lScene",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="aiPlayer::setDifficulty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classai_player.html#a3cdaa5c64f3e7f60559ec2973f578197",tooltip="Setzt den Schwierigkeitsgrad der KI "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ConnectFour::getDifficulty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#a460f6063899b4e5a7e2171ab310a449b",tooltip="Feld für den gewählten Schwierigkeitsgrad. "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="MyGraphicsScene::resizeEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_my_graphics_scene.html#a174dd0911afadc8f637a5ebf6f5b9b0c",tooltip="Fängt das Resize Event ab und berechnet die Spaltenbreite "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ConnectFour::getCurrentPlayer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#a9b4b647139235c7c3eae2c5c9c8d7471",tooltip="Liefert die aktuelle Spielernummer zurück. "];
+}

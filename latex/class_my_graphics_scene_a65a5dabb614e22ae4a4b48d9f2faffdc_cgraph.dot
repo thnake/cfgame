@@ -1,0 +1,11 @@
+digraph "MyGraphicsScene::mouseReleaseEvent"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="MyGraphicsScene::mouseRelease\lEvent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ConnectFour::getWinner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#a5b3cc0a97ca9722eb49266e651cdcf3b",tooltip="Liefert die Spielernummer des Siegers zurück "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ConnectFour::getDifficulty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#a460f6063899b4e5a7e2171ab310a449b",tooltip="Feld für den gewählten Schwierigkeitsgrad. "];
+}

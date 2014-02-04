@@ -8,6 +8,10 @@
 #include <QRadialGradient>
 #include <QPropertyAnimation>
 
+
+/// <summary>
+/// Spielsteinklasse für das Spielbrett.
+/// </summary>
 class Chip : public QObject, public QGraphicsEllipseItem
 {
     Q_OBJECT
@@ -21,7 +25,6 @@ public:
 
 
 private:
-    QRadialGradient gradient;
     int player;
 
 };

@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -83,59 +83,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classai_player-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">aiPlayer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Computergegner für das Spiel. MinMax/Alpha-Beta-Implementierung ist unfertig. möglich sind nur zufällige Züge.  
+ <a href="classai_player.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="aiplayer_8h_source.html">aiplayer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae22be237ad50aed3008c1d86378cd82d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classai_player.html#ae22be237ad50aed3008c1d86378cd82d">aiPlayer</a> (int difficulty)</td></tr>
-<tr class="memdesc:ae22be237ad50aed3008c1d86378cd82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt den Schwierigkeitslevel. von 0 - 3  <a href="#ae22be237ad50aed3008c1d86378cd82d">More...</a><br/></td></tr>
-<tr class="separator:ae22be237ad50aed3008c1d86378cd82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1218587a379bb61445aa5e67a932e262"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classai_player.html#a1218587a379bb61445aa5e67a932e262">aiPlayer</a> ()</td></tr>
-<tr class="memdesc:a1218587a379bb61445aa5e67a932e262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert eine Instanz auf eine <a class="el" href="classai_player.html">aiPlayer</a> Klasse  <a href="#a1218587a379bb61445aa5e67a932e262">More...</a><br/></td></tr>
+<tr class="memdesc:a1218587a379bb61445aa5e67a932e262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt den Schwierigkeitslevel. von 0 - 3  <a href="#a1218587a379bb61445aa5e67a932e262">More...</a><br/></td></tr>
 <tr class="separator:a1218587a379bb61445aa5e67a932e262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd94b089fd56bd8ad8e86be6cc2017eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classai_player.html#afd94b089fd56bd8ad8e86be6cc2017eb">getStupidMove</a> (int column)</td></tr>
-<tr class="memdesc:afd94b089fd56bd8ad8e86be6cc2017eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert einen zufällig generierten Zug zurück. Der Zug bechtet keine ungültigen Züge  <a href="#afd94b089fd56bd8ad8e86be6cc2017eb">More...</a><br/></td></tr>
-<tr class="separator:afd94b089fd56bd8ad8e86be6cc2017eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac815cf510e2c03291e597fa25b732b44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac815cf510e2c03291e597fa25b732b44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Maximize</b> (QVector&lt; QVector&lt; int &gt; &gt; &amp;board, int turn, int &amp;alpha, int &amp;beta)</td></tr>
+<tr class="separator:ac815cf510e2c03291e597fa25b732b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a383a7f3c0dd9fedc3bb547658b4da501"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a383a7f3c0dd9fedc3bb547658b4da501"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Minimize</b> (QVector&lt; QVector&lt; int &gt; &gt; &amp;board, int turn, int &amp;alpha, int &amp;beta)</td></tr>
+<tr class="separator:a383a7f3c0dd9fedc3bb547658b4da501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9290bc63d6b1752a44784d8bd75f365b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classai_player.html#a9290bc63d6b1752a44784d8bd75f365b">getRandomMove</a> (int colum)</td></tr>
+<tr class="memdesc:a9290bc63d6b1752a44784d8bd75f365b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert einen zufällig generierten Zug zurück. Der Zug bechtet keine ungültigen Züge  <a href="#a9290bc63d6b1752a44784d8bd75f365b">More...</a><br/></td></tr>
+<tr class="separator:a9290bc63d6b1752a44784d8bd75f365b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a902e0b5e22d6c3ea4bd3e46fdfc2c582"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a902e0b5e22d6c3ea4bd3e46fdfc2c582"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerIdentifier</b> ()</td></tr>
+<tr class="separator:a902e0b5e22d6c3ea4bd3e46fdfc2c582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a030497003f89504920773b788ac91425"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a030497003f89504920773b788ac91425"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>OtherPlayerIdentifier</b> ()</td></tr>
+<tr class="separator:a030497003f89504920773b788ac91425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a431a9ec4ef7a4072ffac7a3ac3816d8a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classai_player.html#a431a9ec4ef7a4072ffac7a3ac3816d8a">getDifficulty</a> () const </td></tr>
 <tr class="memdesc:a431a9ec4ef7a4072ffac7a3ac3816d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert den Schwierigkeitsgrad der KI  <a href="#a431a9ec4ef7a4072ffac7a3ac3816d8a">More...</a><br/></td></tr>
 <tr class="separator:a431a9ec4ef7a4072ffac7a3ac3816d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cdaa5c64f3e7f60559ec2973f578197"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classai_player.html#a3cdaa5c64f3e7f60559ec2973f578197">setDifficulty</a> (int value)</td></tr>
 <tr class="memdesc:a3cdaa5c64f3e7f60559ec2973f578197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt den Schwierigkeitsgrad der KI  <a href="#a3cdaa5c64f3e7f60559ec2973f578197">More...</a><br/></td></tr>
 <tr class="separator:a3cdaa5c64f3e7f60559ec2973f578197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fca408a282f3e0f9f3f517fe61ebb83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fca408a282f3e0f9f3f517fe61ebb83"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setGame</b> (<a class="el" href="class_connect_four.html">ConnectFour</a> *cfgame)</td></tr>
+<tr class="separator:a7fca408a282f3e0f9f3f517fe61ebb83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b30b321986ef6a14d6b39b2e6c488e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classai_player.html#a5b30b321986ef6a14d6b39b2e6c488e1">getMove</a> (int column)</td></tr>
 <tr class="memdesc:a5b30b321986ef6a14d6b39b2e6c488e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Führt einen Zug entsprechend des gewählten Schwierigskeitsgrades aus.  <a href="#a5b30b321986ef6a14d6b39b2e6c488e1">More...</a><br/></td></tr>
 <tr class="separator:a5b30b321986ef6a14d6b39b2e6c488e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a221ff05674fd0174958b2114453f1896"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a221ff05674fd0174958b2114453f1896"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>difficulty</b></td></tr>
-<tr class="separator:a221ff05674fd0174958b2114453f1896"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae22be237ad50aed3008c1d86378cd82d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">aiPlayer::aiPlayer </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>difficulty</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Setzt den Schwierigkeitslevel. von 0 - 3 </p>
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Computergegner für das Spiel. MinMax/Alpha-Beta-Implementierung ist unfertig. möglich sind nur zufällige Züge. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1218587a379bb61445aa5e67a932e262"></a>
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +143,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>difficulty</b></td></t
       </table>
 </div><div class="memdoc">
 
-<p>Liefert eine Instanz auf eine <a class="el" href="classai_player.html">aiPlayer</a> Klasse </p>
+<p>Setzt den Schwierigkeitslevel. von 0 - 3 </p>
+<p>Liefert eine Instanz auf eine <a class="el" href="classai_player.html" title="Computergegner für das Spiel. MinMax/Alpha-Beta-Implementierung ist unfertig. möglich sind nur zufäll...">aiPlayer</a> Klasse </p>
 
 </div>
 </div>
@@ -194,14 +189,23 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>difficulty</b></td></t
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Gewählte Spalte</dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classai_player_a5b30b321986ef6a14d6b39b2e6c488e1_cgraph.png" border="0" usemap="#classai_player_a5b30b321986ef6a14d6b39b2e6c488e1_cgraph" alt=""/></div>
+<map name="classai_player_a5b30b321986ef6a14d6b39b2e6c488e1_cgraph" id="classai_player_a5b30b321986ef6a14d6b39b2e6c488e1_cgraph">
+</map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="afd94b089fd56bd8ad8e86be6cc2017eb"></a>
+<a class="anchor" id="a9290bc63d6b1752a44784d8bd75f365b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int aiPlayer::getStupidMove </td>
+          <td class="memname">int aiPlayer::getRandomMove </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>columns</em></td><td>)</td>
@@ -218,6 +222,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>difficulty</b></td></t
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Wert der gewählten Spalte</dd></dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classai_player_a9290bc63d6b1752a44784d8bd75f365b_icgraph.png" border="0" usemap="#classai_player_a9290bc63d6b1752a44784d8bd75f365b_icgraph" alt=""/></div>
+<map name="classai_player_a9290bc63d6b1752a44784d8bd75f365b_icgraph" id="classai_player_a9290bc63d6b1752a44784d8bd75f365b_icgraph">
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -237,6 +250,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>difficulty</b></td></t
 
 <p>Setzt den Schwierigkeitsgrad der KI </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classai_player_a3cdaa5c64f3e7f60559ec2973f578197_icgraph.png" border="0" usemap="#classai_player_a3cdaa5c64f3e7f60559ec2973f578197_icgraph" alt=""/></div>
+<map name="classai_player_a3cdaa5c64f3e7f60559ec2973f578197_icgraph" id="classai_player_a3cdaa5c64f3e7f60559ec2973f578197_icgraph">
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -247,7 +269,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>difficulty</b></td></t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 4 2014 01:09:24 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 4 2014 23:41:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,0 +1,9 @@
+digraph "ConnectFour::checkVictory"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ConnectFour::checkVictory",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ConnectFour::setStone",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#aab7f413c1f52a8bc9ff21d397f9f1f3f",tooltip="liefert die Zeile zurück, in der der Stein gelandet ist. Prüft, ob der Zug siegreich war..."];
+}

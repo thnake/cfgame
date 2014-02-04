@@ -1,0 +1,17 @@
+digraph "MyGraphicsScene::bounceSound"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="MyGraphicsScene::bounceSound",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="MyAnimation::getOldPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_my_animation.html#a6dddda03203449e45354405d14ffb436",tooltip="Liefert die Position vor der letzten Änderung. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="MyGraphicsScene::scalarProduct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_my_graphics_scene.html#ab2dc3b23ea848b5f081939d569b16774",tooltip="Liefert das Skalarprodukt zweier 2d-Vektoren "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="MyAnimation::getOldVector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_my_animation.html#a3e092d8b292b2317fc9136c0d78ab984",tooltip="Liefert den 2d-Richtungsvektor der Animation seit der letzten Änderung. "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="MyAnimation::setOldPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_my_animation.html#adb71d57fddec8dd3ef563f6f0b386710",tooltip="Speichert die Position seit der letzten änderung. "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="MyAnimation::setOldVector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_my_animation.html#a3c83b6a68871f54a5a561c134db4cba2",tooltip="Speichert einen 2D-Vektor, der durch die letzte Änderung entstanden ist. "];
+}

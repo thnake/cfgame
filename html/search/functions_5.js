@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['keypressevent',['keyPressEvent',['../class_my_graphics_view.html#a9816bdd436d67c34f1b0d8feed15d47d',1,'MyGraphicsView']]]
+  ['getcenter',['getCenter',['../class_chip.html#a558787f04d66e87353cf8bebefae1f2d',1,'Chip']]],
+  ['getcfgame',['getCfgame',['../class_my_graphics_scene.html#a7883bc1ffdb2cf3834179de0d3f14843',1,'MyGraphicsScene']]],
+  ['getcurrentplayer',['getCurrentPlayer',['../class_connect_four.html#a9b4b647139235c7c3eae2c5c9c8d7471',1,'ConnectFour']]],
+  ['getdesign',['getDesign',['../class_dialog.html#ab9eadf76e1fd644c5242184369e27fb7',1,'Dialog']]],
+  ['getdifficulty',['getDifficulty',['../classai_player.html#a431a9ec4ef7a4072ffac7a3ac3816d8a',1,'aiPlayer::getDifficulty()'],['../class_connect_four.html#a460f6063899b4e5a7e2171ab310a449b',1,'ConnectFour::getDifficulty()']]],
+  ['getgamestate',['getGameState',['../class_connect_four.html#afb0b3ab58efa2888c6ee6d5c60df15b7',1,'ConnectFour']]],
+  ['gethistory',['getHistory',['../class_connect_four.html#aa47ee15206dfa8e942e28ec38428e507',1,'ConnectFour']]],
+  ['gethistorytoload',['getHistoryToLoad',['../class_connect_four.html#af2ba0a09293dccc56439a1f3f76b2c50',1,'ConnectFour']]],
+  ['getlastexecutedquery',['getLastExecutedQuery',['../class_data_base_access_class.html#a65a96f9e828f32087bf52c1624f78724',1,'DataBaseAccessClass']]],
+  ['getlastplayer',['getLastPlayer',['../class_connect_four.html#a102316e1b99e7d1eddbe36340ca14544',1,'ConnectFour']]],
+  ['getmove',['getMove',['../classai_player.html#a5b30b321986ef6a14d6b39b2e6c488e1',1,'aiPlayer']]],
+  ['getmoves',['getMoves',['../class_connect_four.html#a88586e2245c07b08979f258bb24c9c17',1,'ConnectFour']]],
+  ['getname1',['getName1',['../class_connect_four.html#a0fb31ff9df21241727dc89111a8237d1',1,'ConnectFour']]],
+  ['getname2',['getName2',['../class_connect_four.html#af1e622aabf4ab9c3e59f120453b4b00a',1,'ConnectFour']]],
+  ['getoldposition',['getOldPosition',['../class_my_animation.html#a6dddda03203449e45354405d14ffb436',1,'MyAnimation']]],
+  ['getoldvector',['getOldVector',['../class_my_animation.html#a3e092d8b292b2317fc9136c0d78ab984',1,'MyAnimation']]],
+  ['getplayer',['getPlayer',['../class_chip.html#acbf29a18e6349c52878dca3600461af5',1,'Chip']]],
+  ['getrandommove',['getRandomMove',['../classai_player.html#a9290bc63d6b1752a44784d8bd75f365b',1,'aiPlayer']]],
+  ['getwinner',['getWinner',['../class_connect_four.html#a5b3cc0a97ca9722eb49266e651cdcf3b',1,'ConnectFour']]]
 ];

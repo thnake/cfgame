@@ -1,6 +1,15 @@
 \hypertarget{class_data_base_access_class}{\section{Data\-Base\-Access\-Class Class Reference}
 \label{class_data_base_access_class}\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}}
 }
+
+
+Klasse zum Speichern des Spielzustands in der Datenbank. Benutzt eine S\-Q\-Lite Datenbank.  
+
+
+
+
+{\ttfamily \#include $<$databaseaccessclass.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,6 +23,11 @@ Q\-String \hyperlink{class_data_base_access_class_a65a96f9e828f32087bf52c1624f78
 \begin{DoxyCompactList}\small\item\em Liefert das zuletzt ausgeführte S\-Q\-L im klartext zurück \end{DoxyCompactList}\item 
 void \hyperlink{class_data_base_access_class_a7b1d1dc517185da0160b0686963440cb}{load\-Games} (Q\-Table\-View $\ast$tv)
 \begin{DoxyCompactList}\small\item\em Lädt die Datensätze der Spiele in ein Table\-View \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Klasse zum Speichern des Spielzustands in der Datenbank. Benutzt eine S\-Q\-Lite Datenbank. 
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -30,6 +44,11 @@ Konstruktor der Datenbankzugriffsklasse.
 
 
 
+Here is the call graph for this function\-:
+
+
+
+
 \subsection{Member Function Documentation}
 \hypertarget{class_data_base_access_class_ad14618bc623fa2921405281100e98fd6}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!connect@{connect}}
 \index{connect@{connect}!DataBaseAccessClass@{Data\-Base\-Access\-Class}}
@@ -40,6 +59,11 @@ Konstruktor der Datenbankzugriffsklasse.
 )}}\label{class_data_base_access_class_ad14618bc623fa2921405281100e98fd6}
 
 
+
+
+
+
+Here is the caller graph for this function\-:
 
 
 \hypertarget{class_data_base_access_class_a65a96f9e828f32087bf52c1624f78724}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!get\-Last\-Executed\-Query@{get\-Last\-Executed\-Query}}
@@ -58,6 +82,11 @@ Liefert das zuletzt ausgeführte S\-Q\-L im klartext zurück
 {\em query} & Instanz des ausgeführten Querys\\
 \hline
 \end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+
+
 \hypertarget{class_data_base_access_class_a7b1d1dc517185da0160b0686963440cb}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!load\-Games@{load\-Games}}
 \index{load\-Games@{load\-Games}!DataBaseAccessClass@{Data\-Base\-Access\-Class}}
 \subsubsection[{load\-Games}]{\setlength{\rightskip}{0pt plus 5cm}void Data\-Base\-Access\-Class\-::load\-Games (
@@ -68,6 +97,11 @@ Liefert das zuletzt ausgeführte S\-Q\-L im klartext zurück
 
 
 Lädt die Datensätze der Spiele in ein Table\-View 
+
+
+
+Here is the caller graph for this function\-:
+
 
 \hypertarget{class_data_base_access_class_ac6944e91e73d748d54886921e10a8148}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!save\-Game@{save\-Game}}
 \index{save\-Game@{save\-Game}!DataBaseAccessClass@{Data\-Base\-Access\-Class}}
@@ -83,6 +117,16 @@ Speichert eine Spielinstanz in der Datenbank ab
 \begin{DoxyReturn}{Returns}
 Erfolg oder Misserfolg des Speicherns
 \end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+
+
+
+
+Here is the caller graph for this function\-:
+
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

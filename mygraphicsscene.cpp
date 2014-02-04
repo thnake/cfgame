@@ -429,13 +429,13 @@ int MyGraphicsScene::makeMove(int column, bool loadHistory)
         }
 
         animateVictory();
-        saveGame();
+       // saveGame();
 
     }else if(cfgame->checkDraw())
     {
 
         showMessage("Draw!!!");
-        saveGame();
+       // saveGame();
         animateVictory();
 
     }

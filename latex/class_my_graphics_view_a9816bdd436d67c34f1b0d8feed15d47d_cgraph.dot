@@ -1,0 +1,25 @@
+digraph "MyGraphicsView::keyPressEvent"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="MyGraphicsView::keyPress\lEvent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="DataBaseAccessClass\l::saveGame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_data_base_access_class.html#ac6944e91e73d748d54886921e10a8148",tooltip="Speichert eine Spielinstanz in der Datenbank ab "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ConnectFour::getName1",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#a0fb31ff9df21241727dc89111a8237d1",tooltip="Liefert den Namen des ersten Spielers "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ConnectFour::getName2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#af1e622aabf4ab9c3e59f120453b4b00a",tooltip="Liefert den Namen des zweiten Spielers "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ConnectFour::getWinner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#a5b3cc0a97ca9722eb49266e651cdcf3b",tooltip="Liefert die Spielernummer des Siegers zurück "];
+  Node2 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="ConnectFour::getMoves",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#a88586e2245c07b08979f258bb24c9c17",tooltip="Liefert die Anzahl der bisherigen Züge zurück "];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="ConnectFour::getDifficulty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#a460f6063899b4e5a7e2171ab310a449b",tooltip="Feld für den gewählten Schwierigkeitsgrad. "];
+  Node2 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="ConnectFour::getHistory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#aa47ee15206dfa8e942e28ec38428e507",tooltip="Liefert den Spielverlauf in Form einer Zeichenkette zurück. "];
+  Node2 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="DataBaseAccessClass\l::getLastExecutedQuery",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_data_base_access_class.html#a65a96f9e828f32087bf52c1624f78724",tooltip="Liefert das zuletzt ausgeführte SQL im klartext zurück "];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="MyGraphicsScene::getCfgame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_my_graphics_scene.html#a7883bc1ffdb2cf3834179de0d3f14843",tooltip="Liefert einen Zeiger auf die Instanz der Spielklasse "];
+}

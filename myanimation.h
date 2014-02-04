@@ -3,6 +3,10 @@
 #include <QPropertyAnimation>
 #include <QPointF>
 
+
+/// <summary>
+/// Animationsklasse, die sich die Bewegungsrichtung merkt.
+/// </summary>
 class MyAnimation : public QPropertyAnimation
 {
 private:

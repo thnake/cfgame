@@ -6,6 +6,11 @@
 #ifndef DATABASEACCESSCLASS_H
 #define DATABASEACCESSCLASS_H
 
+
+
+/// <summary>
+/// Klasse zum Speichern des Spielzustands in der Datenbank. Benutzt eine SQLite Datenbank.
+/// </summary>
 class DataBaseAccessClass
 {
 public:

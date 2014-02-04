@@ -3,6 +3,10 @@
 
 #include <connectfour.h>
 
+/// <summary>
+/// Computergegner für das Spiel. MinMax/Alpha-Beta-Implementierung ist unfertig.
+/// möglich sind nur zufällige Züge.
+/// </summary>
 class aiPlayer
 {
 private:
@@ -18,7 +22,7 @@ public:
     int Maximize(QVector<QVector<int> > &board, int turn, int &alpha, int &beta);
     int Minimize(QVector<QVector<int> > &board, int turn, int &alpha, int &beta);
 
-    int getStupidMove(int colum);
+    int getRandomMove(int colum);
 
     int PlayerIdentifier();
     int OtherPlayerIdentifier();

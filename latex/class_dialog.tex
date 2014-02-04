@@ -1,12 +1,21 @@
 \hypertarget{class_dialog}{\section{Dialog Class Reference}
 \label{class_dialog}\index{Dialog@{Dialog}}
 }
-Inheritance diagram for Dialog\-:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=2.000000cm]{class_dialog}
-\end{center}
-\end{figure}
+
+
+Konfigurationsdialog für Das Spiel. Beim bestätigen werden die Felder zum erzeugen eines Vier Gewinnt Spiels genutzt. Beim Laden werden die Daten aus dem Table\-View genutzt. Das cf\-Game kann dann von außen abgegriffen und verwendet werden.  
+
+
+
+
+{\ttfamily \#include $<$dialog.\-h$>$}
+
+
+
+Inheritance diagram for Dialog\-:
+
+
+Collaboration diagram for Dialog\-:
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,7 +31,7 @@ void \hyperlink{class_dialog_a3c381c2667b6b17af6010a581995c593}{btn\-Print} ()
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_dialog_acfa2063f9f962d394c6a645b6e7e08d8}{Dialog} (Q\-Widget $\ast$parent=0)
-\begin{DoxyCompactList}\small\item\em Erstellt einen \hyperlink{class_dialog}{Dialog} zum vorbereiten des Spiels \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Erstellt einen \hyperlink{class_dialog}{Dialog} zum vorbereiten des Spiels. \end{DoxyCompactList}\item 
 int \hyperlink{class_dialog_ab9eadf76e1fd644c5242184369e27fb7}{get\-Design} ()
 \begin{DoxyCompactList}\small\item\em Liefert das gewählte Design zurück \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
@@ -36,6 +45,11 @@ int \hyperlink{class_dialog_ab9eadf76e1fd644c5242184369e27fb7}{get\-Design} ()
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Konfigurationsdialog für Das Spiel. Beim bestätigen werden die Felder zum erzeugen eines Vier Gewinnt Spiels genutzt. Beim Laden werden die Daten aus dem Table\-View genutzt. Das cf\-Game kann dann von außen abgegriffen und verwendet werden. 
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_dialog_acfa2063f9f962d394c6a645b6e7e08d8}{\index{Dialog@{Dialog}!Dialog@{Dialog}}
 \index{Dialog@{Dialog}!Dialog@{Dialog}}
@@ -46,7 +60,12 @@ int \hyperlink{class_dialog_ab9eadf76e1fd644c5242184369e27fb7}{get\-Design} ()
 )\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_dialog_acfa2063f9f962d394c6a645b6e7e08d8}
 
 
+Erstellt einen \hyperlink{class_dialog}{Dialog} zum vorbereiten des Spiels. 
+
 Erstellt einen \hyperlink{class_dialog}{Dialog} zum vorbereiten des Spiels 
+
+Here is the call graph for this function\-:
+
 
 
 
@@ -62,6 +81,16 @@ Erstellt einen \hyperlink{class_dialog}{Dialog} zum vorbereiten des Spiels
 
 Slot für das Laden von Spieldaten 
 
+
+
+Here is the call graph for this function\-:
+
+
+
+
+Here is the caller graph for this function\-:
+
+
 \hypertarget{class_dialog_a457f4804c42085dbb16bfb31c706a40f}{\index{Dialog@{Dialog}!btn\-Play@{btn\-Play}}
 \index{btn\-Play@{btn\-Play}!Dialog@{Dialog}}
 \subsubsection[{btn\-Play}]{\setlength{\rightskip}{0pt plus 5cm}void Dialog\-::btn\-Play (
@@ -72,6 +101,11 @@ Slot für das Laden von Spieldaten
 
 
 Beginnt das Spiel, ohne zu laden. 
+
+
+
+Here is the caller graph for this function\-:
+
 
 \hypertarget{class_dialog_a3c381c2667b6b17af6010a581995c593}{\index{Dialog@{Dialog}!btn\-Print@{btn\-Print}}
 \index{btn\-Print@{btn\-Print}!Dialog@{Dialog}}
@@ -84,6 +118,11 @@ Beginnt das Spiel, ohne zu laden.
 
 Slot für das Drucken der Highscores 
 
+
+
+Here is the caller graph for this function\-:
+
+
 \hypertarget{class_dialog_a75d078be0df9c62228d85ea8c5dabd5c}{\index{Dialog@{Dialog}!cbx\-Ai@{cbx\-Ai}}
 \index{cbx\-Ai@{cbx\-Ai}!Dialog@{Dialog}}
 \subsubsection[{cbx\-Ai}]{\setlength{\rightskip}{0pt plus 5cm}void Dialog\-::cbx\-Ai (
@@ -94,6 +133,11 @@ Slot für das Drucken der Highscores
 
 
 Slot für die Auswahl einer K\-I-\/\-Stufe 
+
+
+
+Here is the caller graph for this function\-:
+
 
 \hypertarget{class_dialog_ab9eadf76e1fd644c5242184369e27fb7}{\index{Dialog@{Dialog}!get\-Design@{get\-Design}}
 \index{get\-Design@{get\-Design}!Dialog@{Dialog}}

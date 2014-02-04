@@ -1,5 +1,5 @@
 #include <QSqlError>
-#include  <QSqlQuery>
+#include <QSqlQuery>
 #include <QDebug>
 #include <QMapIterator>
 #include <QString>

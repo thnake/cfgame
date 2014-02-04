@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -96,28 +96,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr><td class="entry"><a class="el" href="class_connect_four.html#ac4fca1dec417914e68e1c8fb22dc87a7">ConnectFour</a>(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, int startingPlayer)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>currentPlayer</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>directions</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>fieldsx</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>fieldsy</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#a9b4b647139235c7c3eae2c5c9c8d7471">getCurrentPlayer</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_connect_four.html#a460f6063899b4e5a7e2171ab310a449b">getDifficulty</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#afb0b3ab58efa2888c6ee6d5c60df15b7">getGameState</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getHeuristic</b>() const  (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#aa47ee15206dfa8e942e28ec38428e507">getHistory</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_connect_four.html#af2ba0a09293dccc56439a1f3f76b2c50">getHistoryToLoad</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#a102316e1b99e7d1eddbe36340ca14544">getLastPlayer</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_connect_four.html#a88586e2245c07b08979f258bb24c9c17">getMoves</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#a0fb31ff9df21241727dc89111a8237d1">getName1</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_connect_four.html#af1e622aabf4ab9c3e59f120453b4b00a">getName2</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getStartingPlayer</b>() const  (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_connect_four.html#a5b3cc0a97ca9722eb49266e651cdcf3b">getWinner</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>history</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#a0916903c07bfbd9891f1203373317e76">evaluateMove</a>(int x, int y)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>fieldsx</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>fieldsy</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_connect_four.html#a9b4b647139235c7c3eae2c5c9c8d7471">getCurrentPlayer</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#a460f6063899b4e5a7e2171ab310a449b">getDifficulty</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_connect_four.html#afb0b3ab58efa2888c6ee6d5c60df15b7">getGameState</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getHeuristic</b>() const  (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_connect_four.html#aa47ee15206dfa8e942e28ec38428e507">getHistory</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#af2ba0a09293dccc56439a1f3f76b2c50">getHistoryToLoad</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_connect_four.html#a102316e1b99e7d1eddbe36340ca14544">getLastPlayer</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#a88586e2245c07b08979f258bb24c9c17">getMoves</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_connect_four.html#a0fb31ff9df21241727dc89111a8237d1">getName1</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#af1e622aabf4ab9c3e59f120453b4b00a">getName2</a>() const </td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getStartingPlayer</b>() const  (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#a5b3cc0a97ca9722eb49266e651cdcf3b">getWinner</a>()</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>history</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>necessaryPointsForWinning</b> (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setGameState</b>(QString state) (defined in <a class="el" href="class_connect_four.html">ConnectFour</a>)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_connect_four.html#ab31edf162a4035383b8034f2c65d65b5">setHistoryToLoad</a>(QString hl)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_connect_four.html#aab7f413c1f52a8bc9ff21d397f9f1f3f">setStone</a>(int x)</td><td class="entry"><a class="el" href="class_connect_four.html">ConnectFour</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 4 2014 01:09:24 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 4 2014 23:41:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

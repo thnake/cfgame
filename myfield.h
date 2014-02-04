@@ -4,6 +4,11 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 
+
+/// <summary>
+/// Klasse für das Spielbrett. Die Mehrfachvererbung ist
+/// für die Animation notwendig
+/// </summary>
 class MyField : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT

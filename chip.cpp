@@ -6,7 +6,6 @@
 #include <QtCore>
 #include <QtGui>
 #include <QtWidgets>
-#include <QRadialGradient>
 #include <QGraphicsEllipseItem>
 #include <QGraphicsScene>
 #include <cstddef>

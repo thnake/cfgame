@@ -21,7 +21,6 @@ SOURCES += main.cpp \
     databaseaccessclass.cpp \
     myanimation.cpp \
     audioplayer.cpp \
-    mygradient.cpp \
     myfield.cpp \
     aiplayer.cpp
 
@@ -34,7 +33,6 @@ HEADERS  += \
     databaseaccessclass.h \
     myanimation.h \
     audioplayer.h \
-    mygradient.h \
     myfield.h \
     aiplayer.h
 

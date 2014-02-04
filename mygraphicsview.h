@@ -5,6 +5,10 @@
 #include <QMouseEvent>
 #include <databaseaccessclass.h>
 
+
+/// <summary>
+/// Parentobjekt für die Spielszene. Fängt Tastendrücke ab und achtet auf die Seitenverhältnisse.
+/// </summary>
 class MyGraphicsView : public QGraphicsView
 {
     Q_OBJECT

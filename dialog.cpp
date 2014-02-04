@@ -11,7 +11,7 @@
 
 
 /// <summary>
-/// Erstellt einen Dialog zum vorbereiten des Spiels
+/// Erstellt einen Dialog zum vorbereiten des Spiels.
 /// </summary>
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -29,6 +29,10 @@ Dialog::Dialog(QWidget *parent) :
     ui->radPlayer1->setVisible(false);
     ui->radPlayer2->setVisible(false);
 
+    if(ui->tableView->model()->rowCount() == 0)
+    {
+        ui->btnLoad->setVisible(false);
+    }
 }
 
 /// <summary>

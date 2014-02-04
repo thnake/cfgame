@@ -92,35 +92,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QRadialGradient&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QPropertyAnimation&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_chip.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_chip.html">Chip</a> : <span class="keyword">public</span> QObject, <span class="keyword">public</span> QGraphicsEllipseItem</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    Q_PROPERTY(QPointF pos READ pos WRITE setPos)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_chip.html#a50f4a36e13f90a93d0a7ed1360bfe92a">Chip</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> player, QObject *parent=NULL);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_my_animation.html">MyAnimation</a>* <a class="code" href="class_chip.html#abb087aff174edd3145895b24f735eb29">animate</a>(QPointF end, <span class="keywordtype">int</span> duration,  <span class="keyword">const</span> QEasingCurve &amp;curve);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_chip.html#acbf29a18e6349c52878dca3600461af5">getPlayer</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    QPointF *<a class="code" href="class_chip.html#a558787f04d66e87353cf8bebefae1f2d">getCenter</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QRadialGradient gradient;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> player;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_chip.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_chip.html">Chip</a> : <span class="keyword">public</span> QObject, <span class="keyword">public</span> QGraphicsEllipseItem</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Q_PROPERTY(QPointF pos READ pos WRITE setPos)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_chip.html#a50f4a36e13f90a93d0a7ed1360bfe92a">Chip</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> player, QObject *parent=NULL);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_my_animation.html">MyAnimation</a>* <a class="code" href="class_chip.html#abb087aff174edd3145895b24f735eb29">animate</a>(QPointF end, <span class="keywordtype">int</span> duration,  <span class="keyword">const</span> QEasingCurve &amp;curve);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_chip.html#acbf29a18e6349c52878dca3600461af5">getPlayer</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QPointF *<a class="code" href="class_chip.html#a558787f04d66e87353cf8bebefae1f2d">getCenter</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // MYGRAPHICSITEM_H</span></div>
-<div class="ttc" id="class_chip_html_a50f4a36e13f90a93d0a7ed1360bfe92a"><div class="ttname"><a href="class_chip.html#a50f4a36e13f90a93d0a7ed1360bfe92a">Chip::Chip</a></div><div class="ttdeci">Chip(int x, int y, int w, int h, int player, QObject *parent=NULL)</div><div class="ttdoc">Konstruktor der Klasse Chip. Erstellt einen Spielstein für Vier Gewinnt </div><div class="ttdef"><b>Definition:</b> chip.cpp:24</div></div>
-<div class="ttc" id="class_my_animation_html"><div class="ttname"><a href="class_my_animation.html">MyAnimation</a></div><div class="ttdef"><b>Definition:</b> myanimation.h:6</div></div>
-<div class="ttc" id="class_chip_html"><div class="ttname"><a href="class_chip.html">Chip</a></div><div class="ttdef"><b>Definition:</b> chip.h:11</div></div>
-<div class="ttc" id="class_chip_html_a558787f04d66e87353cf8bebefae1f2d"><div class="ttname"><a href="class_chip.html#a558787f04d66e87353cf8bebefae1f2d">Chip::getCenter</a></div><div class="ttdeci">QPointF * getCenter()</div><div class="ttdoc">Liefert einen Zeiger auf eine QPointF Instanz, die den Mittelpunkt des Objektes beschreibt. </div><div class="ttdef"><b>Definition:</b> chip.cpp:52</div></div>
-<div class="ttc" id="class_chip_html_abb087aff174edd3145895b24f735eb29"><div class="ttname"><a href="class_chip.html#abb087aff174edd3145895b24f735eb29">Chip::animate</a></div><div class="ttdeci">MyAnimation * animate(QPointF end, int duration, const QEasingCurve &amp;curve)</div><div class="ttdoc">Liefert einen Zeiger auf eine MyAnimation Instanz zurück, die dann ausgeführt werden kann ...</div><div class="ttdef"><b>Definition:</b> chip.cpp:37</div></div>
-<div class="ttc" id="class_chip_html_acbf29a18e6349c52878dca3600461af5"><div class="ttname"><a href="class_chip.html#acbf29a18e6349c52878dca3600461af5">Chip::getPlayer</a></div><div class="ttdeci">int getPlayer()</div><div class="ttdoc">Liefert den Spieler zurück, der den Stein gelegt hat. </div><div class="ttdef"><b>Definition:</b> chip.cpp:65</div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> player;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif // MYGRAPHICSITEM_H</span></div>
+<div class="ttc" id="class_chip_html_a50f4a36e13f90a93d0a7ed1360bfe92a"><div class="ttname"><a href="class_chip.html#a50f4a36e13f90a93d0a7ed1360bfe92a">Chip::Chip</a></div><div class="ttdeci">Chip(int x, int y, int w, int h, int player, QObject *parent=NULL)</div><div class="ttdoc">Konstruktor der Klasse Chip. Erstellt einen Spielstein für Vier Gewinnt </div><div class="ttdef"><b>Definition:</b> chip.cpp:23</div></div>
+<div class="ttc" id="class_my_animation_html"><div class="ttname"><a href="class_my_animation.html">MyAnimation</a></div><div class="ttdoc">Animationsklasse, die sich die Bewegungsrichtung merkt. </div><div class="ttdef"><b>Definition:</b> myanimation.h:10</div></div>
+<div class="ttc" id="class_chip_html"><div class="ttname"><a href="class_chip.html">Chip</a></div><div class="ttdoc">Spielsteinklasse für das Spielbrett. </div><div class="ttdef"><b>Definition:</b> chip.h:15</div></div>
+<div class="ttc" id="class_chip_html_a558787f04d66e87353cf8bebefae1f2d"><div class="ttname"><a href="class_chip.html#a558787f04d66e87353cf8bebefae1f2d">Chip::getCenter</a></div><div class="ttdeci">QPointF * getCenter()</div><div class="ttdoc">Liefert einen Zeiger auf eine QPointF Instanz, die den Mittelpunkt des Objektes beschreibt. </div><div class="ttdef"><b>Definition:</b> chip.cpp:51</div></div>
+<div class="ttc" id="class_chip_html_abb087aff174edd3145895b24f735eb29"><div class="ttname"><a href="class_chip.html#abb087aff174edd3145895b24f735eb29">Chip::animate</a></div><div class="ttdeci">MyAnimation * animate(QPointF end, int duration, const QEasingCurve &amp;curve)</div><div class="ttdoc">Liefert einen Zeiger auf eine MyAnimation Instanz zurück, die dann ausgeführt werden kann ...</div><div class="ttdef"><b>Definition:</b> chip.cpp:36</div></div>
+<div class="ttc" id="class_chip_html_acbf29a18e6349c52878dca3600461af5"><div class="ttname"><a href="class_chip.html#acbf29a18e6349c52878dca3600461af5">Chip::getPlayer</a></div><div class="ttdeci">int getPlayer()</div><div class="ttdoc">Liefert den Spieler zurück, der den Stein gelegt hat. </div><div class="ttdef"><b>Definition:</b> chip.cpp:64</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 4 2014 01:09:24 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 4 2014 23:41:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

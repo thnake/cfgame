@@ -7,6 +7,10 @@
 #ifndef CONNECTFOUR_H
 #define CONNECTFOUR_H
 
+/// <summary>
+/// VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und
+/// kennt die Regeln des Spiels. Seine Felder werden in der SQLite DB persistiert.
+/// </summary>
 class ConnectFour : public QObject
 {
 

@@ -90,34 +90,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef DATABASEACCESSCLASS_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATABASEACCESSCLASS_H</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_data_base_access_class.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_data_base_access_class.html">DataBaseAccessClass</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_data_base_access_class.html#a44e5ea09d3bb57547bf4ed458549b00e">DataBaseAccessClass</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_data_base_access_class.html#ad14618bc623fa2921405281100e98fd6">connect</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_data_base_access_class.html#ac6944e91e73d748d54886921e10a8148">saveGame</a>(<a class="code" href="class_connect_four.html">ConnectFour</a> *cf);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QString <a class="code" href="class_data_base_access_class.html#a65a96f9e828f32087bf52c1624f78724">getLastExecutedQuery</a>( QSqlQuery query);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_data_base_access_class.html#a7b1d1dc517185da0160b0686963440cb">loadGames</a>(QTableView* tv);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QSqlDatabase db;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_data_base_access_class.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_data_base_access_class.html">DataBaseAccessClass</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_data_base_access_class.html#a44e5ea09d3bb57547bf4ed458549b00e">DataBaseAccessClass</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_data_base_access_class.html#ad14618bc623fa2921405281100e98fd6">connect</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_data_base_access_class.html#ac6944e91e73d748d54886921e10a8148">saveGame</a>(<a class="code" href="class_connect_four.html">ConnectFour</a> *cf);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    QString <a class="code" href="class_data_base_access_class.html#a65a96f9e828f32087bf52c1624f78724">getLastExecutedQuery</a>( QSqlQuery query);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_data_base_access_class.html#a7b1d1dc517185da0160b0686963440cb">loadGames</a>(QTableView* tv);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif // DATABASEACCESSCLASS_H</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QSqlDatabase db;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif // DATABASEACCESSCLASS_H</span></div>
 <div class="ttc" id="class_data_base_access_class_html_a65a96f9e828f32087bf52c1624f78724"><div class="ttname"><a href="class_data_base_access_class.html#a65a96f9e828f32087bf52c1624f78724">DataBaseAccessClass::getLastExecutedQuery</a></div><div class="ttdeci">QString getLastExecutedQuery(QSqlQuery query)</div><div class="ttdoc">Liefert das zuletzt ausgeführte SQL im klartext zurück </div><div class="ttdef"><b>Definition:</b> databaseaccessclass.cpp:23</div></div>
 <div class="ttc" id="class_data_base_access_class_html_ad14618bc623fa2921405281100e98fd6"><div class="ttname"><a href="class_data_base_access_class.html#ad14618bc623fa2921405281100e98fd6">DataBaseAccessClass::connect</a></div><div class="ttdeci">bool connect()</div><div class="ttdef"><b>Definition:</b> databaseaccessclass.cpp:96</div></div>
-<div class="ttc" id="class_data_base_access_class_html"><div class="ttname"><a href="class_data_base_access_class.html">DataBaseAccessClass</a></div><div class="ttdef"><b>Definition:</b> databaseaccessclass.h:9</div></div>
-<div class="ttc" id="class_connect_four_html"><div class="ttname"><a href="class_connect_four.html">ConnectFour</a></div><div class="ttdef"><b>Definition:</b> connectfour.h:10</div></div>
+<div class="ttc" id="class_data_base_access_class_html"><div class="ttname"><a href="class_data_base_access_class.html">DataBaseAccessClass</a></div><div class="ttdoc">Klasse zum Speichern des Spielzustands in der Datenbank. Benutzt eine SQLite Datenbank. </div><div class="ttdef"><b>Definition:</b> databaseaccessclass.h:14</div></div>
+<div class="ttc" id="class_connect_four_html"><div class="ttname"><a href="class_connect_four.html">ConnectFour</a></div><div class="ttdoc">VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und kennt die Regeln des Spie...</div><div class="ttdef"><b>Definition:</b> connectfour.h:14</div></div>
 <div class="ttc" id="class_data_base_access_class_html_a44e5ea09d3bb57547bf4ed458549b00e"><div class="ttname"><a href="class_data_base_access_class.html#a44e5ea09d3bb57547bf4ed458549b00e">DataBaseAccessClass::DataBaseAccessClass</a></div><div class="ttdeci">DataBaseAccessClass()</div><div class="ttdoc">Konstruktor der Datenbankzugriffsklasse. </div><div class="ttdef"><b>Definition:</b> databaseaccessclass.cpp:38</div></div>
 <div class="ttc" id="class_data_base_access_class_html_a7b1d1dc517185da0160b0686963440cb"><div class="ttname"><a href="class_data_base_access_class.html#a7b1d1dc517185da0160b0686963440cb">DataBaseAccessClass::loadGames</a></div><div class="ttdeci">void loadGames(QTableView *tv)</div><div class="ttdoc">Lädt die Datensätze der Spiele in ein TableView </div><div class="ttdef"><b>Definition:</b> databaseaccessclass.cpp:46</div></div>
 <div class="ttc" id="class_data_base_access_class_html_ac6944e91e73d748d54886921e10a8148"><div class="ttname"><a href="class_data_base_access_class.html#ac6944e91e73d748d54886921e10a8148">DataBaseAccessClass::saveGame</a></div><div class="ttdeci">bool saveGame(ConnectFour *cf)</div><div class="ttdoc">Speichert eine Spielinstanz in der Datenbank ab </div><div class="ttdef"><b>Definition:</b> databaseaccessclass.cpp:65</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 4 2014 01:09:24 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 4 2014 23:41:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

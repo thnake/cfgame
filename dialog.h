@@ -9,6 +9,12 @@ namespace Ui {
 class Dialog;
 }
 
+
+/// <summary>
+/// Konfigurationsdialog für Das Spiel. Beim bestätigen werden die Felder zum erzeugen eines
+/// Vier Gewinnt Spiels genutzt. Beim Laden werden die Daten aus dem TableView genutzt.
+/// Das cfGame kann dann von außen abgegriffen und verwendet werden.
+/// </summary>
 class Dialog : public QDialog
 {
     Q_OBJECT

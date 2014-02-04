@@ -1,0 +1,19 @@
+digraph "Dialog::Dialog"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Dialog::Dialog",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="DataBaseAccessClass\l::loadGames",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_data_base_access_class.html#a7b1d1dc517185da0160b0686963440cb",tooltip="Lädt die Datensätze der Spiele in ein TableView "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Dialog::btnPlay",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_dialog.html#a457f4804c42085dbb16bfb31c706a40f",tooltip="Beginnt das Spiel, ohne zu laden. "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Dialog::btnLoad",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_dialog.html#a419f7ab4d550b95154425e0cbe350cb5",tooltip="Slot für das Laden von Spieldaten "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ConnectFour::setHistoryToLoad",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_connect_four.html#ab31edf162a4035383b8034f2c65d65b5",tooltip="Bereitet das Laden eines Spielverlaufs vor. "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Dialog::cbxAi",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_dialog.html#a75d078be0df9c62228d85ea8c5dabd5c",tooltip="Slot für die Auswahl einer KI-Stufe "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Dialog::btnPrint",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_dialog.html#a3c381c2667b6b17af6010a581995c593",tooltip="Slot für das Drucken der Highscores "];
+}

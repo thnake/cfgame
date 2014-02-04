@@ -87,83 +87,82 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;chip.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;connectfour.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;panel.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;aiplayer.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QGraphicsScene&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QMouseEvent&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QResizeEvent&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QSequentialAnimationGroup&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QPointF&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;myfield.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;aiplayer.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QGraphicsScene&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QMouseEvent&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QResizeEvent&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QSequentialAnimationGroup&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QPointF&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;myfield.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_my_graphics_scene.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_my_graphics_scene.html">MyGraphicsScene</a> : <span class="keyword">public</span> QGraphicsScene</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_my_graphics_scene.html#a0a9622d196f6ea758f119faddf37caac">MyGraphicsScene</a>(QObject *parent ,<a class="code" href="class_connect_four.html">ConnectFour</a> *game, <span class="keywordtype">int</span> selectedDesign);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_connect_four.html">ConnectFour</a> *<a class="code" href="class_my_graphics_scene.html#a7883bc1ffdb2cf3834179de0d3f14843">getCfgame</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#a89bb2786bb7a9a4c13a37ad1296ffaf0">setCfgame</a>(<a class="code" href="class_connect_four.html">ConnectFour</a> *value);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_my_graphics_scene.html#ab2dc3b23ea848b5f081939d569b16774">scalarProduct</a>(QPointF u, QPointF v);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;signals:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#ae13be07253c9d3ff11c336c09cd89daf">bounceSound</a>(QVariant v);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#a47693d863886396ee37b3bec05ac341f">animateVictory</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#a65a5dabb614e22ae4a4b48d9f2faffdc">mouseReleaseEvent</a>(QGraphicsSceneMouseEvent *event);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#a174dd0911afadc8f637a5ebf6f5b9b0c">resizeEvent</a>(QResizeEvent * event );</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> design;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> wCol = 0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> makeMove(<span class="keywordtype">int</span> column, <span class="keywordtype">bool</span> grouped);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> loadHistory();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> createField();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> saveGame();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> shatterFieldAnimation();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> animateChipDrop(<a class="code" href="class_chip.html">Chip</a> *chip, QPointF end, <span class="keywordtype">bool</span> grouped);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> aiMove();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> showMessage(QString msg);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QPointF getRandomPoint();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_my_field.html">MyField</a> *fieldItem;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classai_player.html">aiPlayer</a> ai;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> designChip(<a class="code" href="class_chip.html">Chip</a>* chip);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QSequentialAnimationGroup animationGroup;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_connect_four.html">ConnectFour</a> *cfgame;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_chip.html">Chip</a> *chip = NULL;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    QVector&lt;Chip*&gt; chips;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_my_graphics_scene.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_my_graphics_scene.html">MyGraphicsScene</a> : <span class="keyword">public</span> QGraphicsScene</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_my_graphics_scene.html#a0a9622d196f6ea758f119faddf37caac">MyGraphicsScene</a>(QObject *parent ,<a class="code" href="class_connect_four.html">ConnectFour</a> *game, <span class="keywordtype">int</span> selectedDesign);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_connect_four.html">ConnectFour</a> *<a class="code" href="class_my_graphics_scene.html#a7883bc1ffdb2cf3834179de0d3f14843">getCfgame</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#a89bb2786bb7a9a4c13a37ad1296ffaf0">setCfgame</a>(<a class="code" href="class_connect_four.html">ConnectFour</a> *value);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_my_graphics_scene.html#ab2dc3b23ea848b5f081939d569b16774">scalarProduct</a>(QPointF u, QPointF v);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;signals:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#ae13be07253c9d3ff11c336c09cd89daf">bounceSound</a>(QVariant v);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#a47693d863886396ee37b3bec05ac341f">animateVictory</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#a65a5dabb614e22ae4a4b48d9f2faffdc">mouseReleaseEvent</a>(QGraphicsSceneMouseEvent *event);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_my_graphics_scene.html#a174dd0911afadc8f637a5ebf6f5b9b0c">resizeEvent</a>(QResizeEvent * event );</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> design;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> wCol = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> makeMove(<span class="keywordtype">int</span> column, <span class="keywordtype">bool</span> grouped);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> loadHistory();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> createField();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> saveGame();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> shatterFieldAnimation();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> animateChipDrop(<a class="code" href="class_chip.html">Chip</a> *chip, QPointF end, <span class="keywordtype">bool</span> grouped);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> aiMove();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> showMessage(QString msg);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QPointF getRandomPoint();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_my_field.html">MyField</a> *fieldItem;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classai_player.html">aiPlayer</a> ai;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> designChip(<a class="code" href="class_chip.html">Chip</a>* chip);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    QSequentialAnimationGroup animationGroup;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_connect_four.html">ConnectFour</a> *cfgame;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_chip.html">Chip</a> *chip = NULL;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    QVector&lt;Chip*&gt; chips;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_my_graphics_scene_html_a0a9622d196f6ea758f119faddf37caac"><div class="ttname"><a href="class_my_graphics_scene.html#a0a9622d196f6ea758f119faddf37caac">MyGraphicsScene::MyGraphicsScene</a></div><div class="ttdeci">MyGraphicsScene(QObject *parent, ConnectFour *game, int selectedDesign)</div><div class="ttdoc">Konstruktor der Klasse MyGraphicScene. Liefert eine Instanz zur Darstellung des Connect Four-Spiels ...</div><div class="ttdef"><b>Definition:</b> merge.cpp:997</div></div>
 <div class="ttc" id="class_my_graphics_scene_html_a174dd0911afadc8f637a5ebf6f5b9b0c"><div class="ttname"><a href="class_my_graphics_scene.html#a174dd0911afadc8f637a5ebf6f5b9b0c">MyGraphicsScene::resizeEvent</a></div><div class="ttdeci">virtual void resizeEvent(QResizeEvent *event)</div><div class="ttdoc">Fängt das Resize Event ab und berechnet die Spaltenbreite </div><div class="ttdef"><b>Definition:</b> merge.cpp:1232</div></div>
-<div class="ttc" id="class_my_graphics_scene_html"><div class="ttname"><a href="class_my_graphics_scene.html">MyGraphicsScene</a></div><div class="ttdef"><b>Definition:</b> mygraphicsscene.h:19</div></div>
+<div class="ttc" id="class_my_graphics_scene_html"><div class="ttname"><a href="class_my_graphics_scene.html">MyGraphicsScene</a></div><div class="ttdoc">Fängt die die Nutzereingaben während des Spiels auf. Kümmert sich um Animationen und Effekte...</div><div class="ttdef"><b>Definition:</b> mygraphicsscene.h:22</div></div>
 <div class="ttc" id="class_my_graphics_scene_html_a65a5dabb614e22ae4a4b48d9f2faffdc"><div class="ttname"><a href="class_my_graphics_scene.html#a65a5dabb614e22ae4a4b48d9f2faffdc">MyGraphicsScene::mouseReleaseEvent</a></div><div class="ttdeci">virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event)</div><div class="ttdoc">Fängt den Spieler click ab, der seine Spalte durch anclicken wählen soll. </div><div class="ttdef"><b>Definition:</b> merge.cpp:1414</div></div>
 <div class="ttc" id="class_my_graphics_scene_html_a47693d863886396ee37b3bec05ac341f"><div class="ttname"><a href="class_my_graphics_scene.html#a47693d863886396ee37b3bec05ac341f">MyGraphicsScene::animateVictory</a></div><div class="ttdeci">void animateVictory()</div><div class="ttdoc">Signalisiert dem Spieler den Endzustand des Spiels durch eine Animation </div><div class="ttdef"><b>Definition:</b> merge.cpp:1329</div></div>
 <div class="ttc" id="class_my_graphics_scene_html_a89bb2786bb7a9a4c13a37ad1296ffaf0"><div class="ttname"><a href="class_my_graphics_scene.html#a89bb2786bb7a9a4c13a37ad1296ffaf0">MyGraphicsScene::setCfgame</a></div><div class="ttdeci">void setCfgame(ConnectFour *value)</div><div class="ttdoc">Setzt die Instanz der Spielklasse fest </div><div class="ttdef"><b>Definition:</b> merge.cpp:1248</div></div>
-<div class="ttc" id="class_connect_four_html"><div class="ttname"><a href="class_connect_four.html">ConnectFour</a></div><div class="ttdef"><b>Definition:</b> connectfour.h:10</div></div>
+<div class="ttc" id="class_connect_four_html"><div class="ttname"><a href="class_connect_four.html">ConnectFour</a></div><div class="ttdoc">VierGewinnt-Logik enthaltende Klasse. Hält den zustand des Spielbrettes und kennt die Regeln des Spie...</div><div class="ttdef"><b>Definition:</b> connectfour.h:14</div></div>
 <div class="ttc" id="class_my_graphics_scene_html_a7883bc1ffdb2cf3834179de0d3f14843"><div class="ttname"><a href="class_my_graphics_scene.html#a7883bc1ffdb2cf3834179de0d3f14843">MyGraphicsScene::getCfgame</a></div><div class="ttdeci">ConnectFour * getCfgame() const </div><div class="ttdoc">Liefert einen Zeiger auf die Instanz der Spielklasse </div><div class="ttdef"><b>Definition:</b> merge.cpp:1240</div></div>
-<div class="ttc" id="class_chip_html"><div class="ttname"><a href="class_chip.html">Chip</a></div><div class="ttdef"><b>Definition:</b> chip.h:11</div></div>
-<div class="ttc" id="classai_player_html"><div class="ttname"><a href="classai_player.html">aiPlayer</a></div><div class="ttdef"><b>Definition:</b> aiplayer.h:4</div></div>
+<div class="ttc" id="class_chip_html"><div class="ttname"><a href="class_chip.html">Chip</a></div><div class="ttdoc">Spielsteinklasse für das Spielbrett. </div><div class="ttdef"><b>Definition:</b> chip.h:15</div></div>
+<div class="ttc" id="classai_player_html"><div class="ttname"><a href="classai_player.html">aiPlayer</a></div><div class="ttdoc">Computergegner für das Spiel. MinMax/Alpha-Beta-Implementierung ist unfertig. möglich sind nur zufäll...</div><div class="ttdef"><b>Definition:</b> aiplayer.h:10</div></div>
 <div class="ttc" id="class_my_graphics_scene_html_ae13be07253c9d3ff11c336c09cd89daf"><div class="ttname"><a href="class_my_graphics_scene.html#ae13be07253c9d3ff11c336c09cd89daf">MyGraphicsScene::bounceSound</a></div><div class="ttdeci">void bounceSound(QVariant v)</div><div class="ttdoc">Slot für das Abspielen von Bounce geräuschen. Bei jeder Richtungsänderung des Objekts kann zur entspr...</div><div class="ttdef"><b>Definition:</b> merge.cpp:1202</div></div>
 <div class="ttc" id="class_my_graphics_scene_html_ab2dc3b23ea848b5f081939d569b16774"><div class="ttname"><a href="class_my_graphics_scene.html#ab2dc3b23ea848b5f081939d569b16774">MyGraphicsScene::scalarProduct</a></div><div class="ttdeci">float scalarProduct(QPointF u, QPointF v)</div><div class="ttdoc">Liefert das Skalarprodukt zweier 2d-Vektoren </div><div class="ttdef"><b>Definition:</b> merge.cpp:1224</div></div>
-<div class="ttc" id="class_my_field_html"><div class="ttname"><a href="class_my_field.html">MyField</a></div><div class="ttdef"><b>Definition:</b> myfield.h:7</div></div>
+<div class="ttc" id="class_my_field_html"><div class="ttname"><a href="class_my_field.html">MyField</a></div><div class="ttdoc">Klasse für das Spielbrett. Die Mehrfachvererbung ist für die Animation notwendig </div><div class="ttdef"><b>Definition:</b> myfield.h:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 4 2014 01:09:24 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 4 2014 23:41:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

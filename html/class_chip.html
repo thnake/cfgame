@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -89,22 +89,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Chip Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Spielsteinklasse für das Spielbrett.  
+ <a href="class_chip.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="chip_8h_source.html">chip.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Chip:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_chip.png" usemap="#Chip_map" alt=""/>
-  <map id="Chip_map" name="Chip_map">
+<div class="center"><img src="class_chip__inherit__graph.png" border="0" usemap="#_chip_inherit__map" alt="Inheritance graph"/></div>
+<map name="_chip_inherit__map" id="_chip_inherit__map">
 </map>
- </div></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Chip:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_chip__coll__graph.png" border="0" usemap="#_chip_coll__map" alt="Collaboration graph"/></div>
+<map name="_chip_coll__map" id="_chip_coll__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a50f4a36e13f90a93d0a7ed1360bfe92a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chip.html#a50f4a36e13f90a93d0a7ed1360bfe92a">Chip</a> (int x, int y, int w, int h, int player, QObject *parent=NULL)</td></tr>
-<tr class="memdesc:a50f4a36e13f90a93d0a7ed1360bfe92a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor der Klasse <a class="el" href="class_chip.html">Chip</a>. Erstellt einen Spielstein für Vier Gewinnt  <a href="#a50f4a36e13f90a93d0a7ed1360bfe92a">More...</a><br/></td></tr>
+<tr class="memdesc:a50f4a36e13f90a93d0a7ed1360bfe92a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor der Klasse <a class="el" href="class_chip.html" title="Spielsteinklasse für das Spielbrett. ">Chip</a>. Erstellt einen Spielstein für Vier Gewinnt  <a href="#a50f4a36e13f90a93d0a7ed1360bfe92a">More...</a><br/></td></tr>
 <tr class="separator:a50f4a36e13f90a93d0a7ed1360bfe92a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb087aff174edd3145895b24f735eb29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_my_animation.html">MyAnimation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chip.html#abb087aff174edd3145895b24f735eb29">animate</a> (QPointF end, int duration, const QEasingCurve &amp;curve)</td></tr>
-<tr class="memdesc:abb087aff174edd3145895b24f735eb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert einen Zeiger auf eine <a class="el" href="class_my_animation.html">MyAnimation</a> Instanz zurück, die dann ausgeführt werden kann  <a href="#abb087aff174edd3145895b24f735eb29">More...</a><br/></td></tr>
+<tr class="memdesc:abb087aff174edd3145895b24f735eb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert einen Zeiger auf eine <a class="el" href="class_my_animation.html" title="Animationsklasse, die sich die Bewegungsrichtung merkt. ">MyAnimation</a> Instanz zurück, die dann ausgeführt werden kann  <a href="#abb087aff174edd3145895b24f735eb29">More...</a><br/></td></tr>
 <tr class="separator:abb087aff174edd3145895b24f735eb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbf29a18e6349c52878dca3600461af5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chip.html#acbf29a18e6349c52878dca3600461af5">getPlayer</a> ()</td></tr>
 <tr class="memdesc:acbf29a18e6349c52878dca3600461af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert den Spieler zurück, der den Stein gelegt hat.  <a href="#acbf29a18e6349c52878dca3600461af5">More...</a><br/></td></tr>
@@ -119,7 +130,9 @@ Properties</h2></td></tr>
 QPointF&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b></td></tr>
 <tr class="separator:a548329ae211f8de857275407733f2d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Spielsteinklasse für das Spielbrett. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a50f4a36e13f90a93d0a7ed1360bfe92a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +189,7 @@ QPointF&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Konstruktor der Klasse <a class="el" href="class_chip.html">Chip</a>. Erstellt einen Spielstein für Vier Gewinnt </p>
+<p>Konstruktor der Klasse <a class="el" href="class_chip.html" title="Spielsteinklasse für das Spielbrett. ">Chip</a>. Erstellt einen Spielstein für Vier Gewinnt </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>x Position des bounding rect</td></tr>
@@ -222,7 +235,7 @@ QPointF&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Liefert einen Zeiger auf eine <a class="el" href="class_my_animation.html">MyAnimation</a> Instanz zurück, die dann ausgeführt werden kann </p>
+<p>Liefert einen Zeiger auf eine <a class="el" href="class_my_animation.html" title="Animationsklasse, die sich die Bewegungsrichtung merkt. ">MyAnimation</a> Instanz zurück, die dann ausgeführt werden kann </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">end</td><td>Endposition der Animation</td></tr>
@@ -276,7 +289,7 @@ QPointF&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 4 2014 01:09:24 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 4 2014 23:41:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -15,6 +15,10 @@
 
 
 
+/// <summary>
+/// Fängt die die Nutzereingaben während des Spiels auf.
+/// Kümmert sich um Animationen und Effekte.
+/// </summary>
 class MyGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
