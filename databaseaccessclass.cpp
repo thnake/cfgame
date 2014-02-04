@@ -47,7 +47,7 @@ void DataBaseAccessClass::loadGames(QTableView *tv)
 {
 
     QSqlQueryModel *model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM game ORDER BY winner DESC, moves ASC;");
+    model->setQuery("SELECT * FROM game ORDER BY (winner <> 0) DESC, moves ASC;");
 
     model->setHeaderData( 0, Qt::Horizontal, QObject::tr("key") );
     model->setHeaderData( 1, Qt::Horizontal, QObject::tr("Player1") );
