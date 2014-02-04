@@ -118,8 +118,6 @@ void Dialog::btnPrint()
     QPrintDialog *printDialog = new QPrintDialog(&printer);
     QTextDocument *doc = new QTextDocument();
 
-    printDialog->setWindowTitle(tr("Print Document"));
-
     if (printDialog->exec() == QDialog::Accepted)
     {
       QString text = "<table>";

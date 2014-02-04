@@ -3,7 +3,6 @@
 
 #include "chip.h"
 #include "connectfour.h"
-#include "panel.h"
 #include "aiplayer.h"
 
 #include <QGraphicsScene>

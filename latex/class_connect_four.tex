@@ -1,0 +1,317 @@
+\hypertarget{class_connect_four}{\section{Connect\-Four Class Reference}
+\label{class_connect_four}\index{Connect\-Four@{Connect\-Four}}
+}
+Inheritance diagram for Connect\-Four\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_connect_four}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_connect_four_a9d7a0db424f22513386fa60ed2d5b575}{Connect\-Four} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor der Klasse \hyperlink{class_connect_four}{Connect\-Four}. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab. \end{DoxyCompactList}\item 
+\hyperlink{class_connect_four_ac4fca1dec417914e68e1c8fb22dc87a7}{Connect\-Four} (int x, int y, Q\-String player1\-Name, Q\-String player2\-Name, int difficulty\-Level, int starting\-Player)
+\begin{DoxyCompactList}\small\item\em Konstruktor der Klasse \hyperlink{class_connect_four}{Connect\-Four}. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab. \end{DoxyCompactList}\item 
+int \hyperlink{class_connect_four_aab7f413c1f52a8bc9ff21d397f9f1f3f}{set\-Stone} (int x)
+\begin{DoxyCompactList}\small\item\em liefert die Zeile zurück, in der der Stein gelandet ist. Prüft, ob der Zug siegreich war. Prüfen mit \hyperlink{class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b}{get\-Winner()} \end{DoxyCompactList}\item 
+bool \hyperlink{class_connect_four_a38f2e53360ddd8b3152e6583705a1b8a}{check\-Victory} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Verschiebt einen Punkt entlang der Linien (diagonal, senkrecht, horizontal) und summiert die Spielerchips auf. \end{DoxyCompactList}\item 
+bool \hyperlink{class_connect_four_a70a3cd6ddcc7ae5b1eee3afa64ed6790}{check\-Draw} ()
+\begin{DoxyCompactList}\small\item\em Prüft, ob ein unentschieden vorliegt \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_connect_four_afb0b3ab58efa2888c6ee6d5c60df15b7}{get\-Game\-State} ()
+\begin{DoxyCompactList}\small\item\em Liefert eine Zeichenkette, die den Spielverlauf darstellt \end{DoxyCompactList}\item 
+\hypertarget{class_connect_four_a305120e52fd04399c7e4aa66ede018a2}{void {\bfseries set\-Game\-State} (Q\-String state)}\label{class_connect_four_a305120e52fd04399c7e4aa66ede018a2}
+
+\item 
+int \hyperlink{class_connect_four_a9b4b647139235c7c3eae2c5c9c8d7471}{get\-Current\-Player} ()
+\begin{DoxyCompactList}\small\item\em Liefert die aktuelle Spielernummer zurück. \end{DoxyCompactList}\item 
+bool \hyperlink{class_connect_four_ad00b3add13aac59b6dc6469cb24c7d53}{check\-Move} (int x)
+\begin{DoxyCompactList}\small\item\em Prüft, ob ein Zug gültig ist, oder nicht. Wird von der K\-I im einfachen Modus benötigt. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Gewählte Spalte für den Zug\\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_connect_four_a0fb31ff9df21241727dc89111a8237d1}{get\-Name1} () const 
+\begin{DoxyCompactList}\small\item\em Liefert den Namen des ersten Spielers \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_connect_four_af1e622aabf4ab9c3e59f120453b4b00a}{get\-Name2} () const 
+\begin{DoxyCompactList}\small\item\em Liefert den Namen des zweiten Spielers \end{DoxyCompactList}\item 
+\hypertarget{class_connect_four_a1ee5735fdac151d7f11fec3daeeef6fc}{bool {\bfseries get\-Heuristic} () const }\label{class_connect_four_a1ee5735fdac151d7f11fec3daeeef6fc}
+
+\item 
+int \hyperlink{class_connect_four_a460f6063899b4e5a7e2171ab310a449b}{get\-Difficulty} () const 
+\begin{DoxyCompactList}\small\item\em Feld für den gewählten Schwierigkeitsgrad. \end{DoxyCompactList}\item 
+int \hyperlink{class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b}{get\-Winner} ()
+\begin{DoxyCompactList}\small\item\em Liefert die Spielernummer des Siegers zurück \end{DoxyCompactList}\item 
+int \hyperlink{class_connect_four_a88586e2245c07b08979f258bb24c9c17}{get\-Moves} ()
+\begin{DoxyCompactList}\small\item\em Liefert die Anzahl der bisherigen Züge zurück \end{DoxyCompactList}\item 
+int \hyperlink{class_connect_four_a102316e1b99e7d1eddbe36340ca14544}{get\-Last\-Player} ()
+\begin{DoxyCompactList}\small\item\em Liefert die Spielernummer des letzten Zuges zurück. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_connect_four_aa47ee15206dfa8e942e28ec38428e507}{get\-History} () const 
+\begin{DoxyCompactList}\small\item\em Liefert den Spielverlauf in Form einer Zeichenkette zurück. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_connect_four_af2ba0a09293dccc56439a1f3f76b2c50}{get\-History\-To\-Load} () const 
+\begin{DoxyCompactList}\small\item\em Liefert die noch zu ladende Spielehistorie zurück \end{DoxyCompactList}\item 
+void \hyperlink{class_connect_four_ab31edf162a4035383b8034f2c65d65b5}{set\-History\-To\-Load} (Q\-String hl)
+\begin{DoxyCompactList}\small\item\em Bereitet das Laden eines Spielverlaufs vor. \end{DoxyCompactList}\item 
+\hypertarget{class_connect_four_a6a366a01f3c7dcb75441b604df4bed51}{int {\bfseries get\-Starting\-Player} () const }\label{class_connect_four_a6a366a01f3c7dcb75441b604df4bed51}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_connect_four_a69065ab8a638127f0da1d7f284f1e56a}{Q\-Vector$<$ Q\-Vector$<$ int $>$ $>$ {\bfseries board}}\label{class_connect_four_a69065ab8a638127f0da1d7f284f1e56a}
+
+\item 
+\hypertarget{class_connect_four_a7507490166cea01cca4562859a01ee8b}{int {\bfseries fieldsx}}\label{class_connect_four_a7507490166cea01cca4562859a01ee8b}
+
+\item 
+\hypertarget{class_connect_four_a8da13866381909a976fd12e6b3f2b59c}{int {\bfseries fieldsy}}\label{class_connect_four_a8da13866381909a976fd12e6b3f2b59c}
+
+\item 
+\hypertarget{class_connect_four_a7730e7df9fab3346f2bcf43ed4a185f0}{int {\bfseries current\-Player}}\label{class_connect_four_a7730e7df9fab3346f2bcf43ed4a185f0}
+
+\item 
+\hypertarget{class_connect_four_a72b70f49c28ba97d33373d3fd398be6a}{Q\-String {\bfseries history}}\label{class_connect_four_a72b70f49c28ba97d33373d3fd398be6a}
+
+\item 
+\hypertarget{class_connect_four_a46078d90754278b1048681cc413c9bb3}{Q\-Vector$<$ Q\-Vector$<$ int $>$ $>$ {\bfseries directions}}\label{class_connect_four_a46078d90754278b1048681cc413c9bb3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_connect_four_a9d7a0db424f22513386fa60ed2d5b575}{\index{Connect\-Four@{Connect\-Four}!Connect\-Four@{Connect\-Four}}
+\index{Connect\-Four@{Connect\-Four}!ConnectFour@{Connect\-Four}}
+\subsubsection[{Connect\-Four}]{\setlength{\rightskip}{0pt plus 5cm}Connect\-Four\-::\-Connect\-Four (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_a9d7a0db424f22513386fa60ed2d5b575}
+
+
+Konstruktor der Klasse \hyperlink{class_connect_four}{Connect\-Four}. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab. 
+
+\hypertarget{class_connect_four_ac4fca1dec417914e68e1c8fb22dc87a7}{\index{Connect\-Four@{Connect\-Four}!Connect\-Four@{Connect\-Four}}
+\index{Connect\-Four@{Connect\-Four}!ConnectFour@{Connect\-Four}}
+\subsubsection[{Connect\-Four}]{\setlength{\rightskip}{0pt plus 5cm}Connect\-Four\-::\-Connect\-Four (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{Q\-String}]{player1\-Name, }
+\item[{Q\-String}]{player2\-Name, }
+\item[{int}]{difficulty\-Level, }
+\item[{int}]{starting\-Player}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_ac4fca1dec417914e68e1c8fb22dc87a7}
+
+
+Konstruktor der Klasse \hyperlink{class_connect_four}{Connect\-Four}. Die Instanz bildet die Regeln des Spiels Vier Gewinnt ab. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Spalten\\
+\hline
+{\em y} & Zeileen\\
+\hline
+{\em player1\-Name} & Name des ersten Spielers\\
+\hline
+{\em player2\-Name} & Name des zweiten Spielers\\
+\hline
+{\em difficulty\-Level} & Schwierigkeitsgrad\\
+\hline
+{\em starting\-Player} & Nummer des beginnenden Spielers\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_connect_four_a70a3cd6ddcc7ae5b1eee3afa64ed6790}{\index{Connect\-Four@{Connect\-Four}!check\-Draw@{check\-Draw}}
+\index{check\-Draw@{check\-Draw}!ConnectFour@{Connect\-Four}}
+\subsubsection[{check\-Draw}]{\setlength{\rightskip}{0pt plus 5cm}bool Connect\-Four\-::check\-Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_a70a3cd6ddcc7ae5b1eee3afa64ed6790}
+
+
+Prüft, ob ein unentschieden vorliegt 
+
+\hypertarget{class_connect_four_ad00b3add13aac59b6dc6469cb24c7d53}{\index{Connect\-Four@{Connect\-Four}!check\-Move@{check\-Move}}
+\index{check\-Move@{check\-Move}!ConnectFour@{Connect\-Four}}
+\subsubsection[{check\-Move}]{\setlength{\rightskip}{0pt plus 5cm}bool Connect\-Four\-::check\-Move (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_ad00b3add13aac59b6dc6469cb24c7d53}
+
+
+Prüft, ob ein Zug gültig ist, oder nicht. Wird von der K\-I im einfachen Modus benötigt. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Gewählte Spalte für den Zug\\
+\hline
+\end{DoxyParams}
+
+
+\hypertarget{class_connect_four_a38f2e53360ddd8b3152e6583705a1b8a}{\index{Connect\-Four@{Connect\-Four}!check\-Victory@{check\-Victory}}
+\index{check\-Victory@{check\-Victory}!ConnectFour@{Connect\-Four}}
+\subsubsection[{check\-Victory}]{\setlength{\rightskip}{0pt plus 5cm}bool Connect\-Four\-::check\-Victory (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_a38f2e53360ddd8b3152e6583705a1b8a}
+
+
+Verschiebt einen Punkt entlang der Linien (diagonal, senkrecht, horizontal) und summiert die Spielerchips auf. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/\-Wert des Punktes\\
+\hline
+{\em y} & y-\/\-Wert des Punktes\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_connect_four_a9b4b647139235c7c3eae2c5c9c8d7471}{\index{Connect\-Four@{Connect\-Four}!get\-Current\-Player@{get\-Current\-Player}}
+\index{get\-Current\-Player@{get\-Current\-Player}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-Current\-Player}]{\setlength{\rightskip}{0pt plus 5cm}int Connect\-Four\-::get\-Current\-Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_a9b4b647139235c7c3eae2c5c9c8d7471}
+
+
+Liefert die aktuelle Spielernummer zurück. 
+
+\hypertarget{class_connect_four_a460f6063899b4e5a7e2171ab310a449b}{\index{Connect\-Four@{Connect\-Four}!get\-Difficulty@{get\-Difficulty}}
+\index{get\-Difficulty@{get\-Difficulty}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-Difficulty}]{\setlength{\rightskip}{0pt plus 5cm}int Connect\-Four\-::get\-Difficulty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_connect_four_a460f6063899b4e5a7e2171ab310a449b}
+
+
+Feld für den gewählten Schwierigkeitsgrad. 
+
+\hypertarget{class_connect_four_afb0b3ab58efa2888c6ee6d5c60df15b7}{\index{Connect\-Four@{Connect\-Four}!get\-Game\-State@{get\-Game\-State}}
+\index{get\-Game\-State@{get\-Game\-State}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-Game\-State}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Connect\-Four\-::get\-Game\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_afb0b3ab58efa2888c6ee6d5c60df15b7}
+
+
+Liefert eine Zeichenkette, die den Spielverlauf darstellt 
+
+$<$retuns$>$Zeichenkette mit dem Spielverlauf$<$/retuns$>$ \hypertarget{class_connect_four_aa47ee15206dfa8e942e28ec38428e507}{\index{Connect\-Four@{Connect\-Four}!get\-History@{get\-History}}
+\index{get\-History@{get\-History}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-History}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Connect\-Four\-::get\-History (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_connect_four_aa47ee15206dfa8e942e28ec38428e507}
+
+
+Liefert den Spielverlauf in Form einer Zeichenkette zurück. 
+
+\hypertarget{class_connect_four_af2ba0a09293dccc56439a1f3f76b2c50}{\index{Connect\-Four@{Connect\-Four}!get\-History\-To\-Load@{get\-History\-To\-Load}}
+\index{get\-History\-To\-Load@{get\-History\-To\-Load}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-History\-To\-Load}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Connect\-Four\-::get\-History\-To\-Load (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_connect_four_af2ba0a09293dccc56439a1f3f76b2c50}
+
+
+Liefert die noch zu ladende Spielehistorie zurück 
+
+\hypertarget{class_connect_four_a102316e1b99e7d1eddbe36340ca14544}{\index{Connect\-Four@{Connect\-Four}!get\-Last\-Player@{get\-Last\-Player}}
+\index{get\-Last\-Player@{get\-Last\-Player}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-Last\-Player}]{\setlength{\rightskip}{0pt plus 5cm}int Connect\-Four\-::get\-Last\-Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_a102316e1b99e7d1eddbe36340ca14544}
+
+
+Liefert die Spielernummer des letzten Zuges zurück. 
+
+\hypertarget{class_connect_four_a88586e2245c07b08979f258bb24c9c17}{\index{Connect\-Four@{Connect\-Four}!get\-Moves@{get\-Moves}}
+\index{get\-Moves@{get\-Moves}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-Moves}]{\setlength{\rightskip}{0pt plus 5cm}int Connect\-Four\-::get\-Moves (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_a88586e2245c07b08979f258bb24c9c17}
+
+
+Liefert die Anzahl der bisherigen Züge zurück 
+
+\hypertarget{class_connect_four_a0fb31ff9df21241727dc89111a8237d1}{\index{Connect\-Four@{Connect\-Four}!get\-Name1@{get\-Name1}}
+\index{get\-Name1@{get\-Name1}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-Name1}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Connect\-Four\-::get\-Name1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_connect_four_a0fb31ff9df21241727dc89111a8237d1}
+
+
+Liefert den Namen des ersten Spielers 
+
+\hypertarget{class_connect_four_af1e622aabf4ab9c3e59f120453b4b00a}{\index{Connect\-Four@{Connect\-Four}!get\-Name2@{get\-Name2}}
+\index{get\-Name2@{get\-Name2}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-Name2}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Connect\-Four\-::get\-Name2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_connect_four_af1e622aabf4ab9c3e59f120453b4b00a}
+
+
+Liefert den Namen des zweiten Spielers 
+
+\hypertarget{class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b}{\index{Connect\-Four@{Connect\-Four}!get\-Winner@{get\-Winner}}
+\index{get\-Winner@{get\-Winner}!ConnectFour@{Connect\-Four}}
+\subsubsection[{get\-Winner}]{\setlength{\rightskip}{0pt plus 5cm}int Connect\-Four\-::get\-Winner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b}
+
+
+Liefert die Spielernummer des Siegers zurück 
+
+\hypertarget{class_connect_four_ab31edf162a4035383b8034f2c65d65b5}{\index{Connect\-Four@{Connect\-Four}!set\-History\-To\-Load@{set\-History\-To\-Load}}
+\index{set\-History\-To\-Load@{set\-History\-To\-Load}!ConnectFour@{Connect\-Four}}
+\subsubsection[{set\-History\-To\-Load}]{\setlength{\rightskip}{0pt plus 5cm}void Connect\-Four\-::set\-History\-To\-Load (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{hl}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_ab31edf162a4035383b8034f2c65d65b5}
+
+
+Bereitet das Laden eines Spielverlaufs vor. 
+
+\hypertarget{class_connect_four_aab7f413c1f52a8bc9ff21d397f9f1f3f}{\index{Connect\-Four@{Connect\-Four}!set\-Stone@{set\-Stone}}
+\index{set\-Stone@{set\-Stone}!ConnectFour@{Connect\-Four}}
+\subsubsection[{set\-Stone}]{\setlength{\rightskip}{0pt plus 5cm}int Connect\-Four\-::set\-Stone (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{class_connect_four_aab7f413c1f52a8bc9ff21d397f9f1f3f}
+
+
+liefert die Zeile zurück, in der der Stein gelandet ist. Prüft, ob der Zug siegreich war. Prüfen mit \hyperlink{class_connect_four_a5b3cc0a97ca9722eb49266e651cdcf3b}{get\-Winner()} 
+
+\begin{DoxyReturn}{Returns}
+Zeilennummer, in der der Stein gelandet ist
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+connectfour.\-h\item 
+connectfour.\-cpp\item 
+merge.\-cpp\end{DoxyCompactItemize}

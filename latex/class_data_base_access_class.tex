@@ -1,0 +1,92 @@
+\hypertarget{class_data_base_access_class}{\section{Data\-Base\-Access\-Class Class Reference}
+\label{class_data_base_access_class}\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_data_base_access_class_a44e5ea09d3bb57547bf4ed458549b00e}{Data\-Base\-Access\-Class} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor der Datenbankzugriffsklasse. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_base_access_class_ad14618bc623fa2921405281100e98fd6}{connect} ()
+\item 
+bool \hyperlink{class_data_base_access_class_ac6944e91e73d748d54886921e10a8148}{save\-Game} (\hyperlink{class_connect_four}{Connect\-Four} $\ast$cf)
+\begin{DoxyCompactList}\small\item\em Speichert eine Spielinstanz in der Datenbank ab \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_data_base_access_class_a65a96f9e828f32087bf52c1624f78724}{get\-Last\-Executed\-Query} (Q\-Sql\-Query query)
+\begin{DoxyCompactList}\small\item\em Liefert das zuletzt ausgeführte S\-Q\-L im klartext zurück \end{DoxyCompactList}\item 
+void \hyperlink{class_data_base_access_class_a7b1d1dc517185da0160b0686963440cb}{load\-Games} (Q\-Table\-View $\ast$tv)
+\begin{DoxyCompactList}\small\item\em Lädt die Datensätze der Spiele in ein Table\-View \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_data_base_access_class_a44e5ea09d3bb57547bf4ed458549b00e}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}}
+\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!DataBaseAccessClass@{Data\-Base\-Access\-Class}}
+\subsubsection[{Data\-Base\-Access\-Class}]{\setlength{\rightskip}{0pt plus 5cm}Data\-Base\-Access\-Class\-::\-Data\-Base\-Access\-Class (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_access_class_a44e5ea09d3bb57547bf4ed458549b00e}
+
+
+Konstruktor der Datenbankzugriffsklasse. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_data_base_access_class_ad14618bc623fa2921405281100e98fd6}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!connect@{connect}}
+\index{connect@{connect}!DataBaseAccessClass@{Data\-Base\-Access\-Class}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}bool Data\-Base\-Access\-Class\-::connect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_access_class_ad14618bc623fa2921405281100e98fd6}
+
+
+
+
+\hypertarget{class_data_base_access_class_a65a96f9e828f32087bf52c1624f78724}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!get\-Last\-Executed\-Query@{get\-Last\-Executed\-Query}}
+\index{get\-Last\-Executed\-Query@{get\-Last\-Executed\-Query}!DataBaseAccessClass@{Data\-Base\-Access\-Class}}
+\subsubsection[{get\-Last\-Executed\-Query}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Data\-Base\-Access\-Class\-::get\-Last\-Executed\-Query (
+\begin{DoxyParamCaption}
+\item[{Q\-Sql\-Query}]{query}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_access_class_a65a96f9e828f32087bf52c1624f78724}
+
+
+Liefert das zuletzt ausgeführte S\-Q\-L im klartext zurück 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & Instanz des ausgeführten Querys\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_data_base_access_class_a7b1d1dc517185da0160b0686963440cb}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!load\-Games@{load\-Games}}
+\index{load\-Games@{load\-Games}!DataBaseAccessClass@{Data\-Base\-Access\-Class}}
+\subsubsection[{load\-Games}]{\setlength{\rightskip}{0pt plus 5cm}void Data\-Base\-Access\-Class\-::load\-Games (
+\begin{DoxyParamCaption}
+\item[{Q\-Table\-View $\ast$}]{tv}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_access_class_a7b1d1dc517185da0160b0686963440cb}
+
+
+Lädt die Datensätze der Spiele in ein Table\-View 
+
+\hypertarget{class_data_base_access_class_ac6944e91e73d748d54886921e10a8148}{\index{Data\-Base\-Access\-Class@{Data\-Base\-Access\-Class}!save\-Game@{save\-Game}}
+\index{save\-Game@{save\-Game}!DataBaseAccessClass@{Data\-Base\-Access\-Class}}
+\subsubsection[{save\-Game}]{\setlength{\rightskip}{0pt plus 5cm}bool Data\-Base\-Access\-Class\-::save\-Game (
+\begin{DoxyParamCaption}
+\item[{{\bf Connect\-Four} $\ast$}]{game}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_access_class_ac6944e91e73d748d54886921e10a8148}
+
+
+Speichert eine Spielinstanz in der Datenbank ab 
+
+\begin{DoxyReturn}{Returns}
+Erfolg oder Misserfolg des Speicherns
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+databaseaccessclass.\-h\item 
+databaseaccessclass.\-cpp\item 
+merge.\-cpp\end{DoxyCompactItemize}

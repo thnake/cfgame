@@ -30,7 +30,7 @@
 /// </summary>
 /// <param name="parent">Parentobjekt</param>
 /// <param name="game">Instanz des Spiels</param>
-/// <param name="game">gewähltes Design</param>
+/// <param name="selectedDesign">gewähltes Design</param>
 MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selectedDesign) :
     QGraphicsScene(parent)
 {
@@ -39,7 +39,7 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
     design = selectedDesign;
 
     ai.setDifficulty(game->getDifficulty());
-
+    ai.setGame(this->cfgame);
     setSceneRect(0,0,(cfgame->fieldsx ) * 100,cfgame->fieldsy * 100);
     QGraphicsRectItem *rect = new QGraphicsRectItem(0,0,sceneRect().width(),sceneRect().height());
 
@@ -60,6 +60,7 @@ MyGraphicsScene::MyGraphicsScene(QObject *parent, ConnectFour *game, int selecte
 
     qDebug() << "starting";
     qDebug() << cfgame->getStartingPlayer();
+
 }
 
 
@@ -71,15 +72,13 @@ void MyGraphicsScene::createField()
 
     float width = wCol * cfgame->fieldsx;
     float height = wCol * cfgame->fieldsy;
-
     QImage *img = new QImage(cfgame->fieldsx * 100, cfgame->fieldsy * 100, QImage::Format_ARGB32);
     QPainter *painter = new QPainter(img);
-
     painter->setRenderHint(QPainter::Antialiasing, true);
-
-
     QLinearGradient *gradient;
     QConicalGradient *cgradient;
+
+
     switch(design)
     {
         case 0:
@@ -396,6 +395,7 @@ QPointF MyGraphicsScene::getRandomPoint()
 /// </summary>
 /// <param name="column">Spalte, die in dem Zug benutzt werden soll</param>
 /// <param name="loadHistory">Gibt an, dass mit diesem Zug die Historie geladen wird</param>
+/// <returns>Zeile, in der der Stein gelandet ist</returns>
 int MyGraphicsScene::makeMove(int column, bool loadHistory)
 {
 

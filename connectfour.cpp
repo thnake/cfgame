@@ -89,7 +89,7 @@ ConnectFour::ConnectFour(int x, int y, QString player1Name, QString player2Name,
     name1 = player1Name;
     name2 = player2Name;
     history = "";
-
+    necessaryPointsForWinning = 20;
     currentPlayer = startingPlayer;
     this->startingPlayer = startingPlayer;
 
@@ -270,10 +270,56 @@ bool ConnectFour::checkVictory(int x, int y)
             break;
         }
     }
-
     return victory;
-
 }
+
+/// <summary>
+/// Gibt den größten Wert für
+///
+/// </summary>
+/// <param name="x">x-Wert des Punktes</param>
+/// <param name="y">y-Wert des Punktes</param>
+int ConnectFour::evaluateMove(int x, int y)
+{
+    int connected = 0;
+    int totalPoints = 0;
+
+    QVector<int> *pos = new QVector<int>();
+
+    pos->push_back(x);
+    pos->push_back(y);
+
+    // u ist unitvector
+    QVector<int> u;
+
+    //If we find 3 neighbours, we have a sum of 4, which is the winning condition
+    //check max. 3 values to the left of the current stone
+
+    foreach (u, directions) {
+
+        connected = 0;
+        connected += collectPointsInDirection(*pos,u, 1);
+        connected += collectPointsInDirection(*pos,u, -1);
+        connected--; // der startpunkt wurde doppelt gezählt
+
+
+        if(connected>3) // Siegesbedingung: vier gewinnt
+        {
+            totalPoints += necessaryPointsForWinning;
+            this->winner = currentPlayer;
+            break;
+
+        }else
+        {
+            totalPoints += connected;
+        }
+
+    }
+
+    return totalPoints;
+}
+
+
 
 /// <summary>
 /// Prüft, ob ein unentschieden vorliegt

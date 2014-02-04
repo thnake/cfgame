@@ -1,0 +1,114 @@
+\hypertarget{class_chip}{\section{Chip Class Reference}
+\label{class_chip}\index{Chip@{Chip}}
+}
+Inheritance diagram for Chip\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_chip}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_chip_a50f4a36e13f90a93d0a7ed1360bfe92a}{Chip} (int x, int y, int w, int h, int player, Q\-Object $\ast$parent=N\-U\-L\-L)
+\begin{DoxyCompactList}\small\item\em Konstruktor der Klasse \hyperlink{class_chip}{Chip}. Erstellt einen Spielstein für Vier Gewinnt \end{DoxyCompactList}\item 
+\hyperlink{class_my_animation}{My\-Animation} $\ast$ \hyperlink{class_chip_abb087aff174edd3145895b24f735eb29}{animate} (Q\-Point\-F end, int duration, const Q\-Easing\-Curve \&curve)
+\begin{DoxyCompactList}\small\item\em Liefert einen Zeiger auf eine \hyperlink{class_my_animation}{My\-Animation} Instanz zurück, die dann ausgeführt werden kann \end{DoxyCompactList}\item 
+int \hyperlink{class_chip_acbf29a18e6349c52878dca3600461af5}{get\-Player} ()
+\begin{DoxyCompactList}\small\item\em Liefert den Spieler zurück, der den Stein gelegt hat. \end{DoxyCompactList}\item 
+Q\-Point\-F $\ast$ \hyperlink{class_chip_a558787f04d66e87353cf8bebefae1f2d}{get\-Center} ()
+\begin{DoxyCompactList}\small\item\em Liefert einen Zeiger auf eine Q\-Point\-F Instanz, die den Mittelpunkt des Objektes beschreibt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_chip_a548329ae211f8de857275407733f2d1f}{Q\-Point\-F {\bfseries pos}}\label{class_chip_a548329ae211f8de857275407733f2d1f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_chip_a50f4a36e13f90a93d0a7ed1360bfe92a}{\index{Chip@{Chip}!Chip@{Chip}}
+\index{Chip@{Chip}!Chip@{Chip}}
+\subsubsection[{Chip}]{\setlength{\rightskip}{0pt plus 5cm}Chip\-::\-Chip (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{w, }
+\item[{int}]{h, }
+\item[{int}]{player, }
+\item[{Q\-Object $\ast$}]{parent = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_chip_a50f4a36e13f90a93d0a7ed1360bfe92a}
+
+
+Konstruktor der Klasse \hyperlink{class_chip}{Chip}. Erstellt einen Spielstein für Vier Gewinnt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x Position des bounding rect\\
+\hline
+{\em y} & x Position des bounding rect\\
+\hline
+{\em w} & Breite Position des bounding rect\\
+\hline
+{\em h} & Höhe\\
+\hline
+{\em player} & Spielernummer\\
+\hline
+{\em parent} & Standardparameter\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_chip_abb087aff174edd3145895b24f735eb29}{\index{Chip@{Chip}!animate@{animate}}
+\index{animate@{animate}!Chip@{Chip}}
+\subsubsection[{animate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf My\-Animation} $\ast$ Chip\-::animate (
+\begin{DoxyParamCaption}
+\item[{Q\-Point\-F}]{end, }
+\item[{int}]{duration, }
+\item[{const Q\-Easing\-Curve \&}]{curve}
+\end{DoxyParamCaption}
+)}}\label{class_chip_abb087aff174edd3145895b24f735eb29}
+
+
+Liefert einen Zeiger auf eine \hyperlink{class_my_animation}{My\-Animation} Instanz zurück, die dann ausgeführt werden kann 
+
+
+\begin{DoxyParams}{Parameters}
+{\em end} & Endposition der Animation\\
+\hline
+{\em duration} & Dauer der Animation\\
+\hline
+{\em curve} & Zur Beeinflussung des Animationsverhaltens\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_chip_a558787f04d66e87353cf8bebefae1f2d}{\index{Chip@{Chip}!get\-Center@{get\-Center}}
+\index{get\-Center@{get\-Center}!Chip@{Chip}}
+\subsubsection[{get\-Center}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Point\-F $\ast$ Chip\-::get\-Center (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_chip_a558787f04d66e87353cf8bebefae1f2d}
+
+
+Liefert einen Zeiger auf eine Q\-Point\-F Instanz, die den Mittelpunkt des Objektes beschreibt. 
+
+\hypertarget{class_chip_acbf29a18e6349c52878dca3600461af5}{\index{Chip@{Chip}!get\-Player@{get\-Player}}
+\index{get\-Player@{get\-Player}!Chip@{Chip}}
+\subsubsection[{get\-Player}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\-::get\-Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_chip_acbf29a18e6349c52878dca3600461af5}
+
+
+Liefert den Spieler zurück, der den Stein gelegt hat. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+chip.\-h\item 
+chip.\-cpp\item 
+merge.\-cpp\end{DoxyCompactItemize}

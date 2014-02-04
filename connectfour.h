@@ -28,6 +28,7 @@ public:
     ConnectFour(int x, int y, QString player1Name, QString player2Name, int difficultyLevel, int startingPlayer);
     int setStone(int x);
     bool checkVictory(int x, int y);
+    int evaluateMove(int x, int y);
     bool checkDraw();
     QString getGameState();
     void setGameState(QString state);
@@ -38,6 +39,7 @@ public:
     int fieldsx;
     int fieldsy;
     int currentPlayer;
+    int necessaryPointsForWinning;
     QString history;
     QVector<QVector<int> > directions;
 
@@ -53,6 +55,8 @@ public:
     QString getHistoryToLoad() const;
     void setHistoryToLoad(QString hl);
     int getStartingPlayer() const;
+
+
 
 };
 
